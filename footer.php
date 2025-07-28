@@ -4,8 +4,10 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.svg" alt="КУРСАЧ"
-                            class="footer-logo-img">
+                        <a href="<?php echo home_url(); ?>" class="logo">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.svg" alt="КУРСАЧ"
+                                class="footer-logo-img">
+                        </a>
                     </div>
                     <p class="footer-description">
                         Професійне написання робіт - для вашого успіху
@@ -32,21 +34,25 @@
                     <div class="footer-column">
                         <h4 class="footer-title">Навігація</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Контакти</a></li>
-                            <li><a href="#">Оплата і гарантії</a></li>
-                            <li><a href="#">Співпраця</a></li>
-                            <li><a href="#">Блог</a></li>
-                            <li><a href="#">Договір оферти</a></li>
+                            <li><a href="<?php echo home_url('/contacts/'); ?>">Контакти</a></li>
+                            <li><a href="<?php echo home_url('/quarantees/'); ?>">Оплата і гарантії</a></li>
+                            <li><a href="<?php echo home_url('/cooperation/'); ?>">Співпраця</a></li>
+                            <li><a href="<?php echo home_url('/blog/'); ?>">Блог</a></li>
+                            <li><a href="<?php echo home_url('/terms/'); ?>">Договір оферти</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-column">
                         <h4 class="footer-title">Послуги</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Всі послуги</a></li>
-                            <li><a href="#">Дипломні проекти</a></li>
-                            <li><a href="#">Курсові проекти</a></li>
-                            <li><a href="#">Магістерські роботи</a></li>
+                            <li><a href="<?php echo home_url('/services/'); ?>">Всі послуги</a></li>
+                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=dyplomni">Дипломні
+                                    проекти</a>
+                            </li>
+                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=kursovi">Курсові
+                                    проекти</a></li>
+                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=magisterski">Магістерські
+                                    роботи</a></li>
                         </ul>
                     </div>
 
@@ -66,7 +72,7 @@
             </div>
 
             <div class="footer-bottom">
-                <a href="#">&copy; 2025. Всі права захищені</a>
+                <p>&copy; 2025. Всі права захищені</p>
             </div>
         </div>
     </div>

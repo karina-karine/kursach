@@ -1736,7 +1736,7 @@ a:focus {
   border-top: var(--border-width-sm) solid var(--footer-border-color);
 }
 
-.footer-bottom a {
+.footer-bottom p {
   color: var(--white);
 }
 

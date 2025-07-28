@@ -109,7 +109,7 @@ if ($current_article_index !== false) {
                     <?php endforeach; ?>
                 </div>
                 <!-- Навігаційні стрілки, якщо буде реалізовано карусель -->
-                <div class="related-articles-nav">
+                <!-- <div class="related-articles-nav">
                     <button class="nav-arrow prev-arrow" aria-label="Previous related article">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -124,7 +124,7 @@ if ($current_article_index !== false) {
                             <path d="m9 18 6-6-6-6" />
                         </svg>
                     </button>
-                </div>
+                </div> -->
             </div>
         </section>
     <?php endif; ?>

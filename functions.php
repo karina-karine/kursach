@@ -11,7 +11,7 @@ add_action('wp_head', 'kursach_help_theme_info');
 function kursach_help_scripts()
 {
     wp_enqueue_style('kursach-help-style', get_stylesheet_uri());
-    wp_enqueue_script('kursach-help-script', get_template_directory_uri() . '/script.js', array(), '1.0.0', true);
+    // wp_enqueue_script('kursach-help-script', get_template_directory_uri() . '/script.js', array(), '1.0.0', true); // Закоментовано, якщо це загальний скрипт, який тепер розділено
 }
 add_action('wp_enqueue_scripts', 'kursach_help_scripts');
 
@@ -27,6 +27,9 @@ function theme_enqueue_styles_and_scripts()
     // Підключення стилів для сторінки окремої статті
     wp_enqueue_style('single-article-styles', get_template_directory_uri() . '/css/single-article-styles.css', array(), '1.0.0', 'all');
 
+    // Підключення стилів для головної сторінки (якщо є специфічні)
+    wp_enqueue_style('main-page-styles', get_template_directory_uri() . '/css/main-page-styles.css', array(), '1.0.0', 'all');
+
 
     // Підключення скрипту для сторінки деталей послуги
     if (is_page_template('service-details-page.php')) {
@@ -35,8 +38,11 @@ function theme_enqueue_styles_and_scripts()
     }
 
     // Підключення скрипту для функціоналу випадаючого списку в хедері
-    // Цей скрипт повинен бути підключений після jQuery, якщо він використовується
     wp_enqueue_script('header-dropdown-script', get_template_directory_uri() . '/js/header-dropdown.js', array('jquery'), '1.0.0', true);
+
+    // Підключення скрипту для головної сторінки
+    wp_enqueue_script('main-page-scripts', get_template_directory_uri() . '/js/main-page-scripts.js', array('jquery'), '1.0.0', true);
+
 
     // Передача даних послуг та home_url до JavaScript
     require_once get_template_directory() . '/services_data.php'; // Підключаємо файл з даними
