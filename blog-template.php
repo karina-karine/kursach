@@ -5,10 +5,10 @@
  *
  * @package YourThemeName
  */
-
 get_header();
 require_once get_template_directory() . '/article-data.php'; // Include the centralized article data
 
+$all_articles_data = get_articles_data(); // Отримуємо всі статті
 // Convert associative array to indexed array for pagination
 // This is crucial because array_slice works with numeric indices.
 $all_articles_values = array_values($all_articles_data);
@@ -45,8 +45,14 @@ $faq_items = [
 ?>
 <main class="container">
     <section class="page-header">
-        <p class="breadcrumb">Головна / Блог</p>
-        <h1>Блог</h1>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="<?php echo home_url(); ?>">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
+                / <span>Блог</span>
+            </div>
+            <h1 class="section-title">Блог</h1>
+        </div>
+
     </section>
     <section class="blog-posts-grid"> <?php
     if (!empty($paged_posts_values)) {
@@ -57,11 +63,12 @@ $faq_items = [
             if ($current_slug === false) {
                 $current_slug = ''; // Fallback
             }
-            $article_link = esc_url(home_url('/single.php?slug=' . $current_slug));
+            // Оновлене посилання на single-article-page.php
+            $article_link = esc_url(home_url('/single-article/?slug=' . $current_slug));
             ?>
                 <div class="blog-card">
                     <img src=" <?php echo esc_url($post_data['image']); ?>" alt="
-            <?php echo esc_attr($post_data['title']); ?>" class="blog-card-image">
+                    <?php echo esc_attr($post_data['title']); ?>" class="blog-card-image">
                     <div class="blog-card-content">
                         <p class="blog-card-date"><?php echo esc_html($post_data['date']); ?></p>
                         <h3 class="blog-card-title"><?php echo esc_html($post_data['title']); ?></h3>
@@ -148,6 +155,5 @@ $faq_items = [
             <?php endforeach; ?>
         </div>
     </section>
-
 </main>
 <?php get_footer(); ?>
