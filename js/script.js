@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 this.setAttribute('aria-expanded', 'true');
                 content.classList.add('open');
-                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.maxHeight = (content.scrollHeight + 100) + 'px';
                 content.style.paddingTop = 'var(--space-md)';
                 content.style.paddingBottom = 'var(--space-md)';
             }

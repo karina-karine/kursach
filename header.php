@@ -39,17 +39,17 @@
                             <a href="#" class="nav-link">Наші послуги <span class="nav-arrow">▼</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Гарантії</a>
+                            <a href="<?php echo home_url('/quarantees/'); ?>" class="nav-link">Гарантії</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Співпраця</a>
+                            <a href="<?php echo home_url('/cooperation/'); ?>" class="nav-link">Співпраця</a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo home_url('/blog/'); ?>" class="nav-link">Блог</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Контакти</a>
+                            <a href="<?php echo home_url('/contacts/'); ?>" class="nav-link">Контакти</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">UA <span class="nav-arrow">▼</span></a>
