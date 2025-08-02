@@ -67,9 +67,6 @@ get_header();
                         <a href="#" class="footer-social-link telegram">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg" alt="Telegram">
                         </a>
-                        <a href="#" class="footer-social-link viber">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/viber_icon.svg" alt="Viber">
-                        </a>
                         <a href="#" class="footer-social-link instagram">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                                 alt="Instagram">

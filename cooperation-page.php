@@ -10,7 +10,7 @@ get_header();
     <section class="collaboration-hero">
         <div class="container coop">
             <div class="breadcrumb">
-                <a href="/">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
+                <a href="<?php echo home_url(); ?>">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
                 / <span>Співпраця</span>
             </div>
             <h1 class="section-title">Запрошуємо вас до співпраці з нами</h1>
@@ -44,7 +44,8 @@ get_header();
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/coop-student.svg"
                             alt="Жінка працює за ноутбуком" class="guarantees-img">
                         <div class="book-icon">
-                            <img class="coop-book" src="<?php echo get_template_directory_uri(); ?>/assets/coop-book.svg">
+                            <img class="coop-book"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/coop-book.svg">
                         </div>
                     </div>
                 </div>
@@ -59,11 +60,11 @@ get_header();
                         <div class="collab-option-content">
                             <h3 class="collab-option-title">Авторам</h3>
                             <p class="collab-option-text">
-                                Якщо ви автор з написання студентських робіт, вам буде вигідно працювати з нами
-                                працівники. Ми надаємо великий спектр замовлень, і гарному спеціалісту виплати!
+                                Якщо ви автор з написання студентських робіт, вам буде вигідно працювати з нами. Ми
+                                надаємо великий спектр замовлень, і гарному спеціалісту виплати!
                             </p>
                             <p class="collab-option-contact">
-                                Надсилайте своє резюме нам на <a href="mailto:info@example.com"
+                                Надсилайте своє резюме нам на <a href="kursach.net.ua@gmail.com"
                                     class="contact-link">пошту</a>,
                                 і ми його розглянемо і зв'яжемось з вами!
                             </p>
@@ -84,7 +85,7 @@ get_header();
                                 знайомим і отримуйте відсоток від наведених клієнтів. Це дуже легко і дуже прибутково!
                             </p>
                             <p class="collab-option-contact">
-                                Пиши нам на <a href="mailto:info@example.com" class="contact-link">пошту</a> або на
+                                Пиши нам на <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> або на
                                 <a href="https://viber.com" class="contact-link">Viber</a>, і ми обговоримо деталі!
                             </p>
                         </div>
@@ -105,7 +106,7 @@ get_header();
                                 У нас є штат авторів які зможуть взяти виконання на себе.
                             </p>
                             <p class="collab-option-contact">
-                                Пиши нам на <a href="mailto:info@example.com" class="contact-link">пошту</a> або на
+                                Пиши нам на <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> або на
                                 <a href="https://viber.com" class="contact-link">Viber</a>, і ми обговоримо деталі!
                             </p>
                         </div>
@@ -123,7 +124,7 @@ get_header();
                             <h3 class="collab-option-title">Блогер</h3>
                             <p class="collab-option-text">
                                 У вас є велика аудиторія віком від 17 до 23 років? Рекламуйте наші послуги, і
-                                отримуйте прибуток за наведених клієнтів на нашу промокодом!
+                                отримуйте прибуток за наведених клієнтів за вашим промокодом!
                             </p>
                         </div>
                     </div>
@@ -143,7 +144,7 @@ get_header();
                     <h2 class="contact-form-title">Залишились питання?</h2>
                     <p class="contact-form-description">
                         Якщо у вас залишилися якісь питання, заповніть форму, або пишіть нам на
-                        <a href="mailto:info@example.com" class="contact-link">пошту</a> чи
+                        <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> чи
                         <a href="https://viber.com" class="contact-link">Viber</a>!
                     </p>
                 </div>

@@ -19,7 +19,7 @@ add_action('wp_enqueue_scripts', 'kursach_help_scripts');
 function theme_enqueue_styles_and_scripts()
 {
     // Підключення загальних стилів (якщо вони не підключені іншим способом)
-    // wp_enqueue_style( 'main-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0', 'all' ); // Ваш існуючий styles.css
+    wp_enqueue_style('main-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0', 'all'); // Ваш існуючий styles.css
 
     // Підключення стилів для сторінок послуг та хедера
     wp_enqueue_style('services-styles', get_template_directory_uri() . '/css/services-styles.css', array(), '1.0.0', 'all');
@@ -29,6 +29,8 @@ function theme_enqueue_styles_and_scripts()
 
     // Підключення стилів для головної сторінки (якщо є специфічні)
     wp_enqueue_style('main-page-styles', get_template_directory_uri() . '/css/main-page-styles.css', array(), '1.0.0', 'all');
+
+    wp_enqueue_style('media-style', get_template_directory_uri() . '/css/media.css', array(), '1.0.0', 'all');
 
 
     // Підключення скрипту для сторінки деталей послуги

@@ -16,9 +16,6 @@
                         <a href="#" class="footer-social-link telegram">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg" alt="Telegram">
                         </a>
-                        <a href="#" class="footer-social-link viber">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/viber_icon.svg" alt="Viber">
-                        </a>
                         <a href="#" class="footer-social-link instagram">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                                 alt="Instagram">
@@ -38,7 +35,10 @@
                             <li><a href="<?php echo home_url('/quarantees/'); ?>">Оплата і гарантії</a></li>
                             <li><a href="<?php echo home_url('/cooperation/'); ?>">Співпраця</a></li>
                             <li><a href="<?php echo home_url('/blog/'); ?>">Блог</a></li>
-                            <li><a href="<?php echo home_url('/terms/'); ?>">Договір оферти</a></li>
+                            <li><a href="<?php echo home_url('/wp-content/themes/kursach-help/uploads/dogovor.docx'); ?>"
+                                    download="dogovor.docx">
+                                    Договір оферти
+                                </a></li>
                         </ul>
                     </div>
 
@@ -47,10 +47,10 @@
                         <ul class="footer-links">
                             <li><a href="<?php echo home_url('/services/'); ?>">Всі послуги</a></li>
                             <li><a href="<?php echo site_url('/service-details'); ?>?service_id=dyplomni">Дипломні
-                                    проекти</a>
+                                    проєкти</a>
                             </li>
                             <li><a href="<?php echo site_url('/service-details'); ?>?service_id=kursovi">Курсові
-                                    проекти</a></li>
+                                    проєкти</a></li>
                             <li><a href="<?php echo site_url('/service-details'); ?>?service_id=magisterski">Магістерські
                                     роботи</a></li>
                         </ul>
@@ -60,7 +60,7 @@
                         <h4 class="footer-title">Контакти</h4>
                         <ul class="footer-contacts">
                             <li>(063) 267 73 71</li>
-                            <li>(096) 479 04 62</li>
+                            <li>(095) 438 73 68</li>
                             <li>kursach.net.ua@gmail.com</li>
                         </ul>
                         <div class="footer-schedule">

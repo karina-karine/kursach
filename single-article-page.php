@@ -14,12 +14,6 @@ if ($current_article_slug && isset($all_articles_data[$current_article_slug])) {
     $current_article = $all_articles_data[$current_article_slug];
 }
 
-// --- ПІДКАЗКИ ДЛЯ НАЛАГОДЖЕННЯ (розкоментуйте, щоб перевірити значення) ---
-// echo '<!-- DEBUG: Поточний Slug: ' . ($current_article_slug ? $current_article_slug : 'N/A') . ' -->';
-// echo '<!-- DEBUG: Статтю знайдено: ' . (is_null($current_article) ? 'Ні' : 'Так') . ' -->';
-// echo '<!-- DEBUG: Усі ключі статей: ' . implode(', ', array_keys($all_articles_data)) . ' -->';
-// --- КІНЕЦЬ ПІДКАЗОК ДЛЯ НАЛАГОДЖЕННЯ ---
-
 // Якщо статтю не знайдено, відображаємо повідомлення та зупиняємо виконання
 if (is_null($current_article)) {
     ?>

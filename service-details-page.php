@@ -105,7 +105,8 @@ if ($current_service_id && isset($services[$current_service_id])) {
                         </div>
                     <?php endif; ?>
 
-                    <button class="btn btn-primary order-service-btn">Замовити послугу</button>
+                    <a href="<?php echo home_url('#orderForm'); ?>" class="btn btn-primary order-service-btn">Замовити
+                        послугу</a>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@
     <title><?php wp_title('|', true, 'right');
     bloginfo('name'); ?></title>
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css">
+    <!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css"> -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -76,11 +76,12 @@
                                 alt="telegram icon">
                         </a>
                         <a href="#">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/viber_icon.svg"
-                                alt="viber icon">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
+                                alt="Instagram">
                         </a>
                     </div>
-                    <button class="btn btn-secondary header-cta">РОЗРАХУВАТИ ЦІНУ</button>
+                    <a href="<?php echo home_url('#orderForm'); ?>" class="btn btn-secondary header-cta">РОЗРАХУВАТИ
+                        ЦІНУ</a>
                 </div>
                 <button class="mobile-menu-toggle">
                     <span></span>

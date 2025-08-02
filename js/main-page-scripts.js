@@ -1,50 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // =====================================================================
-    // 1. Універсальний горизонтальний скрол
-    // =====================================================================
-
-    function initializeHorizontalScroll(containerSelector, prevBtnSelector, nextBtnSelector) {
-        const container = document.querySelector(containerSelector)
-        const prevBtn = document.querySelector(prevBtnSelector)
-        const nextBtn = document.querySelector(nextBtnSelector)
-
-        if (!container || !prevBtn || !nextBtn) {
-            // console.warn(`Scroll elements not found for ${containerSelector}`);
-            return
-        }
-
-        const scrollAmount = 300 // Кількість пікселів для прокрутки
-
-        function updateScrollButtons() {
-            prevBtn.classList.toggle("disabled", container.scrollLeft <= 0)
-            nextBtn.classList.toggle("disabled", container.scrollLeft + container.clientWidth >= container.scrollWidth)
-        }
-
-        prevBtn.addEventListener("click", () => {
-            container.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth",
-            })
-        })
-
-        nextBtn.addEventListener("click", () => {
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth",
-            })
-        })
-
-        // Оновлюємо стан кнопок при завантаженні та при скролі
-        container.addEventListener("scroll", updateScrollButtons)
-        window.addEventListener("resize", updateScrollButtons) // На випадок зміни розміру вікна
-        updateScrollButtons() // Початкове оновлення
-    }
-
-    // Ініціалізуємо скрол для секції послуг
-    initializeHorizontalScroll(".services-grid", ".services-navigation .nav-prev", ".services-navigation .nav-next")
-
-    // Ініціалізуємо скрол для секції відгуків
-    initializeHorizontalScroll(".reviews-slider", ".reviews-navigation .nav-prev", ".reviews-navigation .nav-next")
 
     // =====================================================================
     // 2. Функціональність форми замовлення
@@ -130,3 +84,36 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 })
+// function initHorizontalSlider(containerSelector, prevSelector, nextSelector) {
+//     const container = document.querySelector(containerSelector);
+//     const prevBtn = document.querySelector(prevSelector);
+//     const nextBtn = document.querySelector(nextSelector);
+
+//     if (!container || !prevBtn || !nextBtn) return;
+
+//     const cardWidth = container.querySelector('.service-card')?.offsetWidth || 300;
+//     const gap = parseInt(getComputedStyle(container).gap) || 20;
+//     const scrollStep = (cardWidth + gap) * 3; // скрол по 3 картки
+
+//     function updateButtons() {
+//         prevBtn.disabled = container.scrollLeft <= 0;
+//         nextBtn.disabled = container.scrollLeft + container.clientWidth >= container.scrollWidth - 5;
+//     }
+
+//     prevBtn.addEventListener('click', () => {
+//         container.scrollBy({ left: -(scrollStep), behavior: 'smooth' });
+//     });
+
+//     nextBtn.addEventListener('click', () => {
+//         container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+//     });
+
+//     container.addEventListener('scroll', updateButtons);
+//     window.addEventListener('resize', updateButtons);
+
+//     updateButtons(); // початковий стан
+// }
+
+// // ініціалізація
+// initHorizontalSlider('.services-grid', '.services-navigation .nav-prev', '.services-navigation .nav-next');
+// initHorizontalSlider('.reviews-slider', '.reviews-navigation .nav-prev', '.reviews-navigation .nav-next');

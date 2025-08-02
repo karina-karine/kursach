@@ -21,8 +21,8 @@
                         class="hero-img">
                 </div>
                 <div class="hero-actions-overlay">
-                    <button class="btn btn-primary">ЗАМОВИТИ РОБОТУ</button>
-                    <button class="btn btn-secondary">ДІЗНАТИСЬ БІЛЬШЕ</button>
+                    <a href="#orderForm" class="btn btn-primary">ЗАМОВИТИ РОБОТУ</a>
+                    <a href="<?php echo home_url('/services/'); ?>" class="btn btn-secondary">ДІЗНАТИСЬ БІЛЬШЕ</a>
                 </div>
             </div>
             <div class="hero-rating-right">
@@ -56,8 +56,8 @@
                         <div class="guarantee-content">
                             <h3 class="guarantee-title">Досвід</h3>
                             <p class="guarantee-text">
-                                Наші співробітники мають свої роботи вже понад 10 років досвідченої команди.
-                                Наші автори написали понад 1000 різних робіт на всі можливості теми.
+                                Якщо і довіряти написання своєї роботи комусь, то тільки досвідченій команді. Наші
+                                автори написали понад 1000 різних робіт на всі возомжность теми.
                             </p>
                         </div>
                     </div>
@@ -72,9 +72,8 @@
                         <div class="guarantee-content">
                             <h3 class="guarantee-title">Необмежені правки</h3>
                             <p class="guarantee-text">
-                                Надаємо необмежену кількість правок до тих пір поки ви не будете задоволені роботою.
-                                Ми пишемо роботу від і до. За правки, які необхідно буде зробити в роботі
-                                платити не доведеться.
+                                Навіщо замовляти роботу, якщо Ви потім виправляєте всю роботу? Нема чого. Ми пишемо
+                                роботу від і до. За правки, які необхідно буде зробити в роботі платити не доведеться.
                             </p>
                         </div>
                     </div>
@@ -89,9 +88,8 @@
                         <div class="guarantee-content">
                             <h3 class="guarantee-title">Супровід до захисту</h3>
                             <p class="guarantee-text">
-                                Ми супроводжуємо вас до захисту, а разі необхідності виконаємо будь-які
-                                корегування по роботі, які завжди можуть зверутися щодо внесення коректив
-                                на протязі місяця.
+                                Ми супроводжуємо вас до захисту, в разі необхідності внесення будь-яких коригувань по
+                                роботі, ви завжди можете звернутися щодо внесення коректив на протязі місяця.
                             </p>
                         </div>
                     </div>
@@ -104,97 +102,224 @@
     <section class="services">
         <div class="container">
             <h2 class="section-title">Наші послуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3 class="service-title">Курсова робота</h3>
-                        <div class="service-price">від 1 дня</div>
-                    </div>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <span class="detail-label">Термін:</span>
-                            <span class="detail-value">від 1 дня</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Кількість сторінок:</span>
-                            <span class="detail-value">За вимогою</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Безкоштовні правки:</span>
-                            <span class="detail-value">1 місяць</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Унікальність:</span>
-                            <span class="detail-value">від 60%</span>
-                        </div>
-                    </div>
-                    <div class="service-features">
-                        <p>Що також входить:</p>
-                        <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong></p>
-                    </div>
-                    <button class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</button>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3 class="service-title">Дипломні роботи</h3>
-                        <div class="service-price">від 3 днів</div>
+            <div class="services-wrapper">
+                <div class="services-track">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Курсова робота</h3>
+                            <div class="service-price">від 1 дня</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">від 1 дня</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">За вимогою</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">1 місяць</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 60%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong>
+                            </p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
                     </div>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <span class="detail-label">Термін:</span>
-                            <span class="detail-value">від 3 днів</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Кількість сторінок:</span>
-                            <span class="detail-value">За вимогою</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Безкоштовні правки:</span>
-                            <span class="detail-value">1 місяць</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Унікальність:</span>
-                            <span class="detail-value">від 60%</span>
-                        </div>
-                    </div>
-                    <div class="service-features">
-                        <p>Що також входить:</p>
-                        <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong></p>
-                    </div>
-                    <button class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</button>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3 class="service-title">Магістерська робота</h3>
-                        <div class="service-price">від 10 днів</div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Дипломні роботи</h3>
+                            <div class="service-price">від 3 днів</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">від 3 днів</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">За вимогою</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">1 місяць</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 60%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong>
+                            </p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
                     </div>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <span class="detail-label">Термін:</span>
-                            <span class="detail-value">від 10 днів</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Кількість сторінок:</span>
-                            <span class="detail-value">За замовою</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Безкоштовні правки:</span>
-                            <span class="detail-value">1 місяць</span>
-                        </div>
-                        <div class="service-detail">
-                            <span class="detail-label">Унікальність:</span>
-                            <span class="detail-value">від 60%</span>
-                        </div>
-                    </div>
-                    <div class="service-features">
-                        <p>Що також входить:</p>
-                        <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong></p>
-                    </div>
-                    <button class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</button>
-                </div>
 
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Магістерська робота</h3>
+                            <div class="service-price">від 10 днів</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">від 10 днів</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">За замовою</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">1 місяць</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 60%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>План, консультації щодо успішного захисту, звіт перевірки на антиплагіат</strong>
+                            </p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Реферат</h3>
+                            <div class="service-price">від 1 дня</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">від 1 дня</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">5–15</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">1 тиждень</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 70%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>Оформлення згідно стандартів, список літератури</strong></p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Звіти з практики</h3>
+                            <div class="service-price">від 2 днів</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">від 2 днів</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">За вимогою</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">1 місяць</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 65%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>Опис підприємства, практичні завдання, щоденник практики</strong></p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Мотиваційні листи</h3>
+                            <div class="service-price">від 1 дня</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">1 день</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">1–2</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">3 дні</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">100%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>Індивідуальний підхід, відповідність вимогам ВНЗ</strong></p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-title">Інші види робіт</h3>
+                            <div class="service-price">договірна</div>
+                        </div>
+                        <div class="service-details">
+                            <div class="service-detail">
+                                <span class="detail-label">Термін:</span>
+                                <span class="detail-value">За домовленістю</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Кількість сторінок:</span>
+                                <span class="detail-value">Індивідуально</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Безкоштовні правки:</span>
+                                <span class="detail-value">За погодженням</span>
+                            </div>
+                            <div class="service-detail">
+                                <span class="detail-label">Унікальність:</span>
+                                <span class="detail-value">від 60%</span>
+                            </div>
+                        </div>
+                        <div class="service-features">
+                            <p>Що також входить:</p>
+                            <p><strong>Реферати, контрольні, презентації, індивідуальні завдання</strong></p>
+                        </div>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                    </div>
+
+
+                </div>
             </div>
 
             <div class="services-navigation">
@@ -208,21 +333,32 @@
     <section class="reviews">
         <div class="container">
             <h2 class="section-title">Відгуки наших клієнтів</h2>
-            <div class="reviews-slider">
-                <div class="phone-mockup">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                </div>
-                <div class="phone-mockup">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                </div>
-                <div class="phone-mockup">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                </div>
-                <div class="phone-mockup">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                </div>
-                <div class="phone-mockup">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+            <div class="reviews-wrapper">
+                <div class="reviews-track">
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
+                    <div class="phone-mockup">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                    </div>
                 </div>
             </div>
 
@@ -244,7 +380,7 @@
                             <span class="benefit-text">Приведи друга і ви отримаєте</span>
                             <div class="benefit-discount">
                                 <span class="discount-percent">10%</span>
-                                <span class="discount-text">на курсові і інші роботи</span>
+                                <span class="discount-text">на курсові та інші роботи</span>
                             </div>
                         </div>
                         <div class="benefit-item">
@@ -305,7 +441,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select class="form-select" required>
+                            <select class="form-select" id="type-work" required>
                                 <option value="">Тип роботи</option>
                                 <option value="coursework">Курсова робота</option>
                                 <option value="diploma">Дипломна робота</option>

@@ -22,24 +22,32 @@ $paged_posts_values = array_slice($all_articles_values, $offset, $posts_per_page
 
 $faq_items = [
     [
-        'question' => 'Lorem ipsum dolor sit amet consectetur?',
-        'answer' => 'Lorem ipsum dolor sit amet consectetur. Faucibus duis praesent at facilisis condimentum leo. Nibh eu amet scelerisque odio lacus semper. Diam mattis vitae nullam semper parturient. Consectetur ut imperdiet mattis pellentesque placerat turpis quis cras libero. Metus rutrum quam habitant id. Aliquam libero vel ornare posuere at lorem sed varius nibh. Lorem semper lectus tincidunt in proin nisl in. Est facilisis tortor semper ornare sit consequat diam eget pretium. Sed augue egestas sed non. Risus netus ullamcorper amet tempor elit. In aliquet arcu egestas lacus lacus eu cras aliquet. Ultrices iaculis eu eget nunc lobortis. Quam ante enim elit nunc quam id felis nisl. Ultrices ut auctor tellus eu.',
+        'question' => 'Чи можу я замовляти роботу частинами?',
+        'answer' => 'Так, ви можете замовити роботу поетапно. Наприклад, спочатку план, потім теоретичну частину, а згодом повний текст. Оплата також може здійснюватися частинами, залежно від обраного пакету.',
     ],
     [
-        'question' => 'Lorem ipsum dolor sit amet consectetur?',
-        'answer' => 'Lorem ipsum dolor sit amet consectetur. Faucibus duis praesent at facilisis condimentum leo. Nibh eu amet scelerisque odio lacus semper. Diam mattis vitae nullam semper parturient. Consectetur ut imperdiet mattis pellentesque placerat turpis quis cras libero. Metus rutrum quam habitant id. Aliquam libero vel ornare posuere at lorem sed varius nibh. Lorem semper lectus tincidunt in proin nisl in. Est facilisis tortor semper ornare sit consequat diam eget pretium. Sed augue egestas sed non. Risus netus ullamcorper amet tempor elit. In aliquet arcu egestas lacus lacus eu cras aliquet. Ultrices iaculis eu eget nunc lobortis. Quam ante enim elit nunc quam id felis nisl. Ultrices ut auctor tellus eu.',
+        'question' => 'Як перевіряється унікальність роботи?',
+        'answer' => 'Унікальність перевіряється за допомогою професійних сервісів перевірки на плагіат (Unicheck, StrikePlagiarism, PlagScan). Ви отримуєте звіт з результатами перевірки разом з роботою.',
     ],
     [
-        'question' => 'Lorem ipsum dolor sit amet consectetur?',
-        'answer' => 'Lorem ipsum dolor sit amet consectetur. Faucibus duis praesent at facilisis condimentum leo. Nibh eu amet scelerisque odio lacus semper. Diam mattis vitae nullam semper parturient. Consectetur ut imperdiet mattis pellentesque placerat turpis quis cras libero. Metus rutrum quam habitant id. Aliquam libero vel ornare posuere at lorem sed varius nibh. Lorem semper lectus tincidunt in proin nisl in. Est facilisis tortor semper ornare sit consequat diam eget pretium. Sed augue egestas sed non. Risus netus ullamcorper amet tempor elit. In aliquet arcu egestas lacus lacus eu cras aliquet. Ultrices iaculis eu eget nunc lobortis. Quam ante enim elit nunc quam id felis nisl. Ultrices ut auctor tellus eu.',
+        'question' => 'Чи вносяться безкоштовні правки?',
+        'answer' => 'Так, ми надаємо безкоштовні правки протягом гарантійного терміну, якщо вони відповідають початковим вимогам замовлення. Усі умови описані у розділі "Гарантії".',
     ],
     [
-        'question' => 'Lorem ipsum dolor sit amet consectetur?',
-        'answer' => 'Lorem ipsum dolor sit amet consectetur. Faucibus duis praesent at facilisis condimentum leo. Nibh eu amet scelerisque odio lacus semper. Diam mattis vitae nullam semper parturient. Consectetur ut imperdiet mattis pellentesque placerat turpis quis cras libero. Metus rutrum quam habitant id. Aliquam libero vel ornare posuere at lorem sed varius nibh. Lorem semper lectus tincidunt in proin nisl in. Est facilisis tortor semper ornare sit consequat diam eget pretium. Sed augue egestas sed non. Risus netus ullamcorper amet tempor elit. In aliquet arcu egestas lacus lacus eu cras aliquet. Ultrices iaculis eu eget nunc lobortis. Quam ante enim elit nunc quam id felis nisl. Ultrices ut auctor tellus eu.',
+        'question' => 'Чи надаєте ви знижки?',
+        'answer' => 'Так, ми пропонуємо систему знижок для постійних клієнтів, а також акційні пропозиції. Крім того, є реферальна програма, що дозволяє отримати бонуси за рекомендації друзям.',
     ],
     [
-        'question' => 'Lorem ipsum dolor sit amet consectetur?',
-        'answer' => 'Lorem ipsum dolor sit amet consectetur. Faucibus duis praesent at facilisis condimentum leo. Nibh eu amet scelerisque odio lacus semper. Diam mattis vitae nullam semper parturient. Consectetur ut imperdiet mattis pellentesque placerat turpis quis cras libero. Metus rutrum quam habitant id. Aliquam libero vel ornare posuere at lorem sed varius nibh. Lorem semper lectus tincidunt in proin nisl in. Est facilisis tortor semper ornare sit consequat diam eget pretium. Sed augue egestas sed non. Risus netus ullamcorper amet tempor elit. In aliquet arcu egestas lacus lacus eu cras aliquet. Ultrices iaculis eu eget nunc lobortis. Quam ante enim elit nunc quam id felis nisl. Ultrices ut auctor tellus eu.',
+        'question' => 'Які гарантії ви надаєте?',
+        'answer' => 'Ми гарантуємо виконання роботи у зазначені терміни, відповідність вимогам замовлення, дотримання рівня унікальності та безкоштовні правки протягом гарантійного періоду.',
+    ],
+    [
+        'question' => 'Чи можу я бути впевненим у конфіденційності?',
+        'answer' => 'Абсолютно! Ми гарантуємо повну конфіденційність – ваші дані не передаються третім особам, а готові роботи залишаються лише у вас.',
+    ],
+    [
+        'question' => 'Чи можна замовити термінове виконання роботи?',
+        'answer' => 'Так, є можливість термінового виконання. У цьому випадку термін та вартість узгоджуються індивідуально.',
     ],
 ];
 ?>
