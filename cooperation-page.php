@@ -139,36 +139,38 @@ get_header();
             <div class="contact-form-content">
                 <div class="contact-form-info">
                     <div class="contact-question-icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/question.svg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/question.svg" alt="Іконка питання">
                     </div>
                     <h2 class="contact-form-title">Залишились питання?</h2>
                     <p class="contact-form-description">
                         Якщо у вас залишилися якісь питання, заповніть форму, або пишіть нам на
-                        <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> чи
+                        <a href="mailto:kursach.net.ua@gmail.com" class="contact-link">пошту</a> чи
                         <a href="https://viber.com" class="contact-link">Viber</a>!
                     </p>
                 </div>
                 <div class="contact-form-container">
-                    <form class="contact-form" method="post" action="">
-                        <!-- In WordPress, form action might point to admin-post.php or a custom endpoint -->
+                    <form class="contact-form" id="contactForm" method="post">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" name="name" placeholder="Ім'я*" class="form-input" required>
+                                <input type="text" name="user_name" placeholder="Ім'я*" class="form-input" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="E-mail*" class="form-input" required>
+                                <input type="email" name="user_email" placeholder="E-mail*" class="form-input" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Напишіть Ваше питання" class="form-textarea"
+                            <textarea name="user_message" placeholder="Напишіть Ваше питання" class="form-textarea"
                                 rows="4"></textarea>
                         </div>
                         <button type="submit" class="form-submit-btn">ПОСТАВИТИ ПИТАННЯ</button>
+                        <div id="contact-form-message" style="margin-top: 15px; text-align: center; font-weight: bold;">
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
 </main>
 
 <?php get_footer(); ?>

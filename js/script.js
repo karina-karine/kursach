@@ -1,310 +1,538 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // =====================================================================
+    // 1. Функціональність мобільного меню (гамбургер)
+    // =====================================================================
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")
+    const mobileMenuClose = document.querySelector(".mobile-menu-close")
+    const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay")
+    const body = document.body
 
-document.addEventListener('DOMContentLoaded', function () {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    function toggleMobileMenu() {
+        body.classList.toggle("mobile-menu-open")
+        const isExpanded = body.classList.contains("mobile-menu-open")
+        if (mobileMenuToggle) mobileMenuToggle.setAttribute("aria-expanded", isExpanded)
+        if (mobileMenuOverlay) mobileMenuOverlay.setAttribute("aria-hidden", !isExpanded)
+    }
 
-    faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function () {
-            const content = this.nextElementSibling;
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener("click", toggleMobileMenu)
+    }
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener("click", toggleMobileMenu)
+    }
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener("click", (event) => {
+            if (event.target === mobileMenuOverlay) {
+                toggleMobileMenu()
+            }
+        })
+    }
 
-            faqTriggers.forEach(otherTrigger => {
-                if (otherTrigger !== this && otherTrigger.getAttribute('aria-expanded') === 'true') {
-                    otherTrigger.setAttribute('aria-expanded', 'false');
-                    otherTrigger.nextElementSibling.classList.remove('open');
-                    otherTrigger.nextElementSibling.style.maxHeight = '0';
-                    otherTrigger.nextElementSibling.style.paddingTop = '0';
-                    otherTrigger.nextElementSibling.style.paddingBottom = '0';
+    const mobileDropdownItems = document.querySelectorAll(".mobile-nav-item.has-dropdown")
+    mobileDropdownItems.forEach((item) => {
+        const link = item.querySelector(".mobile-nav-link")
+        if (link) {
+            link.addEventListener("click", (event) => {
+                if (item.classList.contains("has-dropdown")) {
+                    event.preventDefault()
+                    item.classList.toggle("active")
+                    const isExpanded = item.classList.contains("active")
+                    link.setAttribute("aria-expanded", isExpanded)
                 }
-            });
+            })
+        }
+    })
+
+    // =====================================================================
+    // 2. Функціональність FAQ (Accordion)
+    // =====================================================================
+    const faqTriggers = document.querySelectorAll(".faq-trigger")
+    faqTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", function () {
+            const content = this.nextElementSibling
+            const isExpanded = this.getAttribute("aria-expanded") === "true"
+
+            faqTriggers.forEach((otherTrigger) => {
+                if (otherTrigger !== this && otherTrigger.getAttribute("aria-expanded") === "true") {
+                    otherTrigger.setAttribute("aria-expanded", "false")
+                    const otherContent = otherTrigger.nextElementSibling
+                    otherContent.classList.remove("open")
+                    otherContent.style.maxHeight = "0"
+                    otherContent.style.paddingTop = "0"
+                    otherContent.style.paddingBottom = "0"
+                }
+            })
 
             if (isExpanded) {
-                this.setAttribute('aria-expanded', 'false');
-                content.classList.remove('open');
-                content.style.maxHeight = '0';
-                content.style.paddingTop = '0';
-                content.style.paddingBottom = '0';
+                this.setAttribute("aria-expanded", "false")
+                content.classList.remove("open")
+                content.style.maxHeight = "0"
+                content.style.paddingTop = "0"
+                content.style.paddingBottom = "0"
             } else {
-                this.setAttribute('aria-expanded', 'true');
-                content.classList.add('open');
-                content.style.maxHeight = (content.scrollHeight + 100) + 'px';
-                content.style.paddingTop = 'var(--space-md)';
-                content.style.paddingBottom = 'var(--space-md)';
+                this.setAttribute("aria-expanded", "true")
+                content.classList.add("open")
+                content.style.maxHeight = content.scrollHeight + 100 + "px" // Додаємо запас
+                content.style.paddingTop = "var(--space-md)"
+                content.style.paddingBottom = "var(--space-md)"
             }
-        });
-    });
-});
+        })
+    })
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Отримуємо всі елементи навігації
-    const serviceNavItems = document.querySelectorAll('.service-nav-item');
+    // =====================================================================
+    // 3. Функціональність сторінки деталей послуг (Service Details Page)
+    // =====================================================================
+    const serviceNavItems = document.querySelectorAll(".service-nav-item")
+    const detailTitle = document.getElementById("detail-title")
+    const detailBreadcrumbTitle = document.getElementById("detail-breadcrumb-title")
+    const detailIcon = document.getElementById("detail-icon")
+    const detailShortDescription = document.getElementById("detail-short-description")
+    const detailPrice = document.getElementById("detail-price")
+    const detailDeliveryTime = document.getElementById("detail-delivery-time")
+    const detailFullDescription = document.getElementById("detail-full-description")
+        ? document.getElementById("detail-full-description").querySelector("p")
+        : null
+    const detailFeatures = document.getElementById("detail-features")
+    const detailRequirements = document.getElementById("detail-requirements")
+    const detailProcess = document.getElementById("detail-process")
 
-    // Додаємо обробник кліків для кожного елемента
-    serviceNavItems.forEach(item => {
-        item.addEventListener('click', function (e) {
-            e.preventDefault(); // Запобігаємо стандартній поведінці посилання
+    // kursachHelpAjax буде визначено через wp_localize_script в PHP
+    const kursachHelpAjax = window.kursachHelpAjax || {}
+    const servicesData = kursachHelpAjax.servicesData || {}
+    const homeUrl = kursachHelpAjax.homeUrl || "/"
 
-            const serviceId = this.getAttribute('data-service-id');
-            const serviceData = servicesData[serviceId];
-
-            if (serviceData) {
-                // Оновлюємо активний стан навігації
-                updateActiveNavItem(this);
-
-                // Оновлюємо контент на сторінці
-                updateServiceContent(serviceData);
-
-                // Оновлюємо URL без перезавантаження сторінки
-                updateURL(serviceId);
-
-                // Додаємо плавну анімацію
-                animateContentChange();
+    // Нова функція: Тільки оновлює контент на сторінці, не змінює URL
+    function updateServiceContent(serviceId) {
+        const service = servicesData[serviceId]
+        if (service) {
+            if (detailTitle) detailTitle.textContent = service.name
+            if (detailBreadcrumbTitle) detailBreadcrumbTitle.textContent = service.name
+            if (detailIcon) detailIcon.textContent = service.icon
+            if (detailShortDescription) detailShortDescription.textContent = service.short_description
+            if (detailPrice) detailPrice.textContent = `Ціна від: ${service.price_from} грн`
+            if (detailDeliveryTime) detailDeliveryTime.textContent = `Термін виконання: ${service.delivery_time}`
+            if (detailFullDescription) {
+                detailFullDescription.innerHTML = service.full_description.replace(/\n/g, "<br>")
             }
-        });
-    });
-
-    // Функція для оновлення активного елемента навігації
-    function updateActiveNavItem(clickedItem) {
-        // Видаляємо клас active з усіх елементів
-        serviceNavItems.forEach(item => {
-            item.classList.remove('active');
-        });
-
-        // Додаємо клас active до натиснутого елемента
-        clickedItem.classList.add('active');
-    }
-
-    // Функція для оновлення контенту послуги
-    function updateServiceContent(serviceData) {
-        // Оновлюємо заголовок та breadcrumb
-        const titleElement = document.getElementById('detail-title');
-        const breadcrumbTitle = document.getElementById('detail-breadcrumb-title');
-
-        if (titleElement) titleElement.textContent = serviceData.name;
-        if (breadcrumbTitle) breadcrumbTitle.textContent = serviceData.name;
-
-        // Оновлюємо іконку
-        const iconElement = document.getElementById('detail-icon');
-        if (iconElement) iconElement.textContent = serviceData.icon;
-
-        // Оновлюємо короткий опис
-        const shortDescElement = document.getElementById('detail-short-description');
-        if (shortDescElement) shortDescElement.textContent = serviceData.short_description;
-
-        // Оновлюємо ціну
-        const priceElement = document.getElementById('detail-price');
-        if (priceElement) {
-            priceElement.innerHTML = `Ціна від: ${serviceData.price_from} грн`;
-        }
-
-        // Оновлюємо термін виконання
-        const deliveryTimeElement = document.getElementById('detail-delivery-time');
-        if (deliveryTimeElement) {
-            deliveryTimeElement.innerHTML = `Термін виконання: ${serviceData.delivery_time}`;
-        }
-
-        // Оновлюємо повний опис
-        const fullDescElement = document.getElementById('detail-full-description');
-        if (fullDescElement) {
-            const descParagraph = fullDescElement.querySelector('p');
-            if (descParagraph) {
-                descParagraph.textContent = serviceData.full_description;
-            }
-        }
-
-        // Оновлюємо особливості
-        updateFeatures(serviceData.features);
-
-        // Оновлюємо вимоги
-        updateRequirements(serviceData.requirements);
-
-        // Оновлюємо процес виконання
-        updateProcess(serviceData.process);
-    }
-
-    // Функція для оновлення особливостей
-    function updateFeatures(features) {
-        const featuresContainer = document.getElementById('detail-features');
-        if (featuresContainer && features && features.length > 0) {
-            featuresContainer.innerHTML = '';
-            features.forEach(feature => {
-                const li = document.createElement('li');
-                li.innerHTML = `<span class="feature-icon">&#10003;</span> ${feature}`;
-                featuresContainer.appendChild(li);
-            });
-
-            // Показуємо секцію, якщо вона прихована
-            const featuresSection = featuresContainer.closest('.service-details-features');
-            if (featuresSection) featuresSection.style.display = 'block';
-        } else {
-            // Приховуємо секцію, якщо немає даних
-            const featuresSection = document.querySelector('.service-details-features');
-            if (featuresSection) featuresSection.style.display = 'none';
-        }
-    }
-
-    // Функція для оновлення вимог
-    function updateRequirements(requirements) {
-        const requirementsContainer = document.getElementById('detail-requirements');
-        if (requirementsContainer && requirements && requirements.length > 0) {
-            requirementsContainer.innerHTML = '';
-            requirements.forEach(requirement => {
-                const li = document.createElement('li');
-                li.innerHTML = `<span class="requirement-icon">&#9679;</span> ${requirement}`;
-                requirementsContainer.appendChild(li);
-            });
-
-            // Показуємо секцію
-            const requirementsSection = requirementsContainer.closest('.service-details-requirements');
-            if (requirementsSection) requirementsSection.style.display = 'block';
-        } else {
-            // Приховуємо секцію
-            const requirementsSection = document.querySelector('.service-details-requirements');
-            if (requirementsSection) requirementsSection.style.display = 'none';
-        }
-    }
-
-    // Функція для оновлення процесу виконання
-    function updateProcess(process) {
-        const processContainer = document.getElementById('detail-process');
-        if (processContainer && process && process.length > 0) {
-            processContainer.innerHTML = '';
-            process.forEach(step => {
-                const li = document.createElement('li');
-                li.textContent = step;
-                processContainer.appendChild(li);
-            });
-
-            // Показуємо секцію
-            const processSection = processContainer.closest('.service-details-process');
-            if (processSection) processSection.style.display = 'block';
-        } else {
-            // Приховуємо секцію
-            const processSection = document.querySelector('.service-details-process');
-            if (processSection) processSection.style.display = 'none';
-        }
-    }
-
-    // Функція для оновлення URL
-    function updateURL(serviceId) {
-        const newUrl = new URL(window.location);
-        newUrl.searchParams.set('service_id', serviceId);
-        window.history.pushState({ serviceId: serviceId }, '', newUrl);
-    }
-
-    // Функція для анімації зміни контенту
-    function animateContentChange() {
-        const mainContent = document.querySelector('.service-details-main');
-        if (mainContent) {
-            // Додаємо клас для анімації
-            mainContent.style.opacity = '0.7';
-            mainContent.style.transform = 'translateY(10px)';
-
-            // Повертаємо нормальний стан через короткий час
-            setTimeout(() => {
-                mainContent.style.opacity = '1';
-                mainContent.style.transform = 'translateY(0)';
-            }, 150);
-        }
-    }
-
-    // Обробник для кнопки "Назад" браузера
-    window.addEventListener('popstate', function (event) {
-        if (event.state && event.state.serviceId) {
-            const serviceData = servicesData[event.state.serviceId];
-            if (serviceData) {
-                // Знаходимо відповідний елемент навігації
-                const navItem = document.querySelector(`[data-service-id="${event.state.serviceId}"]`);
-                if (navItem) {
-                    updateActiveNavItem(navItem);
-                    updateServiceContent(serviceData);
+            if (detailFeatures) {
+                detailFeatures.innerHTML = ""
+                if (service.features && service.features.length > 0) {
+                    service.features.forEach((feature) => {
+                        const li = document.createElement("li")
+                        li.innerHTML = `<span class="feature-icon">&#10003;</span> ${feature}`
+                        detailFeatures.appendChild(li)
+                    })
+                    detailFeatures.closest(".service-details-features").style.display = "block"
+                } else {
+                    detailFeatures.closest(".service-details-features").style.display = "none"
                 }
             }
+            if (detailRequirements) {
+                detailRequirements.innerHTML = ""
+                if (service.requirements && service.requirements.length > 0) {
+                    service.requirements.forEach((req) => {
+                        const li = document.createElement("li")
+                        li.innerHTML = `<span class="requirement-icon">&#9679;</span> ${req}`
+                        detailRequirements.appendChild(li)
+                    })
+                    detailRequirements.closest(".service-details-requirements").style.display = "block"
+                } else {
+                    detailRequirements.closest(".service-details-requirements").style.display = "none"
+                }
+            }
+            if (detailProcess) {
+                detailProcess.innerHTML = ""
+                if (service.process && service.process.length > 0) {
+                    service.process.forEach((step) => {
+                        const li = document.createElement("li")
+                        li.textContent = step
+                        detailProcess.appendChild(li)
+                    })
+                    detailProcess.closest(".service-details-process").style.display = "block"
+                } else {
+                    detailProcess.closest(".service-details-process").style.display = "none"
+                }
+            }
+            serviceNavItems.forEach((item) => {
+                item.classList.remove("active")
+                if (item.dataset.serviceId === serviceId) {
+                    item.classList.add("active")
+                }
+            })
         }
-    });
-
-    // Ініціалізуємо стан при завантаженні сторінки
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentServiceId = urlParams.get('service_id');
-    if (currentServiceId && servicesData[currentServiceId]) {
-        // Встановлюємо початковий стан для history API
-        window.history.replaceState({ serviceId: currentServiceId }, '', window.location);
-    }
-});
-
-function initSlider(trackSelector, cardSelector, prevSelector, nextSelector) {
-    const track = document.querySelector(trackSelector);
-    const cards = document.querySelectorAll(cardSelector);
-    const prevBtn = document.querySelector(prevSelector);
-    const nextBtn = document.querySelector(nextSelector);
-
-    if (!track || cards.length === 0 || !prevBtn || !nextBtn) return;
-
-    let index = 0;
-    const totalCards = cards.length;
-    let visibleCards = getVisibleCards(); // динамічно рахуємо
-
-    // функція для визначення кількості карток, що вміщаються
-    function getVisibleCards() {
-        if (window.innerWidth < 700) return 1;
-        if (window.innerWidth < 1100) return 2;
-        return 3; // за замовчуванням
     }
 
-    function updateSlider() {
-        const offset = -(index * (100 / visibleCards));
-        track.style.transform = `translateX(${offset}%)`;
+    // Функція, яка оновлює контент та URL (викликається тільки при кліку)
+    function handleServiceNavigation(serviceId) {
+        updateServiceContent(serviceId) // Оновлюємо контент
+        const newUrl = new URL(window.location.href)
+        newUrl.searchParams.set("service_id", serviceId)
+        window.history.pushState({ path: newUrl.href, serviceId: serviceId }, "", newUrl.href) // Оновлюємо URL
     }
 
-    function handleResize() {
-        visibleCards = getVisibleCards();
-        index = 0;
-        track.style.transform = 'translateX(0)';
-        cards.forEach(card => {
-            card.style.flex = `0 0 calc(${100 / visibleCards}% - var(--space-xl))`;
-        });
-    }
+    serviceNavItems.forEach((item) => {
+        item.addEventListener("click", (event) => {
+            event.preventDefault()
+            const serviceId = event.target.dataset.serviceId
+            handleServiceNavigation(serviceId) // Викликаємо функцію, яка оновлює URL
+        })
+    })
 
-    nextBtn.addEventListener('click', () => {
-        if (index < totalCards - visibleCards) {
-            index++;
-            updateSlider();
+    const urlParams = new URLSearchParams(window.location.search)
+    const initialServiceId = urlParams.get("service_id")
+    const firstServiceId = Object.keys(servicesData)[0]
+
+    // Логіка початкового завантаження сторінки
+    if (initialServiceId && servicesData[initialServiceId]) {
+        // Якщо service_id є в URL, оновлюємо контент відповідно до нього.
+        // URL вже містить service_id, тому не потрібно його змінювати.
+        updateServiceContent(initialServiceId)
+    } else if (firstServiceId) {
+        // Якщо service_id немає в URL, просто рендеримо контент першої послуги
+        // БЕЗ зміни URL.
+        updateServiceContent(firstServiceId)
+        // Додатково, якщо ми на головній сторінці, і там є service_id,
+        // але ми хочемо, щоб URL був чистим, ми можемо явно видалити його.
+        // Це може бути корисно, якщо користувач вручну ввів URL з service_id,
+        // а потім перейшов на головну сторінку.
+        if (window.location.search.includes("service_id")) {
+            const cleanUrl = new URL(window.location.href)
+            cleanUrl.searchParams.delete("service_id")
+            window.history.replaceState({}, "", cleanUrl.href)
         }
-    });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        if (index > 0) {
-            index--;
-            updateSlider();
+    window.addEventListener("popstate", (event) => {
+        const params = new URLSearchParams(window.location.search)
+        const serviceId = params.get("service_id")
+
+        if (serviceId && servicesData[serviceId]) {
+            updateServiceContent(serviceId) // Рендеримо контент на основі serviceId з історії
+        } else {
+            // Якщо serviceId відсутній (наприклад, повернулися до чистого URL),
+            // рендеримо контент першої послуги і переконаємося, що URL чистий.
+            if (firstServiceId) {
+                updateServiceContent(firstServiceId)
+            }
+            const cleanUrl = new URL(window.location.href)
+            cleanUrl.searchParams.delete("service_id")
+            window.history.replaceState({}, "", cleanUrl.href)
         }
-    });
+    })
 
-    // слухаємо зміну ширини
-    window.addEventListener('resize', handleResize);
-    handleResize(); // ініціалізація
-}
+    // =====================================================================
+    // 4. Функціональність горизонтальних слайдерів (Services, Reviews)
+    // =====================================================================
+    function initSlider(trackSelector, cardSelector, prevSelector, nextSelector) {
+        const track = document.querySelector(trackSelector) // Використовуємо trackSelector
+        const cards = document.querySelectorAll(cardSelector) // Використовуємо cardSelector
+        const prevBtn = document.querySelector(prevSelector) // Використовуємо prevSelector
+        const nextBtn = document.querySelector(nextSelector) // Використовуємо nextSelector
 
-// ініціалізація для services
-initSlider('.services-track', '.service-card', '.services-navigation .nav-prev', '.services-navigation .nav-next');
+        if (!track || cards.length === 0 || !prevBtn || !nextBtn) return
 
-// ініціалізація для reviews
-initSlider('.reviews-track', '.phone-mockup', '.reviews-navigation .nav-prev', '.reviews-navigation .nav-next');
+        let index = 0
+        const totalCards = cards.length
+        let visibleCards = getVisibleCards()
 
-function setEqualHeights(selector) {
-    const cards = document.querySelectorAll(selector);
-    let maxHeight = 0;
+        function getVisibleCards() {
+            if (window.innerWidth < 700) return 1
+            if (window.innerWidth < 1100) return 2
+            return 3
+        }
 
-    // Скидаємо стару висоту
-    cards.forEach(card => card.style.height = 'auto');
+        function updateSlider() {
+            const offset = -(index * (100 / visibleCards))
+            track.style.transform = `translateX(${offset}%)`
+            updateButtonsState()
+        }
 
-    // Знаходимо максимальну висоту
-    cards.forEach(card => {
-        maxHeight = Math.max(maxHeight, card.offsetHeight);
-    });
+        function updateButtonsState() {
+            prevBtn.disabled = index === 0
+            nextBtn.disabled = index >= totalCards - visibleCards
+        }
 
-    // Присвоюємо всім однакову
-    cards.forEach(card => card.style.height = maxHeight + 'px');
-}
+        function handleResize() {
+            visibleCards = getVisibleCards()
+            index = 0
+            track.style.transform = "translateX(0)"
+            cards.forEach((card) => {
+                card.style.flex = `0 0 calc(${100 / visibleCards}% - var(--space-xl))`
+            })
+            updateButtonsState()
+        }
 
-// Виклик після завантаження і при ресайзі
-window.addEventListener('load', () => setEqualHeights('.service-card'));
-window.addEventListener('resize', () => setEqualHeights('.service-card'));
+        nextBtn.addEventListener("click", () => {
+            if (index < totalCards - visibleCards) {
+                index++
+                updateSlider()
+            }
+        })
+
+        prevBtn.addEventListener("click", () => {
+            if (index > 0) {
+                index--
+                updateSlider()
+            }
+        })
+
+        window.addEventListener("resize", handleResize)
+        handleResize() // Initial call to set up slider
+    }
+
+    initSlider(".services-track", ".service-card", ".services-navigation .nav-prev", ".services-navigation .nav-next")
+    initSlider(".reviews-track", ".phone-mockup", ".reviews-navigation .nav-prev", ".reviews-navigation .nav-next")
+
+    // =====================================================================
+    // 5. Функціональність вирівнювання висоти карток
+    // =====================================================================
+    function setEqualHeights(selector) {
+        const cards = document.querySelectorAll(selector)
+        let maxHeight = 0
+        cards.forEach((card) => (card.style.height = "auto")) // Reset height before calculating
+        cards.forEach((card) => {
+            maxHeight = Math.max(maxHeight, card.offsetHeight)
+        })
+        cards.forEach((card) => (card.style.height = maxHeight + "px"))
+    }
+
+    window.addEventListener("load", () => setEqualHeights(".service-card"))
+    window.addEventListener("resize", () => setEqualHeights(".service-card"))
+
+    // =====================================================================
+    // 6. Функціональність випадаючих меню в хедері (Desktop)
+    // =====================================================================
+    const navItems = document.querySelectorAll(".nav-list .nav-item")
+    let servicesNavItem = null
+    let langNavItem = null
+
+    navItems.forEach((item) => {
+        const link = item.querySelector(".nav-link")
+        if (link) {
+            if (link.textContent.includes("Наші послуги")) {
+                servicesNavItem = item
+            } else if (link.textContent.includes("UA")) {
+                langNavItem = item
+            }
+        }
+    })
+
+    function createDropdownMenu(items, isServiceMenu = false) {
+        const ul = document.createElement("ul")
+        ul.classList.add("dropdown-menu")
+        for (const key in items) {
+            if (items.hasOwnProperty(key)) {
+                const item = items[key]
+                const li = document.createElement("li")
+                const a = document.createElement("a")
+                if (isServiceMenu) {
+                    a.href = `${homeUrl}services/?service_id=${key}`
+                    a.textContent = item.name
+                } else {
+                    a.href = "#" // Or actual language switch URLs
+                    a.textContent = item
+                }
+                li.appendChild(a)
+                ul.appendChild(li)
+            }
+        }
+        return ul
+    }
+
+    if (servicesNavItem && Object.keys(servicesData).length > 0) {
+        const servicesDropdownMenu = createDropdownMenu(servicesData, true)
+        servicesNavItem.appendChild(servicesDropdownMenu)
+        servicesNavItem.classList.add("menu-item-has-children")
+        servicesNavItem.querySelector(".nav-link").setAttribute("aria-expanded", "false")
+    }
+
+    if (langNavItem) {
+        const langOptions = { ua: "UA", en: "EN" } // Example language options
+        const langDropdownMenu = createDropdownMenu(langOptions, false)
+        langNavItem.appendChild(langDropdownMenu)
+        langNavItem.classList.add("menu-item-has-children")
+        langNavItem.querySelector(".nav-link").setAttribute("aria-expanded", "false")
+    }
+
+    const allNavItemsWithDropdown = document.querySelectorAll(".nav-item.menu-item-has-children")
+
+    allNavItemsWithDropdown.forEach((navItem) => {
+        const toggleLink = navItem.querySelector(".nav-link")
+        if (toggleLink) {
+            toggleLink.addEventListener("click", (event) => {
+                if (navItem.classList.contains("menu-item-has-children")) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    const isExpanded = navItem.classList.contains("active")
+                    document.querySelectorAll(".nav-item.menu-item-has-children.active").forEach((item) => {
+                        if (item !== navItem) {
+                            item.classList.remove("active")
+                            item.querySelector(".nav-link").setAttribute("aria-expanded", "false")
+                        }
+                    })
+                    navItem.classList.toggle("active")
+                    toggleLink.setAttribute("aria-expanded", !isExpanded)
+                }
+            })
+        }
+    })
+
+    document.addEventListener("click", (event) => {
+        allNavItemsWithDropdown.forEach((navItem) => {
+            if (!navItem.contains(event.target)) {
+                navItem.classList.remove("active")
+                const toggleLink = navItem.querySelector(".nav-link")
+                if (toggleLink) {
+                    toggleLink.setAttribute("aria-expanded", "false")
+                }
+            }
+        })
+    })
+
+    // =====================================================================
+    // 7. Функціональність форми замовлення (адаптована для відправки на PHP AJAX)
+    // =====================================================================
+    const uniquenessSlider = document.getElementById("uniqueness")
+    const uniquenessValue = document.querySelector(".uniqueness-slider .slider-value")
+    if (uniquenessSlider && uniquenessValue) {
+        uniquenessValue.textContent = `${uniquenessSlider.value}%` // Встановлюємо початкове значення
+        uniquenessSlider.addEventListener("input", () => {
+            uniquenessValue.textContent = `${uniquenessSlider.value}%`
+        })
+    }
+
+    const fileInput = document.getElementById("fileUpload")
+    const fileLabel = document.querySelector(".file-upload .file-label")
+    if (fileInput && fileLabel) {
+        fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+                const fileNames = Array.from(fileInput.files)
+                    .map((file) => file.name)
+                    .join(", ")
+                fileLabel.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
+                                        </svg> ${fileNames}`
+            } else {
+                fileLabel.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
+                                        </svg> Додати файли`
+            }
+        })
+    }
+
+    const orderForm = document.getElementById("orderForm")
+    const orderFormMessage = document.getElementById("form-message") // Елемент для повідомлень
+    let isOrderFormSubmitting = false // Прапорець для запобігання подвійній відправці
+
+    if (orderForm && orderFormMessage) {
+        orderForm.addEventListener("submit", async (event) => {
+            event.preventDefault() // Запобігаємо стандартній відправці форми
+            if (isOrderFormSubmitting) {
+                return // Якщо форма вже відправляється, ігноруємо повторні натискання
+            }
+            isOrderFormSubmitting = true // Встановлюємо прапорець
+
+            const submitButton = orderForm.querySelector('button[type="submit"]')
+            if (submitButton) {
+                submitButton.disabled = true // Вимикаємо кнопку
+                submitButton.textContent = "Відправка..." // Змінюємо текст кнопки
+            }
+
+            const formData = new FormData(orderForm)
+            formData.append("action", "submit_order_form") // Додаємо action для WordPress AJAX
+            formData.append("nonce", kursachHelpAjax.order_form_nonce) // Додаємо nonce для безпеки
+
+            orderFormMessage.style.color = "initial"
+            orderFormMessage.textContent = "Відправка..."
+
+            try {
+                const response = await fetch(kursachHelpAjax.ajaxurl, {
+                    method: "POST",
+                    body: formData,
+                })
+                const result = await response.json()
+
+                if (result.success) {
+                    orderFormMessage.style.color = "green"
+                    orderFormMessage.textContent = result.data
+                    orderForm.reset() // Очищаємо форму
+                    if (fileLabel) {
+                        fileLabel.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                    <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
+                                                </svg> Додати файли`
+                    }
+                } else {
+                    orderFormMessage.style.color = "red"
+                    orderFormMessage.textContent = result.data || "Виникла помилка при відправці замовлення."
+                }
+            } catch (error) {
+                console.error("Помилка мережі або сервера (форма замовлення):", error)
+                orderFormMessage.style.color = "red"
+                orderFormMessage.textContent = "Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз."
+            } finally {
+                isOrderFormSubmitting = false // Скидаємо прапорець
+                if (submitButton) {
+                    submitButton.disabled = false // Вмикаємо кнопку
+                    submitButton.textContent = "ОФОРМИТИ ЗАМОВЛЕННЯ" // Повертаємо початковий текст кнопки
+                }
+            }
+        })
+    }
+
+    // =====================================================================
+    // 8. Функціональність контактної форми (адаптована для відправки на PHP AJAX)
+    // =====================================================================
+    const contactForm = document.getElementById("contactForm")
+    const contactFormMessage = document.getElementById("contact-form-message")
+    let isContactFormSubmitting = false // Прапорець для запобігання подвійній відправці
+
+    if (contactForm && contactFormMessage) {
+        contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault()
+            if (isContactFormSubmitting) {
+                return // Якщо форма вже відправляється, ігноруємо повторні натискання
+            }
+            isContactFormSubmitting = true // Встановлюємо прапорець
+
+            const submitButton = contactForm.querySelector('button[type="submit"]')
+            if (submitButton) {
+                submitButton.disabled = true // Вимикаємо кнопку
+                submitButton.textContent = "Відправка..." // Змінюємо текст кнопки
+            }
+
+            const formData = new FormData(contactForm)
+            formData.append("action", "submit_contact_form") // Додаємо action для WordPress AJAX
+            formData.append("nonce", kursachHelpAjax.contact_form_nonce) // Додаємо nonce для безпеки
+
+            contactFormMessage.style.color = "initial"
+            contactFormMessage.textContent = "Відправка..."
+
+            try {
+                const response = await fetch(kursachHelpAjax.ajaxurl, {
+                    method: "POST",
+                    body: formData,
+                })
+                const result = await response.json()
+
+                if (result.success) {
+                    contactFormMessage.style.color = "green"
+                    contactFormMessage.textContent = result.data
+                    contactForm.reset()
+                } else {
+                    contactFormMessage.style.color = "red"
+                    contactFormMessage.textContent = result.data || "Виникла помилка при відправці питання."
+                }
+            } catch (error) {
+                console.error("Помилка мережі або сервера (контактна форма):", error)
+                contactFormMessage.style.color = "red"
+                contactFormMessage.textContent = "Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз."
+            } finally {
+                isContactFormSubmitting = false // Скидаємо прапорець
+                if (submitButton) {
+                    submitButton.disabled = false // Вмикаємо кнопку
+                    submitButton.textContent = "ПОСТАВИТИ ПИТАННЯ" // Повертаємо початковий текст кнопки
+                }
+            }
+        })
+    }
+})

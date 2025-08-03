@@ -415,33 +415,35 @@
                         та захистите на високу оцінку.
                     </p>
                     <div class="order-illustration">
+                        <!-- Використовуємо get_template_directory_uri() для коректного шляху в WordPress -->
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/book.svg"
                             alt="Ілюстрація книг та олівця">
                     </div>
                 </div>
-
                 <div class="order-form-container">
-                    <form class="form" id="orderForm">
+                    <!-- Змінюємо action форми на шлях до нашого PHP-скрипта -->
+                    <!-- Важливо: action буде оброблятися JavaScript через fetch, тому можна залишити порожнім або вказати # -->
+                    <form class="form" id="orderForm" method="POST" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Ім'я" required>
+                                <input type="text" class="form-input" placeholder="Ім'я" name="user_name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" placeholder="E-mail" required>
+                                <input type="email" class="form-input" placeholder="E-mail" name="user_email" required>
                             </div>
                         </div>
-
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="tel" class="form-input" placeholder="Номер телефону" required>
+                                <input type="tel" class="form-input" placeholder="Номер телефону" name="user_phone"
+                                    required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Навчальна програма">
+                                <input type="text" class="form-input" placeholder="Навчальна програма"
+                                    name="study_program">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <select class="form-select" id="type-work" required>
+                            <select class="form-select" id="type-work" name="work_type" required>
                                 <option value="">Тип роботи</option>
                                 <option value="coursework">Курсова робота</option>
                                 <option value="diploma">Дипломна робота</option>
@@ -449,31 +451,30 @@
                                 <option value="other">Інше</option>
                             </select>
                         </div>
-
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Тема роботи">
+                                <input type="text" class="form-input" placeholder="Тема роботи" name="work_topic">
                             </div>
                             <div class="form-group">
-                                <input type="date" class="form-input" placeholder="Дата виконання" required>
+                                <input type="date" class="form-input" placeholder="Дата виконання" name="due_date"
+                                    required>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="uniqueness-slider">
                                 <label for="uniqueness">Унікальність роботи</label>
-                                <input type="range" id="uniqueness" min="60" max="100" value="80" class="slider">
+                                <input type="range" id="uniqueness" min="60" max="100" value="80" class="slider"
+                                    name="uniqueness">
                                 <div class="slider-value">80%</div>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <textarea class="form-textarea" placeholder="Опис сторінок: 21" rows="3"></textarea>
+                            <textarea class="form-textarea" placeholder="Опис сторінок: 21" rows="3"
+                                name="work_description"></textarea>
                         </div>
-
                         <div class="form-group">
                             <div class="file-upload">
-                                <input type="file" id="fileUpload" class="file-input" multiple>
+                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple>
                                 <label for="fileUpload" class="file-label">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
@@ -482,15 +483,22 @@
                                 </label>
                             </div>
                         </div>
-
                         <button type="submit" class="btn btn-primary btn-large form-submit">
                             ЗАМОВИТИ РОБОТУ
                         </button>
+                        <div id="form-message" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Контактна форма (якщо вона також є кастомною і потребує обробки) -->
+    <!-- Якщо контактна форма також має бути оброблена PHP, вам потрібно буде створити окремий PHP-скрипт для неї або розширити існуючий. -->
+    <!-- <form id="contactForm" method="POST">
+    ... поля контактної форми ...
+    <div id="contact-form-message"></div>
+</form> -->
 </main>
 
 <?php include 'footer.php'; ?>

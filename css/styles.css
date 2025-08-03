@@ -1078,7 +1078,7 @@ a:focus {
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
   box-shadow: var(--shadow-xl);
 }
 
@@ -1172,7 +1172,7 @@ a:focus {
 
 
 .services-wrapper {
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 100%;
 }
 
@@ -1197,7 +1197,7 @@ a:focus {
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
   box-shadow: var(--shadow-xl);
 }
 
