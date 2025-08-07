@@ -32,9 +32,11 @@ get_header();
                             <circle cx="30" cy="40" r="1.5" fill="white" />
                         </svg>
                     </div>
-                    <h2 class="contact-card-title">Телефони</h2>
-                    <p class="contact-card-text">(063) 267 73 71</p>
-                    <p class="contact-card-text">(095) 438 73 68</p>
+                    <div class="contact-card-content">
+                        <h2 class="contact-card-title">Телефони</h2>
+                        <p class="contact-card-text">(063) 267 73 71</p>
+                        <p class="contact-card-text">(095) 438 73 68</p>
+                    </div>
                 </div>
                 <div class="contact-card">
                     <div class="contact-card-icon">
@@ -46,8 +48,10 @@ get_header();
                                 stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h2 class="contact-card-title">Пошта</h2>
-                    <p class="contact-card-text">kursach.net.ua@gmail.com</p>
+                    <div class="contact-card-content">
+                        <h2 class="contact-card-title">Пошта</h2>
+                        <p class="contact-card-text">kursach.net.ua@gmail.com</p>
+                    </div>
                 </div>
                 <div class="contact-card">
                     <div class="contact-card-icon">
@@ -61,19 +65,23 @@ get_header();
                                 stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h2 class="contact-card-title">Соціальні мережі</h2>
-                    <p class="contact-card-text">Долучайтесь до нас:</p>
-                    <div class="footer-social">
-                        <a href="#" class="footer-social-link telegram">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg" alt="Telegram">
-                        </a>
-                        <a href="#" class="footer-social-link instagram">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
-                                alt="Instagram">
-                        </a>
-                        <a href="#" class="footer-social-link tiktok">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/tiktok_icon.svg" alt="TikTok">
-                        </a>
+                    <div class="contact-card-content">
+                        <h2 class="contact-card-title">Соціальні мережі</h2>
+                        <p class="contact-card-text">Долучайтесь до нас:</p>
+                        <div class="footer-social">
+                            <a href="#" class="footer-social-link telegram">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg"
+                                    alt="Telegram">
+                            </a>
+                            <a href="#" class="footer-social-link instagram">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
+                                    alt="Instagram">
+                            </a>
+                            <a href="#" class="footer-social-link tiktok">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/tiktok_icon.svg"
+                                    alt="TikTok">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

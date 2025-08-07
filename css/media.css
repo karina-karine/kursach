@@ -65,6 +65,11 @@
 
 /* Мобільні пристрої */
 @media (max-width: 576px) {
+  :root {
+    --header-height: 70px;
+    
+  }
+
   .header-content {
     padding: var(--space-sm) var(--space-md);
   }
@@ -87,341 +92,1067 @@
 }
 
 
-/* =============== HERO ==================== */
-@media (max-width: 1400px) {
-    .hero-text-left {
-        padding-right: 0;
-    }
-
-    .hero-description {
-        font-size: var(--font-size-xs);
-    }
-
-    .hero-image-center {
-        align-items: flex-end;
-    }
-
-    .hero-rating-right {
-        padding-left: 0;
-    }
-
-    .rating-stars {
-        font-size: 3rem;
-    }
-}
-
-
-@media (max-width: 1200px) { 
-    .hero-title {
-        padding-top: var(--space-md);
-    }
-    .rating-stars {
-        font-size: 2.5rem;
-    }
-    .rating-text {
-        font-size: var(--font-size-sm);
-    }
-
-    .circle-outer {
-        width: min(800px, 90vw);
-        height: min(800px, 90vw);
-    }
-    .circle-middle {
-        width: min(700px, 90vw);
-        height: min(700px, 90vw);
-    }
-    .circle-inner {
-        width: min(600px, 90vw);
-        height: min(600px, 90vw);
-    }
-    .hero-description {
-        font-size: var(--font-size-sm);
-    }
-    .hero-content {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        grid-template-rows: auto 1fr;
-    }
-
-    .hero-text-left {
-        padding-top: var(--space-xl);
-        grid-column: 1 / span 3;
-        grid-row: 1;
-        text-align: center;
-    }
-
-    .hero-content .hero-text-left::before {
-        top: 1%;
-    }
-
-    .hero-image-container {
-        justify-content: flex-end;
-    }
-
-    .hero-image-center {
-        grid-column: 2;
-        grid-row: 2;
-        align-items: center;
-    }
-
-    .hero-actions-overlay {
-        left: 60%
-    }
-
-    .hero-rating-right {
-        grid-column: 3;
-        grid-row: 2;
-    }
-
-    .hero-img {
-        width: 80%;
-    }
- }
-
- /* Ноутбуки */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: var(--font-size-5xl);
-    }
-
-    .hero-background-circles {
-        bottom: -90%;
-    }
-    
-    .circle-outer {
-        width: min(700px, 90vw);
-        height: min(700px, 90vw);
-    }
-    .circle-middle {
-        width: min(600px, 90vw);
-        height: min(600px, 90vw);
-    }
-    .circle-inner {
-        width: min(500px, 90vw);
-        height: min(500px, 90vw);
-    }
-    
-
-  .hero-image-center {
-    justify-content: flex-end;
-    align-items: flex-end;
+/* Великі екрани (до 1440px) */
+@media screen and (max-width: 1440px) {
+  .hero-content {
+    max-width: 95%; 
   }
-
-  /* .hero-img {
-    width: 90%;
+  .hero-description {
+    font-size: clamp(0.9rem, 1.8vw, var(--font-size-sm));
+  }
+  /* .hero-rating-right {
+    padding-bottom: 2vh;
   } */
 
-  .hero-image-container {
-    justify-content: center;
-  }
+  .circle-outer {
+  width: min(920px, 95vw);
+  height: min(460px, 45vw);
+  z-index: 1;
+}
 
-  .hero-actions-overlay {
-    bottom: 30px;
-    gap: var(--space-sm);
-    left: 50%;
-  }
+.circle-middle {
+  width: min(850px, 88vw);
+  height: min(420px, 42vw);
+  z-index: 2;
+}
 
+.circle-inner {
+  width: min(780px, 80vw);
+  height: min(390px, 40vw);
+  z-index: 3;
+}
+
+}
+
+/* Стандартні ноутбуки (до 1280px) */
+@media screen and (max-width: 1280px) {
+  .hero-content {
+    max-width: 95%;
+    height: 100%; /* Використовуємо всю доступну висоту */
+  }
+  
+  .hero-text-left {
+    padding-right: var(--space-md);
+    font-size: var(--font-size-sm);
+    transform: translateY(-55%);
+  }
+    
+.hero-text-left::before {
+  transform: scale(0.8);
+  top: -10%;
+  left: -3%;
+}
+  
   .hero-rating-right {
     padding-left: var(--space-md);
+    padding-bottom: 12vh; /* Зменшуємо ще більше */
   }
-
-  .hero-rating-right {
-    position: absolute;
-    top: 0;
-    right: 10%;
+  
+  .hero-actions-overlay {
+    bottom: 5%; /* Підтягуємо кнопки вище */
+    gap: var(--space-md);
+    padding: var(--space-xs);
   }
-}
-
-
-/* Планшети */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: var(--font-size-4xl);
-        padding: var(--space-lg) 0;
-    }
-
-    .hero-background-circles {
-        bottom: -90%;
-    }
-    
-    .circle-outer {
-        width: min(800px, 100vw);
-        height: min(800px, 100vw);
-    }
-    .circle-middle {
-        width: min(700px, 90vw);
-        height: min(700px, 90vw);
-    }
-    .circle-inner {
-        width: min(600px, 80vw);
-        height: min(600px, 80vw);
-    }
-    .hero-img {
-    width: 90%;
-  }
-  .hero-text-left {
-    padding-top: 0;
-  }
-
-  .hero-content .hero-text-left::before {
-    top: -4%;
-  }
-}
-
-@media (max-width: 576px) {
+  
   .hero-title {
-    font-size: var(--font-size-3xl);
-    padding: var(--space-2xl) 0;
-    line-height: var(--line-height-tight);
+    font-size: clamp(2.2rem, 4vw, var(--font-size-4xl));
+    margin-bottom: var(--space-sm); /* Зменшуємо відступ після заголовка */
+  }
+  
+  .hero-description {
+    font-size: clamp(0.85rem, 1.7vw, var(--font-size-sm));
   }
 
-  .hero-background-circles {
-    top: 90%;
+  .hero-image-center .btn-secondary, 
+  .hero-image-center .btn-primary {
+    font-size: clamp(0.8rem, 1.5vw, var(--font-size-base));
   }
-
+  
   .circle-outer {
-    width: 650px;
-    height: 650px;
+    width: min(860px, 86vw);
+    height: min(430px, 43vw);
   }
 
   .circle-middle {
-    width: 600px;
-    height: 600px;
+    width: min(780px, 78vw);
+    height: min(390px, 39vw);
   }
 
   .circle-inner {
-    width: 550px;
-    height: 550px;
+    width: min(700px, 70vw);
+    height: min(350px, 35vw);
   }
+  
+  .rating-stars {
+    font-size: 3.5rem;
+  }
+}
 
-  .hero-content {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    min-height: auto;
-    /* gap: 0; */
+/* Для екранів з малою висотою */
+@media screen and (max-height: 800px) {
+  .hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
   }
 
   .hero-text-left {
-    text-align: center;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+    width: 90%;
+  }
+  
+  .hero-rating-right {
+    padding-bottom: 25vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 7%;
+  }
+  
+  .rating-stars {
+    font-size: 2.8rem;
+  }
+}
+
+/* Дуже низькі екрани */
+@media screen and (max-height: 700px) {
+  .hero-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 0.5rem;
+    padding-top: var(--space-sm);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .hero-rating-right {
+    padding-bottom: 5vh;
+    min-height: 150px; /* Зменшуємо мінімальну висоту */
+  }
+  
+  .hero-actions-overlay {
+    bottom: 2%;
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+  }
+  
+  .rating-stars {
+    font-size: 2.5rem;
+  }
+  
+  .rating-text strong {
+    font-size: 1.8rem;
+  }
+  
+  /* Зменшуємо кола */
+  .circle-outer {
+    width: min(720px, 72vw);
+    height: min(360px, 36vw);
   }
 
-  .hero-content .hero-text-left::before {
-    display: inline-block;
-    transform: scale(0.5); 
-    left: -3%;
-    top: -2%;
+  .circle-middle {
+    width: min(640px, 64vw);
+    height: min(320px, 32vw);
+  }
+
+  .circle-inner {
+    width: min(560px, 56vw);
+    height: min(280px, 28vw);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hero {
+    /* min-height: 100vh; */
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, var(--font-size-title));
+    padding: 8vh 0;
+    flex-shrink: 0;
+    line-height: var(--line-height-snug);
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Розподіляємо простір рівномірно */
+    gap: var(--space-md); /* Зменшуємо gap */
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    /* overflow: hidden; */
+  }
+
+  .hero-text-left {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    transform: translateY(20%); /* Менше зміщення */
+    z-index: 2;
+    flex-shrink: 0;
   }
 
   .hero-description {
-    font-size: var(--font-size-sm);
-    text-align: center;
-    padding-bottom: var(--space-2xl);
-  }
-
-  .hero-image-center {
-    grid-column: 2;
-    grid-row: 2 / span 2;
-    height: auto;
-    justify-content: center;
-    align-self: center;
-  }
-
-  .hero-img {
-    width: 100%;
-  }
-
-  .hero-actions-overlay {
-    /* margin-top: var(--space-md); */
-    /* padding: var(--space-xs); */
-    gap: var(--space-md);
-    flex-wrap: wrap;
-    background: none;
-  }
-
-  .hero-actions-overlay .btn {
-    font-size: var(--font-size-lg);
-    padding: var(--space-md);
-    /* border-radius: var(--radius-3xl); */
-    box-shadow: 5px 0px 1px white, -5px 0px 1px white, 0px 5px 1px white, 0px -5px 1px white;
+    font-size: clamp(1rem, 2.2vw, var(--font-size-xl));
+    text-align: justify;
+    z-index: 2;
+    flex-shrink: 0;
   }
 
   .hero-rating-right {
-    top: -10%;
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 120px; /* Зменшуємо мінімальну висоту */
+    margin-right: var(--space-md);
+    margin-top: 3vh;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .hero-image-center {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+    flex-shrink: 1;
+  }
+
+  .hero-image-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: auto;
+  }
+
+  .hero-img {
+    max-width: 70%;
+    max-height: 50vh; /* Обмежуємо висоту зображення */
+    height: auto;
+    display: block;
+  }
+
+  .hero-background-circles {
+    position: absolute;
+    bottom: 0;
+    width: 140%;
+    height: auto;
+    z-index: 0;
+    max-height: 60vh; /* Обмежуємо висоту кіл */
+  }
+
+  .hero-actions-overlay {
+    position: absolute;
+    bottom: 5%; /* Підтягуємо вище */
+    z-index: 6;
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .hero-image-center .btn-secondary, 
+  .hero-image-center .btn-primary {
+    font-size: clamp(0.8rem, 2vw, var(--font-size-lg));
+    padding: var(--space-sm) var(--space-md); /* Зменшуємо padding кнопок */
+  }
+
+  .rating-text {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Комбіновані медіа-запити для мобільних з низькою висотою */
+@media screen and (max-width: 1024px) and (max-height: 700px) {
+  .hero-content {
+    gap: var(--space-sm);
+    justify-content: flex-start;
+    padding: var(--space-sm) var(--space-md) 0;
+  }
+  
+  .hero-text-left {
+    transform: translateY(10%);
+  }
+  
+  .hero-img {
+    max-height: 40vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 8%;
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Планшети (до 768px) */
+@media screen and (max-width: 768px) {
+  
+  .hero-title {
+    margin-bottom: 0.5rem; /* Зменшуємо відступ */
+    font-size: clamp(1.8rem, 8vw, 3rem);
+    line-height: var(--line-height-tight);
+    padding: 5vh 0;
+  }
+
+  .hero-content {
+    gap: var(--space-sm); /* Зменшуємо gap */
+    max-width: 100%;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+    padding-bottom: 0;
+  }
+
+  .hero-text-left {
+    width: 90%;
+  }
+
+  .hero-description {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+
+  .hero-img {
+    max-width: 80%;
+    max-height: 45vh; /* Обмежуємо висоту */
+  }
+
+  .hero-actions-overlay {
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+    bottom: 8%; /* Підтягуємо вище */
   }
 
   .rating-stars {
-    font-size: 2rem;
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 
   .rating-text strong {
-    font-size: var(--font-size-2xl);
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: var(--space-sm); /* Зменшуємо padding */
+    box-shadow: 5px 0px 1px white, -5px 0px 1px white, 0px 5px 1px white, 0px -5px 1px white;
+    font-size: 0.9rem;
+  }
+
+  .hero-text-left::before { 
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    transform: scale(0.5);
+    transform-origin: top left;
   }
 }
 
-/* ===== GUARANTEES SECTION ===== */
+/* Мобільні з малою висотою */
+@media screen and (max-width: 768px) and (max-height: 600px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    margin-bottom: 0.25rem;
+  }
+  
+  .hero-img {
+    max-height: 35vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 12%;
+  }
+  
+  .hero-rating-right {
+    min-height: 100px;
+    margin: var(--space-xs) 0;
+  }
+}
 
-/* Ноутбуки */
-@media (max-width: 992px) {
-  .guarantees-content {
-    grid-template-columns: 1fr 1.5fr;
-    gap: var(--space-2xl);
+/* Мобільні (до 480px) */
+@media screen and (max-width: 480px) {
+  
+  .hero-content {
+    padding: 0;
+    gap: var(--space-xs); /* Мінімальний gap */
   }
 
-  .guarantees-image-container {
-    width: 90%;
+  .hero-title {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: 0.5rem 0.8rem; /* Ще менший padding */
+    font-size: 0.8rem;
+  }
+  
+  .hero-img {
+    max-height: 40vh;
+  }
+  
+  .circle-outer {
+    width: min(600px, 120vw);
+    height: min(300px, 60vw);
+  }
+  
+  .circle-middle {
+    width: min(520px, 104vw);
+    height: min(260px, 52vw);
+  }
+  
+  .circle-inner {
+    width: min(440px, 88vw);
+    height: min(220px, 44vw);
   }
 
-  .guarantees-img {
-    width: 90%;
+  .hero-rating-right {
+    margin-right: var(--space-md);
   }
 
+}
+
+/* Дуже низькі мобільні екрани */
+@media screen and (max-width: 480px) and (max-height: 500px) {
+  .hero-actions-overlay {
+    bottom: 15%;
+  }
+  
+  .hero-img {
+    max-height: 25vh;
+  }
+  
+  .hero-background-circles {
+    max-height: 40vh;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .hero {
+    overflow: visible;
+  }
+}
+
+/* Додаткові медіа-запити для кращої адаптації контенту */
+
+/* Проміжний розмір між десктопом і планшетом (1025px - 1200px) */
+@media screen and (min-width: 1025px) and (max-width: 1200px) and (max-height: 900px) {
+  .hero {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .hero-content {
+    max-width: 90%;
+    height: 90vh;
+    justify-content: space-between;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    padding: 4vh 0;
+  }
+  
+  .hero-text-left {
+    transform: translateY(0);
+    padding-right: var(--space-sm);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  }
+  
+  .hero-rating-right {
+    padding-bottom: 8vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 8%;
+  }
+  
+  .circle-outer {
+    width: min(800px, 80vw);
+    height: min(400px, 40vw);
+  }
+
+  .circle-middle {
+    width: min(720px, 72vw);
+    height: min(360px, 36vw);
+  }
+
+  .circle-inner {
+    width: min(640px, 64vw);
+    height: min(320px, 32vw);
+  }
+}
+
+/* Малі ноутбуки і великі планшети в landscape (900px - 1024px) */
+@media screen and (min-width: 900px) and (max-width: 1024px) and (max-height: 800px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    padding: 3vh 0 1vh;
+    margin-bottom: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    gap: var(--space-sm);
+    height: calc(100vh - 8vh);
+  }
+
+  .hero-text-left {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    transform: translateY(0);
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .hero-description {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    text-align: center;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-rating-right {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100px;
+    margin: var(--space-sm) 0;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .hero-image-center {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+  }
+
+  .hero-img {
+    max-width: 65%;
+    max-height: 45vh;
+    height: auto;
+  }
+
+  .hero-background-circles {
+    max-height: 55vh;
+  }
+
+  .hero-actions-overlay {
+    position: absolute;
+    bottom: 10%;
+    z-index: 6;
+    gap: var(--space-sm);
+  }
+
+  .hero-actions-overlay .btn {
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .rating-stars {
+    font-size: clamp(2.5rem, 5vw, 3.2rem);
+  }
+}
+
+/* Дуже малі екрани в landscape режимі */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (max-height: 600px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    padding: 2vh 0 1vh;
+  }
+  
+  .hero-content {
+    gap: var(--space-xs);
+    height: calc(100vh - 4vh);
+  }
+  
+  .hero-img {
+    max-height: 35vh;
+  }
+  
+  .hero-background-circles {
+    max-height: 40vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 15%;
+  }
+  
+  .hero-rating-right {
+    min-height: 80px;
+    margin: var(--space-xs) 0;
+  }
+  
+  .rating-stars {
+    font-size: 2.5rem;
+  }
+}
+
+/* Планшети в portrait режимі (768px - 900px) */
+@media screen and (min-width: 769px) and (max-width: 900px) and (orientation: portrait) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    padding: 4vh 0 2vh;
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-md);
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-text-left {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(0);
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: justify;
+  }
+
+  .hero-rating-right {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 130px;
+    margin: var(--space-md) 0;
+  }
+
+  .hero-image-center {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+  }
+
+  .hero-img {
+    max-width: 70%;
+    max-height: 50vh;
+  }
+
+  .hero-actions-overlay {
+    position: absolute;
+    bottom: 8%;
+    z-index: 6;
+  }
+}
+
+/* Малі планшети і великі телефони в landscape (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) and (max-height: 500px) {
+  .hero {
+    min-height: 100vh;
+    overflow: visible;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    padding: 2vh 0 1vh;
+  }
+  
+  .hero-content {
+    gap: var(--space-xs);
+    justify-content: flex-start;
+    padding-top: var(--space-sm);
+  }
+  
+  .hero-text-left {
+    transform: translateY(0);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .hero-img {
+    max-height: 25vh;
+    max-width: 60%;
+  }
+  
+  .hero-background-circles {
+    max-height: 35vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 20%;
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .hero-rating-right {
+    min-height: 70px;
+    margin: var(--space-xs) 0;
+  }
+  
+  .rating-stars {
+    font-size: 2rem;
+  }
+  
+  .rating-text strong {
+    font-size: 1.5rem;
+  }
+}
+
+/* Дуже малі landscape екрани */
+@media screen and (max-width: 900px) and (max-height: 450px) {
+  .hero {
+    overflow: visible;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    padding: 1.5vh 0 0.5vh;
+    margin-bottom: 0;
+  }
+  
+  .hero-content {
+    gap: 0.5rem;
+    justify-content: flex-start;
+    padding: 0.5rem;
+    height: auto;
+  }
+  
+  .hero-text-left {
+    transform: translateY(0);
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-description {
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-img {
+    max-height: 20vh;
+    max-width: 50%;
+  }
+  
+  .hero-background-circles {
+    max-height: 25vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 25%;
+  }
+  
+  .hero-actions-overlay .btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  .hero-rating-right {
+    min-height: 60px;
+    margin: 0.5rem 0;
+  }
+  
+  .rating-stars {
+    font-size: 1.8rem;
+  }
+  
+  .rating-text strong {
+    font-size: 1.3rem;
+  }
+}
+
+/* Спеціальний випадок для square екранів (приблизно квадратні пропорції) */
+@media screen and (max-width: 900px) and (min-aspect-ratio: 0.8) and (max-aspect-ratio: 1.2) {
+  .hero-img {
+    max-height: 40vh;
+  }
+  
+  .hero-actions-overlay {
+    bottom: 12%;
+  }
+  
+  .hero-background-circles {
+    max-height: 45vh;
+  }
+}
+
+/* Спеціальне правило для малих ноутбуків - адаптація по висоті контенту */
+@media screen and (max-width: 900px) and (max-height: 800px) {
+  .hero {
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm) 0;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    padding: var(--space-sm) 0;
+    margin-bottom: var(--space-lg);
+    flex-shrink: 0;
+  }
+
+  .hero-content {
+    flex: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-sm);
+    max-width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--space-lg);
+    height: auto;
+  }
+
+  .hero-text-left {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    transform: none !important;
+    z-index: 2;
+    /* margin-bottom: var(--space-sm); */
+    flex: 1;
+  }
+
+  .hero-text-left::before {
+    transform: scale(0.5);
+    left: 0;
+    top: 0;
+  }
+
+  .hero-description {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    text-align: center;
+    /* margin-bottom: var(--space-md); */
+    line-height: var(--line-height-relaxed);
+  }
+
+  .hero-rating-right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    margin: 0;
+    z-index: 2;
+    flex: 1;
+    padding-bottom: 0;
+  }
+
+  .hero-image-center {
+    position: relative !important;
+    order: 3;
+    flex: 2;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .hero-image-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: auto;
+    position: relative;
+  }
+
+  .hero-img {
+    max-width: 70%;
+    /* max-height: 35vh; */
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin-top: calc(var(--space-lg) * -1);
+  }
+
+  .hero-background-circles {
+    position: absolute;
+    bottom: -10%;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    max-height: 40vh;
+  }
+
+  /* .hero-actions-overlay {
+    position: relative !important;
+    order: 4;
+    bottom: auto !important;
+    z-index: 6;
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-md);
+    padding: 0;
+  } */
+
+  .hero-actions-overlay .btn {
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+    padding: var(--space-sm) var(--space-md);
+    white-space: nowrap;
+  }
+
+  .rating-stars {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .rating-text {
+    margin-bottom: var(--space-sm);
+  }
+
+  .rating-text strong {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  /* Зменшуємо кола для цього випадку */
+  .circle-outer {
+    width: min(500px, 100vw);
+    height: min(250px, 50vw);
+  }
+
+  .circle-middle {
+    width: min(420px, 84vw);
+    height: min(210px, 42vw);
+  }
+
+  .circle-inner {
+    width: min(340px, 68vw);
+    height: min(170px, 34vw);
+  }
+}
+
+/* =========== GUARANTEES AND SERVICES ================== */
+@media screen and (min-width: 1024px) and (max-height: 800px) {
+  .guarantees-content,
+  .services-grid,
+  .reviews-slider {
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-height: 700px) {
+  .guarantees-content,
+  .services-grid,
+  .reviews-slider {
+    transform: scale(0.75);
+    transform-origin: top center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-3xl);
+  }
   .lightbulb-icon {
-    bottom: 35%;
-    right: -45%;
+    right: -35%;
   }
-
-  .lightbulb-icon img{
-    width: 80%;
-  }
-
-  .guarantee-item:nth-of-type(1) {
-    margin-left: -5%;
-  }
-
-  .guarantee-item:nth-of-type(3) {
-    margin-left: -2%;
+  .guarantees {
+    padding-bottom: var(--space-2xl);
   }
 }
-/* Планшети */
+
 @media (max-width: 768px) {
   .guarantees {
     padding: var(--space-4xl) 0;
   }
 
   .guarantees-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-3xl);
   }
 
   .guarantees-image-container {
     width: 80%;
-    margin: 0 auto;
+    margin: 0;                   /* прибираємо автоцентр */
+    display: flex;
+    justify-content: center; /* вирівнюємо вліво */
+    align-items: center;
   }
 
   .guarantees-img {
-    display: block;
     width: 50%;
-    margin: 0 auto;
+    height: auto;
+    /* border-radius: 50%;          
+    object-fit: cover;           /* заповнює круг */
+    margin: 0;                   /* прибираємо центрування */
   }
 
   .lightbulb-icon {
-    bottom: 20%;
-    right: -10%;
-  }
+    /* top: -50%;*/
+    right: -10%; 
+    transform: scale(0.8);
+  } 
 
   .guarantees-list {
     gap: var(--space-xl);
@@ -434,257 +1165,283 @@
 }
 
 
+/* Звичайний адаптив по ширині */
+@media (max-width: 1200px) {
+  .services, .reviews { padding: var(--space-4xl) 0; }
+}
 
-/* Мобільні пристрої */
-@media (max-width: 576px) {
-  .guarantees {
-    padding: var(--space-3xl) 0;
-  }
+@media (max-width: 1024px) {
+  .services, .reviews { padding: var(--space-3xl) 0; }
+}
 
-  .guarantees-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .guarantees-image-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
+@media (max-width: 768px) {
+  .services, .reviews { padding: var(--space-2xl) 0; }
   .guarantees-img {
     width: var(--guarantees-img-size-mobile);
     height: var(--guarantees-img-size-mobile);
   }
-
   .lightbulb-icon {
-    bottom: 10%;
-    right: 0%;
-    transform: translateX(0);
+    bottom: 5%;
+    right: -70%;
     padding: var(--space-sm);
   }
-
-  .lightbulb-icon img{
-    width: 60%;
-  }
-
-  .guarantees-list {
-    gap: var(--space-md);
-  }
-
-  .guarantee-item {
-    margin-left: 0 !important; /* Override specific margins for mobile */
-    padding: var(--space-md);
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0;
-  }
-
-  .guarantee-icon {
-    margin-bottom: var(--space-sm);
-  }
-
-  .guarantee-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-md);
-  }
-
-  .guarantee-text {
-    font-size: var(--font-size-sm);
-  }
-}
-
-
-/* ===== REFERRAL SECTION ===== */
-@media (max-width: 1400px) {
-  .referral::before {
-    width: 60vw;
-    height: 60vw;
-    top: 0;
-    left: -20%;
-  }
-
-  .phone-hands::before {
-    width: 50vw;
-    height: 50vw;
-    right: -35%;
-    opacity: 0.5;
-  }
-
-  .referral-image {
-    right: 0;
-  }
-
-  .phone-hands img {
-    width: 80%;
-    top: 30%;
-    right: -25%;
-  }
-
-}
-
-@media (max-width: 1200px) {
-  .phone-hands img {
+  .lightbulb-icon img {
     width: 70%;
-    top: 45%;
-    right: -42%;
-  }
-
-  .phone-hands::before {
-    top: 130%;
-    right: -30%;
   }
 }
 
-/* Ноутбуки */
-@media (max-width: 992px) {
+@media (max-width: 480px) {
+  .services, .reviews { padding: var(--space-xl) 0; }
+  .services-wrapper {
+    padding-left: var(--space-md);
+  }
+
+  .reviews-wrapper {
+    padding-left: var(--space-md);
+  }
+
+}
+
+/* ВИСОТА <800px → зменшуємо контент, а не контейнер */
+@media (min-width: 1025px) and (max-height: 800px) {
+  .services {
+    padding: var(--space-2xl) 0; /* трохи менші відступи */
+  }
+
+  .reviews {
+    padding-bottom: var(--space-sm);
+  }
+
+  .reviews .section-title {
+    margin-bottom: 0;
+  }
+
+  .services-grid {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+ 
+ .reviews-content {
+  transform: scale(0.85);
+ } 
+
+  .service-card, 
+  .phone-mockup {
+    font-size: 90%;
+    padding: calc(var(--space-xl) * 0.8);
+  }
+
+  .service-title { font-size: calc(var(--font-size-xl) * 0.9); }
+  .service-price { font-size: calc(var(--font-size-sm) * 0.9); }
+  .reviews-slider { gap: var(--space-xl); }
+  /* .phone-mockup img { max-height: 85%; } */
+}
+
+
+/* ===================== 1440px ===================== */
+@media (max-width: 1440px) {
+  .referral .container {
+    width: 90%;
+    min-height: 40vh;
+  }
+
+  /* текстова частина ширша */
   .referral-content {
-    gap: var(--space-3xl);
+    width: 80%;
+    justify-content: flex-start;
   }
 
-  .referral-title {
-    font-size: var(--font-size-4xl);
-  }
+  /* зменшуємо кола */
+  .referral-circle-outer { width: min(900px, 75vw); }
+  .referral-circle-middle { width: min(800px, 65vw); }
+  .referral-circle-inner { width: min(700px, 55vw); }
 
-  .phone-hands img {
-    width: 40%;
-    top: 145%;
-    right: -70%;
-  }
-
-  .phone-hands::before {
-    top: 250%;
-    right: -20%;
-    width: 40vw;
-    height: 40vw;
-    
-  }
-
+  /* телефон */
+  .referral-circles-background .phone-hands { width: 70%; }
 }
 
+/* ===================== 1200px ===================== */
+@media (max-width: 1280px) {
+  .referral .container {
+    width: 90%;
+    min-height: 35vh;
+  }
+
+  .referral-content {
+    width: 85%;
+    justify-content: flex-start;
+  }
+
+  .referral-circle-outer { 
+  width: min(750px, 55vw); 
+}
+.referral-circle-middle { 
+  width: min(600px, 45vw); 
+}
+.referral-circle-inner { 
+  width: min(480px, 38vw); 
+}
+
+  .referral-circles-background .phone-hands { width: 50%; }
+}
+
+/* ===================== 1024px ===================== */
+@media (max-width: 1024px) {
+  .referral .container { width: 90%; min-height: 30vh; }
+  .referral-content { width: 70%; justify-content: center; }
+
+  .referral-title { font-size: var(--font-size-3xl); }
+  .benefit-text { font-size: var(--font-size-base); }
+  .discount-percent { font-size: var(--font-size-2xl); }
+
+  .referral-circle-outer { width: min(700px, 70vw); }
+  .referral-circle-middle { width: min(550px, 55vw); }
+  .referral-circle-inner { width: min(450px, 45vw); }
+  /* .referral-circles-background .phone-hands { max-width: 250px; } */
+}
+
+/* ===================== 768px ===================== */
 @media (max-width: 768px) {
   .referral {
-    padding: var(--space-4xl) 0;
+    padding-bottom: 0;
   }
 
   .referral .container {
-    height: auto;
-    /* padding-bottom: var(--space-5xl); */
-  }
-
-  .referral::before {
-    top: 100%;
-    left: 5%;
-    width: 85vh;
-    height: 85vh;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .referral-content {
-    flex-direction: column;
-    gap: 0;
+    width: 100%;
   }
 
-  .referral-title {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--space-3xl);
+
+  .referral-circles-background {
+    position: relative;
+    width: 100%;
+    height: clamp(100px, 25vw, 200px); /* висота адаптивна */
   }
 
-  .referral-image {
-    position: static;
-  }
-
-  .phone-hands::before {
-    top: 110%;
-    right: -25%;
-    width: 100vw;
-    height: 100vw;
-    /* border: 80px solid rgba(0, 122, 255, 0.2); */
-  }
-
-  .phone-hands img {
-    width: 90%;
-    top: 18%;
-    right: -15%;
-  }
-
-  .benefit-item {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .referral-benefits {
-    gap: var(--space-sm);
-  }
-
-  .referral-image {
-    margin-top: calc(var(--space-4xl) * -1);
-  }
-
-  
+  /* === Кола === */
+.referral-circle-outer,
+.referral-circle-middle,
+.referral-circle-inner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(20%, 20%); /* трохи виходять за межі */
+  display: block;
+  margin: 0 auto;
 }
 
-@media (max-width: 576px) {
+.referral-circle-outer {
+  width: clamp(350px, 85vw, 700px); /* збільшено */
+  z-index: 1;
+}
+
+.referral-circle-middle {
+  width: clamp(280px, 75vw, 600px); /* збільшено */
+  z-index: 2;
+}
+
+.referral-circle-inner {
+  width: clamp(220px, 65vw, 500px); /* збільшено */
+  z-index: 3;
+}
+
+/* === Фото руки — поверх кіл === */
+.referral-circles-background .phone-hands {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: clamp(180px, 45vw, 350px); /* збільшено */
+  z-index: 10;
+}
+}
+
+
+/* ===================== 480px ===================== */
+@media (max-width: 480px) {
   .referral {
-    padding: var(--space-3xl) 0;
+    padding-bottom: 0;
   }
 
   .referral .container {
-    height: auto;
-    padding-bottom: var(--space-4xl);
-  }
-
-  
-  .referral-title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--space-3xl);
-  }
-
-  .referral-benefits {
+    width: 100%;
+    justify-content: center;
     align-items: center;
-  }
-
-  .benefit-item {
-    flex-direction: column;
-    gap: var(--space-sm);
     text-align: center;
   }
 
-  .benefit-text {
-    font-size: var(--font-size-base);
+  .referral-content {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
   }
 
-  .discount-percent {
-    font-size: var(--font-size-2xl);
+  .referral-title { 
+    font-size: var(--font-size-3xl); 
   }
+  .benefit-text { font-size: var(--font-size-sm); }
+  .discount-percent { font-size: var(--font-size-lg); }
+  .discount-text { font-size: var(--font-size-sm); }
 
-.referral::before {
-    top: 100%;
-    left: 0;
-    width: 130vw;
-    height: 130vw;
-  }
-
-  .phone-hands::before {
-    top: 120%;
-    right: -20%;
-    width: 100vw;
-    height: 100vw;
-    /* border: 80px solid rgba(0, 122, 255, 0.2); */
-  }
-
-  .phone-hands img {
-    width: 90%;
-    top: 35%;
-    right: -15%;
-  }
-
-  .referral-image {
-    margin-top: calc(var(--space-4xl) * -1);
-  } 
+  .referral-benefits > .benefit-item:first-child {
+  flex-direction: column;
 }
 
-/* ===== ORDER FORM SECTION ===== */
+  /* === Блок для кіл і телефону === */
+  .referral-circles-background {
+    position: relative;
+    width: 100%;
+    height: clamp(150px, 35vw, 250px); /* адаптивна висота */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
+  }
+
+  /* === Кола === */
+  .referral-circle-outer,
+  .referral-circle-middle,
+  .referral-circle-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(20%, 20%);
+    display: block;
+    margin: 0 auto;
+  }
+
+  .referral-circle-outer {
+    width: clamp(280px, 85vw, 500px); /* більше */
+    z-index: 1;
+  }
+
+  .referral-circle-middle {
+    width: clamp(220px, 75vw, 400px); /* більше */
+    z-index: 2;
+  }
+
+  .referral-circle-inner {
+    width: clamp(180px, 65vw, 320px); /* більше */
+    z-index: 3;
+  }
+
+  /* === Фото руки — поверх усіх === */
+  .referral-circles-background .phone-hands {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: clamp(150px, 55vw, 280px); /* фото також більше */
+    z-index: 10;
+  }
+}
+
+
+
 
 /* Ноутбуки */
 @media (max-width: 992px) {
@@ -795,6 +1552,8 @@
     padding: var(--space-md);
   }
 }
+
+
 
 /* =============== FOOTER =================== */
 @media (max-width: 1200px) {
@@ -1123,18 +1882,18 @@
   }
 
   .content-block-title {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
   }
 
   .content-block p {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     margin-bottom: var(--space-sm);
   }
 
   .styled-list li {
     padding-left: var(--space-md);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     margin-bottom: var(--space-xs);
   }
 
@@ -1247,7 +2006,7 @@
     margin-bottom: var(--space-sm);
   }
 
-  .content-block p {
+  /* .content-block p {
     font-size: var(--font-size-xs);
     margin-bottom: var(--space-sm);
   }
@@ -1262,7 +2021,7 @@
     top: 0.3em;
     width: 5px;
     height: 5px;
-  }
+  } */
 
   .warning-block {
     padding: var(--space-xs);
@@ -1674,6 +2433,12 @@
     height: auto;
   }
 
+  .coop-book {
+    transform: scale(0.3);
+    top: -80%;
+    right: 0;
+  }
+
   .collab-options-content {
     grid-template-columns: 1fr;
   }
@@ -1684,9 +2449,9 @@
     margin: 0 auto;
   }
 
-  .guarantees-image {
+  /* .guarantees-image {
     display: none;
-  }
+  } */
 
   .collab-options-img {
     /* height: 200px; */
@@ -1789,15 +2554,15 @@
     height: 35px;
   }
 
-  
+  .coop-book {
+    transform: scale(0.4);
+    top: -50%;
+    right: -5%;
+  }
+
   .collab-option-text,
   .collab-option-contact {
     font-size: var(--font-size-xs);
-  }
-
-  /* Іконку книги ховаємо */
-  .coop-book {
-    display: none;
   }
 
   /* Контактна форма */
@@ -1868,12 +2633,12 @@
 
   .faq-trigger {
     padding: var(--space-md) var(--space-lg);
-    font-size: var(--font-size-base);
+    /* font-size: var(--font-size-base); */
   }
 
-  .faq-content p {
+  /* .faq-content p {
     font-size: var(--font-size-sm);
-  }
+  } */
 }
 
 /* Десктопи (до 1200px) */
@@ -1941,8 +2706,8 @@
   }
 
   .faq-trigger {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-sm);
+    padding: var(--space-md) var(--space-md);
+    font-size: var(--font-size-base);
   }
 
   .faq-icon {
@@ -1950,7 +2715,7 @@
   }
 
   .faq-content p {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
   }
 }
 
@@ -2103,16 +2868,16 @@
 
   .faq-trigger {
     padding: var(--space-xs) var(--space-sm);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-base);
   }
 
   .faq-icon {
     font-size: var(--font-size-sm);
   }
 
-  /* .faq-content p {
-    font-size: 0.75rem;
-  } */
+  .faq-content p {
+    font-size: var(--font-size-sm);
+  }
 }
 
 /* Мобільні пристрої */
@@ -2193,7 +2958,7 @@
 
   .faq-trigger {
     padding: var(--space-xs);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
   }
 
   .faq-icon {
@@ -2209,6 +2974,10 @@
     padding-bottom: var(--space-xs);
   }
 
+  .faq-content p {
+    font-size: var(--font-size-xs);
+  }
+
   /* .faq-content p {
     font-size: 0.7rem;
   } */
@@ -2221,6 +2990,7 @@
   .single-article-section {
     padding: var(--space-2xl) 0;
   }
+
 
   .article-title {
     font-size: clamp(2.8rem, 2.5rem + 0.6vw, 3.2rem);
@@ -2307,10 +3077,6 @@
 
   .article-hero-image img {
     height: 250px;
-  }
-
-  .article-content {
-    font-size: var(--font-size-sm);
   }
 
   .article-content h3 {
@@ -2464,12 +3230,9 @@
 /* Планшети */
 @media (max-width: 768px) {
   .single-article-section {
-    padding: var(--space-md);
-  }
-
-  .breadcrumb {
-    font-size: var(--font-size-xs);
-  }
+  padding: var(--space-md);
+  width: 100%;
+}
 
   .article-title {
     font-size: var(--font-size-xl);
@@ -2485,18 +3248,18 @@
   }
 
   .article-content {
-    font-size: 0.8rem; /* Smaller font size */
+    font-size: var(--font-size-sm);
   }
 
   .article-content h3 {
-    font-size: var(--font-size-sm);
-    margin-top: var(--space-sm);
+    font-size: var(--font-size-md);
+    margin-top: var(--space-md);
     margin-bottom: var(--space-xs);
   }
 
   .article-content h4 {
-    font-size: var(--font-size-xs);
-    margin-top: var(--space-xs);
+    font-size: var(--font-size-md);
+    margin-top: var(--space-md);
     margin-bottom: 0;
   }
 
@@ -2507,7 +3270,7 @@
 
   .article-content ul li,
   .article-content ol li {
-    font-size: 0.8rem;
+    font-size: var(--font-size-sm);
     margin-bottom: var(--space-xs);
   }
 
@@ -2559,7 +3322,7 @@
   }
 
   .breadcrumb {
-    font-size: 0.7rem;
+    padding-top: var(--space-sm);
   }
 
   .article-title {
@@ -2575,7 +3338,7 @@
     height: 120px;
   }
 
-  .article-content {
+  /* .article-content {
     font-size: 0.75rem;
   }
 
@@ -2605,7 +3368,7 @@
   .article-section-highlight {
     padding: var(--space-md);
     margin: var(--space-md) 0;
-  }
+  } */
 
   .back-to-blog {
     margin-top: var(--space-sm);
@@ -3343,7 +4106,7 @@
   }
 
   .breadcrumb {
-    font-size: var(--font-size-xs);
+    /* font-size: var(--font-size-xs); */
     margin-bottom: var(--space-md);
   }
 
@@ -3625,7 +4388,6 @@
     height: 70px;
   }
 }
-
 @media (max-width: 768px) {
   .contacts-hero-section {
     padding-bottom: var(--space-2xl);
@@ -3643,9 +4405,30 @@
   .contact-card {
     min-height: auto;
     padding: var(--space-md);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Змінено з center на flex-start */
+    align-items: center;
+    gap: var(--space-md);
+    text-align: left;
+  }
+  .contact-card-icon {
+    flex-shrink: 0; /* Іконка не зменшується */
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0; /* Прибираємо нижній відступ */
+  }
+  .contact-card-content {
+    flex: 1; /* Контент займає всю доступну ширину */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Центруємо текст по горизонталі */
+    text-align: center; /* Центруємо текст */
   }
   .contact-card-title {
     font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
   }
   .contact-card-text {
     font-size: var(--font-size-sm);
@@ -3663,13 +4446,26 @@
     padding: 0 var(--space-sm);
   }
   .contact-card {
-    padding: var(--space-sm);
-    text-align: center;
+    padding: var(--space-md);
+    display: flex;
+    justify-content: flex-start; /* Іконка зліва */
+    align-items: center; /* Змінено з flex-start на center */
+    gap: var(--space-sm);
+    text-align: left;
   }
   .contact-card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: var(--space-sm);
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0; /* Прибираємо нижній відступ */
+  }
+  .contact-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Центруємо текст по горизонталі */
+    text-align: center; /* Центруємо текст */
   }
   .footer-social {
     gap: var(--space-sm);
@@ -3679,7 +4475,6 @@
     height: 40px;
   }
 }
-
 
 /* ===== HAMBURGER MENU STYLES ===== */
 
@@ -3968,3 +4763,11 @@ body.mobile-menu-open .mobile-menu-content {
 @media (max-width: 992px) {}
 @media (max-width: 768px) {}
 @media (max-width: 576px) {}
+
+
+
+@media (max-width: 1280px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 768px) {}
+@media (max-width: 480px) {}
+

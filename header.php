@@ -27,11 +27,6 @@
     <style>
         .hero-text-left::before {
             content: url('<?php echo get_template_directory_uri(); ?>/assets/quote.png');
-            z-index: -1;
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            top: 6%;
         }
     </style>
 </head>
@@ -90,7 +85,7 @@
             </div>
         </div>
     </header>
-    <div id="content" class="site-content">
+
     </div>
 
     <!-- Mobile Menu Overlay -->

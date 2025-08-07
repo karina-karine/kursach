@@ -50,24 +50,35 @@ function kursach_help_enqueue_assets()
     wp_enqueue_style('services-styles', get_template_directory_uri() . '/css/services-styles.css', array(), '1.0.0', 'all');
     wp_enqueue_style('single-article-styles', get_template_directory_uri() . '/css/single-article-styles.css', array(), '1.0.0', 'all');
     wp_enqueue_style('media-style', get_template_directory_uri() . '/css/media.css', array(), '1.0.0', 'all');
+
     // Оновлений шлях до script.js
     wp_enqueue_script('kursach-help-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
+
     // Локалізація даних для JavaScript (AJAX URL, nonce, Home URL, servicesData)
     // Переконайтеся, що файл services_data.php існує та містить функцію get_services_data()
-    // Якщо services_data.php не існує, цей рядок викличе фатальну помилку.
-    // Для безпеки, можна додати перевірку file_exists()
     if (file_exists(get_template_directory() . '/services_data.php')) {
         require_once get_template_directory() . '/services_data.php';
         $services = get_services_data();
     } else {
         $services = []; // Порожній масив, якщо файл не знайдено
     }
+
+    // --- НОВА ЛОГІКА ДЛЯ ВИЗНАЧЕННЯ ПОЧАТКОВОГО СТАНУ ПОСЛУГ ---
+    $current_service_id_from_url = isset($_GET['service_id']) ? sanitize_text_field($_GET['service_id']) : null;
+    $is_valid_service_id = ($current_service_id_from_url && isset($services[$current_service_id_from_url]));
+
+    $first_service_id = array_key_first($services);
+    $service_to_display_id = $is_valid_service_id ? $current_service_id_from_url : $first_service_id;
+    // --- КІНЕЦЬ НОВОЇ ЛОГІКИ ---
+
     wp_localize_script('kursach-help-script', 'kursachHelpAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
         'order_form_nonce' => wp_create_nonce('order_form_nonce'),
         'contact_form_nonce' => wp_create_nonce('contact_form_nonce'),
         'homeUrl' => home_url('/'),
         'servicesData' => $services, // Передача даних послуг
+        'initialServiceIdFromPHP' => $service_to_display_id, // Передача початкового ID послуги
+        'isSingleServiceViewFromPHP' => $is_valid_service_id, // Передача стану відображення
     ));
 }
 // Залишаємо лише один виклик add_action для wp_enqueue_scripts
@@ -92,7 +103,6 @@ function submit_order_form_ajax_handler()
     $due_date = sanitize_text_field($_POST['due_date']);
     $uniqueness = sanitize_text_field($_POST['uniqueness']);
     $description = sanitize_textarea_field($_POST['work_description']);
-
     // Базова валідація
     if (empty($name) || empty($email) || empty($phone) || empty($work_type) || empty($due_date)) {
         wp_send_json_error('Будь ласка, заповніть всі обов\'язкові поля форми замовлення.');
@@ -100,7 +110,6 @@ function submit_order_form_ajax_handler()
     if (!is_email($email)) {
         wp_send_json_error('Будь ласка, введіть дійсну адресу електронної пошти у формі замовлення.');
     }
-
     // Формування HTML тіла електронного листа з таблицею
     $message_html = '
         <p>Отримано нове замовлення роботи з сайту:</p>
@@ -142,7 +151,6 @@ function submit_order_form_ajax_handler()
                 <td style="padding: 10px; border: 1px solid #ddd;">' . nl2br(esc_html($description)) . '</td>
             </tr>
     ';
-
     $attachments = array();
     $uploaded_file_names = array();
     // Обробка завантажених файлів
@@ -161,9 +169,9 @@ function submit_order_form_ajax_handler()
         }
         if (!empty($uploaded_file_names)) {
             $message_html .= '<tr>
-                                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Прикріплені файли:</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html(implode(', ', $uploaded_file_names)) . '</td>
-                              </tr>';
+                                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Прикріплені файли:</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html(implode(', ', $uploaded_file_names)) . '</td>
+                                    </tr>';
         }
     }
     $message_html .= '</table>';
@@ -205,6 +213,7 @@ function submit_contact_form_ajax_handler()
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'contact_form_nonce')) {
         wp_send_json_error('Помилка безпеки: недійсний токен контактної форми.');
     }
+
     // Санітизація та валідація даних форми
     $name = sanitize_text_field($_POST['user_name']);
     $email = sanitize_email($_POST['user_email']);
@@ -259,3 +268,4 @@ function submit_contact_form_ajax_handler()
 }
 add_action('wp_ajax_submit_contact_form', 'submit_contact_form_ajax_handler');
 add_action('wp_ajax_nopriv_submit_contact_form', 'submit_contact_form_ajax_handler');
+?>

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 /*
 Template Name: Service Details Page
 */
@@ -17,22 +17,19 @@ if ($current_service_id && isset($services[$current_service_id])) {
     // Fallback to the first service if ID is not found or not provided
     $first_service_id = array_key_first($services);
     $current_service = $services[$first_service_id];
-    $current_service_id = $first_service_id;
+    $current_service_id = $first_service_id; // Ensure current_service_id is set for JS
 }
 ?>
 
 <main class="main-content">
-
     <section class="service-details-section">
         <div class="container">
             <div class="breadcrumb">
-                <a href="<?php echo home_url(); ?>">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
+                <a href="<?php echo home_url(); ?>">Головна</a>
                 / <a href="<?php echo home_url('/services/'); ?>">Наші послуги</a>
-                <!-- Посилання на сторінку, якщо вона буде, або просто текст -->
                 / <span id="detail-breadcrumb-title"><?php echo esc_html($current_service['name']); ?></span>
             </div>
             <h1 class="section-title" id="detail-title"><?php echo esc_html($current_service['name']); ?></h1>
-
             <div class="service-details-content">
                 <div class="service-details-sidebar">
                     <h3 class="sidebar-title">Інші послуги</h3>
@@ -66,12 +63,10 @@ if ($current_service_id && isset($services[$current_service_id])) {
                             </p>
                         </div>
                     </div>
-
                     <div class="service-details-full-description" id="detail-full-description">
                         <h3>Повний опис</h3>
                         <p><?php echo nl2br(esc_html($current_service['full_description'])); ?></p>
                     </div>
-
                     <?php if (!empty($current_service['features'])): ?>
                         <div class="service-details-features">
                             <h3>Особливості послуги</h3>
@@ -82,7 +77,6 @@ if ($current_service_id && isset($services[$current_service_id])) {
                             </ul>
                         </div>
                     <?php endif; ?>
-
                     <?php if (!empty($current_service['requirements'])): ?>
                         <div class="service-details-requirements">
                             <h3>Що потрібно від вас</h3>
@@ -93,7 +87,6 @@ if ($current_service_id && isset($services[$current_service_id])) {
                             </ul>
                         </div>
                     <?php endif; ?>
-
                     <?php if (!empty($current_service['process'])): ?>
                         <div class="service-details-process">
                             <h3>Процес виконання</h3>
@@ -104,7 +97,6 @@ if ($current_service_id && isset($services[$current_service_id])) {
                             </ol>
                         </div>
                     <?php endif; ?>
-
                     <a href="<?php echo home_url('#orderForm'); ?>" class="btn btn-primary order-service-btn">Замовити
                         послугу</a>
                 </div>
@@ -114,8 +106,7 @@ if ($current_service_id && isset($services[$current_service_id])) {
 </main>
 
 <?php get_footer(); ?>
-
 <script>
     // Передаємо дані послуг у JavaScript
     const servicesData = <?php echo json_encode($services); ?>;
-</script>
+</script> -->

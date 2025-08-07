@@ -4,11 +4,6 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1 class="hero-title">Професійне написання <br> студентських робіт <br> на замовлення</h1>
-        <div class="hero-background-circles">
-            <div class="circle-outer"></div>
-            <div class="circle-middle"></div>
-            <div class="circle-inner"></div>
-        </div>
         <div class="hero-content">
             <div class="hero-text-left">
                 <p class="hero-description">Ми пропонуємо якісне та оперативне виконання будь-якої роботи. Наші експерти
@@ -16,6 +11,32 @@
                     навчального закладу.</p>
             </div>
             <div class="hero-image-center">
+                <div class="hero-circles-background">
+                    <!-- Найбільше півколо (найсвітліше) -->
+                    <div class="circle-outer">
+                        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.15)"
+                                stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" />
+                        </svg>
+                    </div>
+
+
+                    <div class="circle-middle">
+                        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.25)"
+                                stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
+                        </svg>
+                    </div>
+
+                    <!-- Найменше півколо (найтемніше) -->
+                    <div class="circle-inner">
+                        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.4)"
+                                stroke="rgba(59, 130, 246, 0.6)" stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+
                 <div class="hero-image-container">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png" alt="Student"
                         class="hero-img">
@@ -27,7 +48,7 @@
             </div>
             <div class="hero-rating-right">
                 <div class="rating-stars">★★★★★</div>
-                <p class="rating-text"><strong>1000+</strong> позитивних відгуків</p>
+                <p class="rating-text"><strong>20 000+</strong> позитивних відгуків</p>
             </div>
         </div>
     </section>
@@ -333,38 +354,40 @@
     <section class="reviews">
         <div class="container">
             <h2 class="section-title">Відгуки наших клієнтів</h2>
-            <div class="reviews-wrapper">
-                <div class="reviews-track">
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                    </div>
-                    <div class="phone-mockup">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+            <div class="reviews-content">
+                <div class="reviews-wrapper">
+                    <div class="reviews-track">
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
+                        <div class="phone-mockup">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="reviews-navigation">
-                <button class="nav-btn nav-prev">‹</button>
-                <button class="nav-btn nav-next">›</button>
+                <div class="reviews-navigation">
+                    <button class="nav-btn nav-prev">‹</button>
+                    <button class="nav-btn nav-next">›</button>
+                </div>
             </div>
         </div>
     </section>
@@ -393,16 +416,46 @@
                     </div>
                 </div>
 
-                <div class="referral-image">
+                <!-- <div class="referral-image">
                     <div class="phone-hands">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/hand-phone.svg"
                             alt="Телефон в руках з додатком">
                     </div>
-                </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- SVG півкола фон -->
+        <div class="referral-circles-background">
+            <div class="phone-hands">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/hand-phone.svg"
+                    alt="Телефон в руках з додатком">
+            </div>
+            <!-- Найбільше півколо (найсвітліше) -->
+            <div class="referral-circle-outer">
+                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.15)"
+                        stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" />
+                </svg>
+            </div>
+
+            <!-- Середнє півколо -->
+            <div class="referral-circle-middle">
+                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.25)"
+                        stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
+                </svg>
+            </div>
+
+            <!-- Найменше півколо (найтемніше) -->
+            <div class="referral-circle-inner">
+                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.4)"
+                        stroke="rgba(59, 130, 246, 0.6)" stroke-width="2" />
+                </svg>
             </div>
         </div>
     </section>
-
     <!-- Order Form Section -->
     <section class="order-form">
         <div class="container">
@@ -438,8 +491,7 @@
                                     required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Навчальна програма"
-                                    name="study_program">
+                                <input type="text" class="form-input" placeholder="@Нік телеграму" name="study_program">
                             </div>
                         </div>
                         <div class="form-group">
