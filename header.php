@@ -12,6 +12,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
+
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,17 +66,17 @@
                 </nav>
                 <div class="header-actions">
                     <div class="social-icons">
-                        <a href="#">
+                        <a href="https://t.me/Kursach_manager" target="_blank">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg"
                                 alt="telegram icon">
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/kursach.net.ua/" target="_blank">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                                 alt="Instagram">
                         </a>
                     </div>
-                    <a href="<?php echo home_url('#orderForm'); ?>" class="btn btn-secondary header-cta">РОЗРАХУВАТИ
-                        ЦІНУ</a>
+                    <a href="#orderForm" class="btn btn-secondary header-cta">РОЗРАХУВАТИ ЦІНУ</a>
+
                 </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                     <span></span>
@@ -85,7 +86,6 @@
             </div>
         </div>
     </header>
-
     </div>
 
     <!-- Mobile Menu Overlay -->
@@ -96,12 +96,12 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.svg" alt="КУРСАЧ логотип"
                         class="logo-img">
                 </a>
-                <div class="mobile-social-icons">
+                <!-- <div class="mobile-social-icons">
                     <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg"
                             alt="telegram icon"></a>
                     <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                             alt="Instagram"></a>
-                </div>
+                </div> -->
                 <button class="mobile-menu-close" aria-label="Close mobile menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -142,10 +142,14 @@
                 <p>(095) 438 73 68</p>
                 <p>kursach.net.ua@gmail.com</p>
                 <div class="mobile-social-media">
-                    <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
+                    <a href="https://www.instagram.com/kursach.net.ua/" target="_blank"><img
+                            src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                             alt="Instagram"></a>
-                    <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/tiktok_icon.svg"
-                            alt="TikTok"></a>
+                    <a href="https://www.tiktok.com/@kursach.net_ua?_t=ZM-8vDjQ0YuFlv&_r=1" target="_blank"><img
+                            src="<?php echo get_template_directory_uri(); ?>/assets/tiktok_icon.svg" alt="TikTok"></a>
+                    <a href="https://t.me/Kursach_manager" target="_blank"><img
+                            src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg" alt="Telegram"></a>
+
                 </div>
             </div>
             <div class="mobile-working-hours">

@@ -73,7 +73,7 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg"
                                     alt="Telegram">
                             </a>
-                            <a href="#" class="footer-social-link instagram">
+                            <a href="https://www.instagram.com/kursach.net.ua/" class="footer-social-link instagram">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                                     alt="Instagram">
                             </a>

@@ -13,14 +13,16 @@
                         Професійне написання робіт - для вашого успіху
                     </p>
                     <div class="footer-social">
-                        <a href="#" class="footer-social-link telegram">
+                        <a href="https://t.me/Kursach_manager" class="footer-social-link telegram" target="_blank">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/tg_icon.svg" alt="Telegram">
                         </a>
-                        <a href="#" class="footer-social-link instagram">
+                        <a href="https://www.instagram.com/kursach.net.ua/" target="_blank"
+                            class="footer-social-link instagram">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/instagram_icon.svg"
                                 alt="Instagram">
                         </a>
-                        <a href="#" class="footer-social-link tiktok">
+                        <a href="https://www.tiktok.com/@kursach.net_ua?_t=ZM-8vDjQ0YuFlv&_r=1" target="_blank"
+                            class="footer-social-link tiktok">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/tiktok_icon.svg" alt="TikTok">
                         </a>
                     </div>
@@ -35,10 +37,13 @@
                             <li><a href="<?php echo home_url('/quarantees/'); ?>">Оплата і гарантії</a></li>
                             <li><a href="<?php echo home_url('/cooperation/'); ?>">Співпраця</a></li>
                             <li><a href="<?php echo home_url('/blog/'); ?>">Блог</a></li>
-                            <li><a href="<?php echo home_url('/wp-content/themes/kursach-help/uploads/dogovor.docx'); ?>"
-                                    download="dogovor.docx">
+                            <li>
+                                <a href="<?php echo home_url('/wp-content/themes/kursach-help/uploads/dogovor.pdf'); ?>"
+                                    target="_blank" rel="noopener">
                                     Договір оферти
-                                </a></li>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
 
@@ -46,14 +51,14 @@
                         <h4 class="footer-title">Послуги</h4>
                         <ul class="footer-links">
                             <li><a href="<?php echo home_url('/services/'); ?>">Всі послуги</a></li>
-                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=dyplomni">Дипломні
-                                    проєкти</a>
+                            <li><a href="<?php echo home_url('/services/?service_id=dyplomni'); ?>">Дипломні проєкти</a>
                             </li>
-                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=kursovi">Курсові
-                                    проєкти</a></li>
-                            <li><a href="<?php echo site_url('/service-details'); ?>?service_id=magisterski">Магістерські
+                            <li><a href="<?php echo home_url('/services/?service_id=kursovi'); ?>">Курсові проєкти</a>
+                            </li>
+                            <li><a href="<?php echo home_url('/services/?service_id=magisterski'); ?>">Магістерські
                                     роботи</a></li>
                         </ul>
+
                     </div>
 
                     <div class="footer-column">
@@ -77,6 +82,7 @@
         </div>
     </div>
 </footer>
+<?php get_template_part('components/order-modal'); ?>
 
 <?php wp_footer(); ?>
 </body>

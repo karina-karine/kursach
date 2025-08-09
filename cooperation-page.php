@@ -64,7 +64,7 @@ get_header();
                                 надаємо великий спектр замовлень, і гарному спеціалісту виплати!
                             </p>
                             <p class="collab-option-contact">
-                                Надсилайте своє резюме нам на <a href="kursach.net.ua@gmail.com"
+                                Надсилайте своє резюме нам на <a href="mailto:kursach.net.ua@gmail.com"
                                     class="contact-link">пошту</a>,
                                 і ми його розглянемо і зв'яжемось з вами!
                             </p>
@@ -82,11 +82,14 @@ get_header();
                             <h3 class="collab-option-title">Студентам</h3>
                             <p class="collab-option-text">
                                 Ти студент і шукаєш додатковий заробіток? Пропонуйте наші послуги в вашому вузі
-                                знайомим і отримуйте відсоток від наведених клієнтів. Це дуже легко і дуже прибутково!
+                                знайомим і отримуйте відсоток від приведених клієнтів. Це дуже легко і дуже прибутково!
                             </p>
                             <p class="collab-option-contact">
-                                Пиши нам на <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> або на
-                                <a href="https://viber.com" class="contact-link">Viber</a>, і ми обговоримо деталі!
+                                Пиши нам на <a href="mailto:kursach.net.ua@gmail.com" class="contact-link">пошту</a> або
+                                на
+                                <a href="https://t.me/Kursach_manager" target="_blank"
+                                    class="contact-link">Telegram</a>, і
+                                ми обговоримо деталі!
                             </p>
                         </div>
                     </div>
@@ -106,8 +109,10 @@ get_header();
                                 У нас є штат авторів які зможуть взяти виконання на себе.
                             </p>
                             <p class="collab-option-contact">
-                                Пиши нам на <a href="kursach.net.ua@gmail.com" class="contact-link">пошту</a> або на
-                                <a href="https://viber.com" class="contact-link">Viber</a>, і ми обговоримо деталі!
+                                Пиши нам на <a href="mailto:kursach.net.ua@gmail.com" class="contact-link">пошту</a> або
+                                на
+                                <a href="https://t.me/Kursach_manager" target="_blank"
+                                    class="contact-link">Telegram</a>, і ми обговоримо деталі!
                             </p>
                         </div>
                     </div>
@@ -124,7 +129,7 @@ get_header();
                             <h3 class="collab-option-title">Блогер</h3>
                             <p class="collab-option-text">
                                 У вас є велика аудиторія віком від 17 до 23 років? Рекламуйте наші послуги, і
-                                отримуйте прибуток за наведених клієнтів за вашим промокодом!
+                                отримуйте прибуток за приведених клієнтів за вашим промокодом!
                             </p>
                         </div>
                     </div>
@@ -145,7 +150,7 @@ get_header();
                     <p class="contact-form-description">
                         Якщо у вас залишилися якісь питання, заповніть форму, або пишіть нам на
                         <a href="mailto:kursach.net.ua@gmail.com" class="contact-link">пошту</a> чи
-                        <a href="https://viber.com" class="contact-link">Viber</a>!
+                        <a href="https://t.me/Kursach_manager" target="_blank" class="contact-link">Telegram</a>!
                     </p>
                 </div>
                 <div class="contact-form-container">

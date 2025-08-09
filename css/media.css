@@ -1091,21 +1091,21 @@
 
 /* =========== GUARANTEES AND SERVICES ================== */
 @media screen and (min-width: 1024px) and (max-height: 800px) {
-  .guarantees-content,
+  /* .guarantees-content,
   .services-grid,
   .reviews-slider {
     transform: scale(0.85);
     transform-origin: top center;
-  }
+  } */
 }
 
 @media screen and (min-width: 1024px) and (max-height: 700px) {
-  .guarantees-content,
+  /* .guarantees-content,
   .services-grid,
   .reviews-slider {
     transform: scale(0.75);
     transform-origin: top center;
-  }
+  } */
 }
 
 @media screen and (max-width: 1024px) {
@@ -1209,22 +1209,8 @@
   }
 
   .reviews {
-    padding-bottom: var(--space-sm);
+    padding-bottom: var(--space-xl);
   }
-
-  .reviews .section-title {
-    margin-bottom: 0;
-  }
-
-  .services-grid {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-
- 
- .reviews-content {
-  transform: scale(0.85);
- } 
 
   .service-card, 
   .phone-mockup {
@@ -3412,445 +3398,359 @@
   }
 }
 
-/* ===== SERVICES LIST PAGE STYLES ===== */
 
+/* ===== SERVICES LIST PAGE STYLES ===== */
 /* Десктопи (до 1400px) */
 @media (max-width: 1400px) {
-  .services-list-section {
-    padding: var(--space-xl) 0 var(--space-4xl);
-  }
-
-  .services-list-section .section-title {
-    font-size: clamp(3.5rem, 3rem + 1vw, 4rem);
-    margin-bottom: var(--space-lg);
-  }
-
-  .services-list-section .section-title::after {
-    width: 90px;
-  }
-
-  .services-intro {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-2xl);
-    max-width: 700px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-lg);
-    margin-bottom: var(--space-3xl);
-  }
-
-  .service-card {
-    padding: var(--space-lg);
-  }
-
-  .service-card-icon {
-    width: 70px;
-    height: 70px;
-    /* margin-bottom: var(--space-md); */
-  }
-
-  .service-card-icon .icon-emoji {
-    font-size: 2.2rem;
-  }
-
-  .service-card-title {
-    font-size: var(--font-size-lg);
-    /* margin-bottom: var(--space-sm); */
-  }
-
-  .service-card-description {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-3xl);
-  }
-
-  .service-card-price,
-  .service-card-time {
-    font-size: var(--font-size-xs);
-    padding: var(--space-xs) var(--space-md);
-  }
-
-  .service-card-link {
-    font-size: var(--font-size-sm);
-  }
-
-  .services-cta {
-    padding: var(--space-2xl);
-  }
-
-  .services-cta h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .services-cta p {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-xl);
-    max-width: 500px;
-  }
-
-  .services-cta .btn {
-    padding: var(--space-md) var(--space-xl);
-    font-size: var(--font-size-base);
-  }
+    .services-list-section {
+        padding: var(--space-xl) 0 var(--space-4xl);
+    }
+    .services-list-section .section-title {
+        font-size: clamp(3.5rem, 3rem + 1vw, 4rem);
+        margin-bottom: var(--space-lg);
+    }
+    .services-list-section .section-title::after {
+        width: 90px;
+    }
+    .services-intro {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-2xl);
+        max-width: 700px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-lg);
+        /* margin-bottom: var(--space-xs); */
+    }
+    .service-card {
+        padding: var(--space-lg);
+        min-height: 0; /* Додано: Скидаємо мінімальну висоту */
+    }
+    .service-card-icon {
+        width: 70px;
+        height: 70px;
+    }
+    .service-card-icon .icon-emoji {
+        font-size: 2.2rem;
+    }
+    .service-card-title {
+        font-size: var(--font-size-lg);
+    }
+    .service-card-description {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-3xl);
+    }
+    .service-card-price,
+    .service-card-time {
+        font-size: var(--font-size-xs);
+        padding: var(--space-xs) var(--space-md);
+    }
+    .service-card-link {
+        font-size: var(--font-size-sm);
+    }
+    .services-cta {
+        padding: var(--space-2xl);
+    }
+    .services-cta h2 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--space-md);
+    }
+    .services-cta p {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-xl);
+        max-width: 500px;
+    }
+    .services-cta .btn {
+        padding: var(--space-md) var(--space-xl);
+        font-size: var(--font-size-base);
+    }
 }
 
 /* Десктопи (до 1200px) */
 @media (max-width: 1200px) {
-  .services-list-section {
-    padding: var(--space-lg) 0 var(--space-3xl);
-  }
-
-  .services-list-section .section-title {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .services-list-section .section-title::after {
-    width: 80px;
-  }
-
-  .services-intro {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-xl);
-    max-width: 600px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Keep 3 columns, but allow smaller min-width */
-    gap: var(--space-md);
-    margin-bottom: var(--space-2xl);
-  }
-
-  .service-card {
-    padding: var(--space-xl);
-  }
-
-  .service-card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: var(--space-xl);
-  }
-
-  .service-card-icon .icon-emoji {
-    font-size: 2rem;
-  }
-
-  .service-card-title {
-    font-size: var(--font-size-base);
-    /* margin-bottom: var(--space-sm); */
-  }
-
-  .service-card-description {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--space-xl);
-  }
-
-  .service-card-price,
-  .service-card-time {
-    font-size: 0.75rem; /* Smaller */
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .service-card-link {
-    font-size: var(--font-size-xs);
-  }
-
-  .services-cta {
-    padding: var(--space-xl);
-  }
-
-  .services-cta h2 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .services-cta p {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-lg);
-    max-width: 450px;
-  }
-
-  /* .services-cta .btn {
-    padding: var(--space-sm) var(--space-lg);
-    font-size: var(--font-size-sm);
-  } */
+    .services-list-section {
+        padding: var(--space-lg) 0 var(--space-3xl);
+    }
+    .services-list-section .section-title {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--space-md);
+    }
+    .services-list-section .section-title::after {
+        width: 80px;
+    }
+    .services-intro {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-xl);
+        max-width: 600px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-md);
+        margin-bottom: var(--space-2xl);
+    }
+    .service-card {
+        padding: var(--space-xl);
+        min-height: 0; /* Додано: Скидаємо мінімальну висоту */
+    }
+    .service-card-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: var(--space-xl);
+    }
+    .service-card-icon .icon-emoji {
+        font-size: 2rem;
+    }
+    .service-card-title {
+        font-size: var(--font-size-base);
+    }
+    .service-card-description {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--space-xl);
+    }
+    .service-card-price,
+    .service-card-time {
+        font-size: 0.75rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+    .service-card-link {
+        font-size: var(--font-size-xs);
+    }
+    .services-cta {
+        padding: var(--space-xl);
+    }
+    .services-cta h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-md);
+    }
+    .services-cta p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-lg);
+        max-width: 450px;
+    }
 }
 
 /* Ноутбуки */
 @media (max-width: 992px) {
-  .services-list-section {
-    padding: var(--space-md) 0 var(--space-2xl);
-  }
-
-  .services-list-section .breadcrumb {
-    font-size: var(--font-size-xs);
-    padding: var(--space-md) 0 0 0;
-  }
-
-  .services-list-section .section-title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .services-list-section .section-title::after {
-    width: 70px;
-  }
-
-  .services-intro {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--space-lg);
-    max-width: 500px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Two columns */
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
-  }
-
-  .service-card {
-    padding: var(--space-md);
-  }
-
-  .service-card-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: var(--space-md);
-  }
-
-  .service-card-icon .icon-emoji {
-    font-size: 1.8rem;
-  }
-
-  .service-card-title {
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-xs);
-    text-align: center;
-  }
-
-  .service-card-description {
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-normal);
-    margin-bottom: var(--space-md);
-    text-align: center;
-  }
-
-  .service-card-meta {
-    flex-direction: row; /* Stack price and time */
-    justify-content: space-between;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
-  }
-
-  .service-card-price,
-  .service-card-time {
-    font-size: 0.7rem;
-    /* padding: var(--space-xs); */
-  }
-
-  .service-card-link {
-    font-size: var(--font-size-xs);
-  }
-
-  .services-cta {
-    padding: var(--space-lg);
-  }
-
-  .services-cta h2 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-  }
-
-  .services-cta p {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--space-md);
-    max-width: 350px;
-  }
-
-  .services-cta .btn {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-xs);
-  }
+    .services-list-section {
+        padding: var(--space-md) 0 var(--space-2xl);
+    }
+    .services-list-section .breadcrumb {
+        font-size: var(--font-size-xs);
+        padding: var(--space-md) 0 0 0;
+    }
+    .services-list-section .section-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--space-md);
+    }
+    .services-list-section .section-title::after {
+        width: 70px;
+    }
+    .services-intro {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--space-lg);
+        max-width: 500px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Two columns */
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+    }
+    .service-card {
+        padding: var(--space-md);
+        min-height: 0; /* Додано: Скидаємо мінімальну висоту */
+    }
+    .service-card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: var(--space-md);
+    }
+    .service-card-icon .icon-emoji {
+        font-size: 1.8rem;
+    }
+    .service-card-title {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-xs);
+        text-align: center;
+    }
+    .service-card-description {
+        font-size: var(--font-size-xs);
+        line-height: var(--line-height-normal);
+        margin-bottom: var(--space-md);
+        text-align: center;
+    }
+    .service-card-meta {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-sm);
+    }
+    .service-card-price,
+    .service-card-time {
+        font-size: 0.7rem;
+    }
+    .service-card-link {
+        font-size: var(--font-size-xs);
+    }
+    .services-cta {
+        padding: var(--space-lg);
+    }
+    .services-cta h2 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+    .services-cta p {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--space-md);
+        max-width: 350px;
+    }
+    .services-cta .btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-size-xs);
+    }
 }
 
 /* Планшети */
 @media (max-width: 768px) {
-  .services-list-section {
-    padding: var(--space-md) 0 var(--space-xl);
-  }
-
-  .services-list-section .breadcrumb {
-    font-size: 0.8rem;
-    /* margin-bottom: var(--space-sm); */
-  }
-
-  .services-list-section .section-title {
-    font-size: var(--font-size-2xl);
-    /* margin-bottom: var(--space-md); */
-  }
-
-  .services-list-section .section-title::after {
-    width: 60px;
-    bottom: -8px;
-  }
-
-  .services-intro {
-    font-size: 1rem;
-    /* margin-bottom: var(--space-md); */
-    max-width: 400px;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr; /* Single column on tablets */
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-  }
-
-  .service-card {
-    padding: var(--space-md);
-  }
-
-  .service-card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: var(--space-md);
-  }
-
-  .service-card-icon .icon-emoji {
-    font-size: 2rem;
-  }
-
-  .service-card-title {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-xs);
-    text-align: center;
-  }
-
-  .service-card-description {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--space-md);
-    text-align: center;
-  }
-
-  .service-card-meta {
-    flex-direction: row; /* Back to row for better use of space */
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
-  }
-
-  .service-card-price,
-  .service-card-time {
-    font-size: var(--font-size-xs);
-    padding: var(--space-xs) var(--space-sm);
-  }
-
-  .service-card-link {
-    font-size: var(--font-size-xs);
-  }
-
-  .services-cta {
-    padding: var(--space-lg);
-  }
-
-  .services-cta h2 {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-sm);
-  }
-
-  .services-cta p {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--space-md);
-    max-width: 300px;
-  }
-
-  .services-cta .btn {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-xs);
-  }
+    .services-list-section {
+        padding: var(--space-md) 0 var(--space-xl);
+    }
+    .services-list-section .breadcrumb {
+        font-size: 0.8rem;
+    }
+    .services-list-section .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    .services-list-section .section-title::after {
+        width: 60px;
+        bottom: -8px;
+    }
+    .services-intro {
+        font-size: 1rem;
+        max-width: 400px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr 1fr; /* Single column on tablets */
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+    .service-card {
+        padding: var(--space-md);
+        min-height: 0; /* Додано: Скидаємо мінімальну висоту */
+    }
+    .service-card-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: var(--space-md);
+    }
+    .service-card-icon .icon-emoji {
+        font-size: 2rem;
+    }
+    .service-card-title {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-xs);
+        text-align: center;
+    }
+    .service-card-description {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+        text-align: center;
+    }
+    .service-card-meta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
+    .service-card-price,
+    .service-card-time {
+        font-size: var(--font-size-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    .service-card-link {
+        font-size: var(--font-size-sm);
+    }
+    .services-cta {
+        padding: var(--space-lg);
+    }
+    .services-cta h2 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-sm);
+    }
+    .services-cta p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+        max-width: 300px;
+    }
+    .services-cta .btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-size-sm);
+    }
 }
 
 /* Мобільні пристрої */
 @media (max-width: 576px) {
-  .services-list-section {
-    padding: var(--space-sm) 0 var(--space-lg);
-  }
-
-  
-  .services-list-section .section-title {
-    font-size: var(--font-size-xl);
-    /* margin-bottom: var(--space-sm); */
-  }
-
-  .services-list-section .section-title::after {
-    width: 50px;
-    bottom: -6px;
-  }
-
-  .services-intro {
-    font-size: 0.85rem;
-    /* margin-bottom: var(--space-md); */
-    max-width: 90%;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr; /* Still single column */
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-  }
-
-  .service-card-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: var(--space-md);
-  }
-
-  .service-card-icon .icon-emoji {
-    font-size: 1.6rem;
-  }
-
-  .service-card-title {
-    /* font-size: var(--font-size-sm); */
-    /* margin-bottom: var(--space-xs); */
-    text-align: center;
-  }
-
-  .service-card-description {
-    /* font-size: 0.75rem; */
-    margin-bottom: var(--space-md);
-    text-align: center;
-  }
-
-  .service-card-meta {
-    gap: var(--space-xs);
-    margin-top: var(--space-md);
-  }
-
-  .service-card-price,
-  .service-card-time {
-    /* font-size: 0.65rem; */
-    padding: 0.2rem 0.5rem;
-  }
-
-  .services-cta h2 {
-    font-size: var(--font-size-md);
-    margin-bottom: var(--space-xs);
-  }
-
-  .services-cta p {
-    /* font-size: 0.7rem; */
-    margin-bottom: var(--space-sm);
-    max-width: 90%;
-  }
-
-  .services-cta .btn {
-    padding: var(--space-sm) var(--space-md);
-    font-size: 0.75rem;
-  }
+    .services-list-section {
+        padding: var(--space-sm) 0 var(--space-lg);
+    }
+    .services-list-section .section-title::after {
+        width: 50px;
+        bottom: -6px;
+    }
+    .services-intro {
+        /* font-size: 0.85rem; */
+        max-width: 90%;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+    .service-card {
+        padding: var(--space-md);
+        min-height: 0; /* Додано: Скидаємо мінімальну висоту */
+    }
+    .service-card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: var(--space-md);
+    }
+    .service-card-icon .icon-emoji {
+        font-size: 1.6rem;
+    }
+    .service-card-title {
+        /* font-size: var(--font-size-sm); */
+        text-align: center;
+    }
+    .service-card-description {
+        /* font-size: 0.75rem; */
+        margin-bottom: var(--space-md);
+        text-align: center;
+    }
+    .service-card-meta {
+        gap: var(--space-xs);
+        margin-top: var(--space-md);
+    }
+    .service-card-price,
+    .service-card-time {
+        /* font-size: 0.65rem; */
+        padding: 0.2rem 0.5rem;
+    }
+    .services-cta h2 {
+        /* font-size: var(--font-size-md); */
+        margin-bottom: var(--space-xs);
+    }
+    .services-cta p {
+        /* font-size: 0.7rem; */
+        margin-bottom: var(--space-sm);
+        max-width: 90%;
+    }
+    .services-cta .btn {
+        padding: var(--space-sm) var(--space-md);
+        /* font-size: 0.75rem; */
+    }
 }
+
 
 /* ===== SERVICE DETAILS PAGE STYLES ===== */
 
@@ -3882,7 +3782,7 @@
 
   .service-nav-item {
     padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
   }
 
   .service-details-main {
@@ -3905,13 +3805,13 @@
   }
 
   .service-details-short-description {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     margin-bottom: var(--space-md);
   }
 
   .service-details-price,
   .service-details-delivery-time {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     padding: var(--space-xs) var(--space-md);
     margin-right: var(--space-sm);
   }
@@ -3941,13 +3841,13 @@
   }
 
   .service-details-full-description p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
 
   .service-details-features li,
   .service-details-requirements li {
     padding: var(--space-sm);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
 
   .feature-icon,
@@ -3960,7 +3860,8 @@
 
   .service-details-process li {
     padding: var(--space-sm);
-    font-size: var(--font-size-sm);
+    padding-left: var(--space-md);
+    font-size: var(--font-size-base);
   }
 
   .service-details-process li::before {
@@ -4099,31 +4000,36 @@
     margin-top: var(--space-md);
   }
 }
-
 @media (max-width: 1024px) {
   .service-details-section {
     padding: var(--space-md) 0;
   }
 
   .breadcrumb {
-    /* font-size: var(--font-size-xs); */
     margin-bottom: var(--space-md);
   }
 
   .section-title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .service-details-content {
-    grid-template-columns: 1fr; /* Stack sidebar and main content */
-    gap: var(--space-md);
+    display: flex;
+    flex-direction: column-reverse; /* ставимо контент першим, сайдбар другим */
+    gap: var(--space-xl);
   }
 
   .service-details-sidebar {
-    position: static; /* Remove sticky positioning */
+    order: 2;
+    width: 100%;         /* Розтягуємо по ширині */
+    position: static;    /* Вимикаємо sticky */
     padding: var(--space-md);
     margin-bottom: var(--space-md);
+  }
+
+  .service-details-main {
+    order: 1;
+    padding: var(--space-md);
   }
 
   .sidebar-title {
@@ -4132,8 +4038,8 @@
   }
 
   .service-nav-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-sm);
   }
 
@@ -4142,16 +4048,12 @@
   }
 
   .service-nav-item {
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-sm);
     font-size: var(--font-size-xs);
   }
 
-  .service-details-main {
-    padding: var(--space-md);
-  }
-
   .service-details-header {
-    flex-direction: column; /* Stack icon and summary */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: var(--space-sm);
@@ -4170,13 +4072,13 @@
   }
 
   .service-details-short-description {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     margin-bottom: var(--space-sm);
   }
 
   .service-details-price,
   .service-details-delivery-time {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     padding: var(--space-xs) var(--space-sm);
     margin-right: var(--space-xs);
     margin-bottom: var(--space-xs);
@@ -4194,7 +4096,7 @@
   .service-details-features h3,
   .service-details-requirements h3,
   .service-details-process h3 {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     margin-bottom: var(--space-md);
     margin-top: var(--space-sm);
     padding-left: var(--space-sm);
@@ -4209,12 +4111,13 @@
 
   .service-details-full-description p {
     font-size: var(--font-size-md);
+    padding: var(--space-sm);
   }
 
   .service-details-features li,
   .service-details-requirements li {
     padding: var(--space-sm);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
   }
 
   .feature-icon,
@@ -4227,7 +4130,7 @@
 
   .service-details-process li {
     padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-lg);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
   }
 
   .service-details-process li::before {
@@ -4239,108 +4142,8 @@
 
   .order-service-btn {
     padding: var(--space-md) var(--space-md);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-md);
     margin-top: var(--space-md);
-  }
-}
-
-@media (max-width: 768px) {
-  .service-details-full-description p {
-      font-size: var(--space-md);
-  }
-}
-
-
-/* Responsive design */
-@media (max-width: 1024px) {
-  .service-details-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-  }
-  
-  .service-details-sidebar {
-    position: static;
-    order: 2;
-  }
-  
-  .service-nav-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-sm);
-  }
-}
-
-@media (max-width: 768px) {
-  .service-details-section {
-    padding: var(--space-xl) 0;
-  }
-  
-  .service-details-section .container {
-    padding: 0 var(--space-sm);
-  }
-  
-  .section-title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--space-xl);
-  }
-  
-  .service-details-main {
-    padding: var(--space-xl);
-  }
-  
-  .service-details-header {
-    flex-direction: column;
-    gap: var(--space-lg);
-    text-align: center;
-  }
-  
-  .service-details-icon {
-    align-self: center;
-    width: 60px;
-    height: 60px;
-  }
-  
-  .icon-emoji {
-    font-size: 2rem;
-  }
-  
-  .service-details-price,
-  .service-details-delivery-time {
-    display: block;
-    margin: 0 0 var(--space-sm) 0;
-    text-align: center;
-  }
-  
-  .service-details-full-description,
-  .service-details-features,
-  .service-details-requirements,
-  .service-details-process {
-    padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
-  }
-  
-  .service-nav-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-details-main {
-    padding: var(--space-lg);
-  }
-  
-  .service-details-full-description,
-  .service-details-features,
-  .service-details-requirements,
-  .service-details-process {
-    padding: var(--space-md);
-  }
-  
-  .service-details-process li::before {
-    left: -8px;
-    width: 24px;
-    height: 24px;
-    font-size: var(--font-size-xs);
   }
 }
 
@@ -4771,3 +4574,149 @@ body.mobile-menu-open .mobile-menu-content {
 @media (max-width: 768px) {}
 @media (max-width: 480px) {}
 
+
+
+/* ===== MODAL STYLES ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Increased z-index to ensure it's on top */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: var(--space-3xl);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  max-width: 600px; /* Adjust as needed */
+  width: 90%;
+  max-height: 90vh; /* Limit height to prevent overflow */
+  overflow-y: auto; /* Enable scrolling for long content */
+  transform: translateY(20px);
+  transition: transform var(--transition-fast) ease-out;
+}
+
+.modal-overlay.is-visible .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  color: var(--gray-600);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.modal-close-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ensure the form within the modal uses existing styles but adapts */
+.modal-content .order-form-container {
+  padding: 0; /* Remove padding as it's already on modal-content */
+  box-shadow: none; /* Remove shadow as it's already on modal-content */
+  background-color: transparent; /* Remove background as it's already on modal-content */
+}
+
+.modal-content .order-title {
+  margin-top: var(--space-lg); /* Adjust spacing for modal context */
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-3xl); /* Slightly smaller for modal */
+  text-align: center;
+}
+
+.modal-content .order-description {
+  margin-bottom: var(--space-xl);
+  font-size: var(--font-size-base);
+}
+
+.modal-content .form-submit {
+  margin-top: var(--space-2xl); /* More space above submit button */
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Responsive styles for the modal */
+@media (max-width: 1280px) {
+  .modal-content {
+    max-width: 550px;
+    padding: var(--space-2xl);
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    max-width: 500px;
+    padding: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%; /* Allow it to take more width on smaller screens */
+    padding: var(--space-lg);
+  }
+
+  .modal-content .order-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .modal-content .order-description {
+    font-size: var(--font-size-sm);
+  }
+
+  .modal-content .form-row {
+    grid-template-columns: 1fr; /* Stack form inputs vertically */
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: var(--space-md);
+  }
+
+  .modal-close-btn {
+    top: var(--space-xs);
+    right: var(--space-xs);
+  }
+
+  .modal-content .order-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .modal-content .order-description {
+    font-size: var(--font-size-xs);
+  }
+}

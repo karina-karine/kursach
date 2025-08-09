@@ -48,7 +48,7 @@
             </div>
             <div class="hero-rating-right">
                 <div class="rating-stars">★★★★★</div>
-                <p class="rating-text"><strong>20 000+</strong> позитивних відгуків</p>
+                <p class="rating-text"><strong>25 000+</strong> позитивних відгуків</p>
             </div>
         </div>
     </section>
@@ -78,7 +78,7 @@
                             <h3 class="guarantee-title">Досвід</h3>
                             <p class="guarantee-text">
                                 Якщо і довіряти написання своєї роботи комусь, то тільки досвідченій команді. Наші
-                                автори написали понад 1000 різних робіт на всі возомжность теми.
+                                автори написали понад 10 000 різних робіт на всі возомжность теми.
                             </p>
                         </div>
                     </div>
@@ -93,8 +93,9 @@
                         <div class="guarantee-content">
                             <h3 class="guarantee-title">Необмежені правки</h3>
                             <p class="guarantee-text">
-                                Навіщо замовляти роботу, якщо Ви потім виправляєте всю роботу? Нема чого. Ми пишемо
-                                роботу від і до. За правки, які необхідно буде зробити в роботі платити не доведеться.
+                                Навіщо платити за роботу, яку доводиться переробляти?
+                                Замовляючи у нас, ви отримуєте повністю готову та якісну роботу з першого разу.
+                                Усі необхідні доопрацювання — без жодних доплат. Ми доводимо роботу до ідеалу.
                             </p>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
                             <h3 class="guarantee-title">Супровід до захисту</h3>
                             <p class="guarantee-text">
                                 Ми супроводжуємо вас до захисту, в разі необхідності внесення будь-яких коригувань по
-                                роботі, ви завжди можете звернутися щодо внесення коректив на протязі місяця.
+                                роботі, ви завжди можете звернутися щодо внесення коректив протягом місяця.
                             </p>
                         </div>
                     </div>
@@ -129,7 +130,6 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Курсова робота</h3>
-                            <div class="service-price">від 1 дня</div>
                         </div>
                         <div class="service-details">
                             <div class="service-detail">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Унікальність:</span>
-                                <span class="detail-value">від 60%</span>
+                                <span class="detail-value">від 80%</span>
                             </div>
                         </div>
                         <div class="service-features">
@@ -160,7 +160,6 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Дипломні роботи</h3>
-                            <div class="service-price">від 3 днів</div>
                         </div>
                         <div class="service-details">
                             <div class="service-detail">
@@ -177,7 +176,7 @@
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Унікальність:</span>
-                                <span class="detail-value">від 60%</span>
+                                <span class="detail-value">від 80%</span>
                             </div>
                         </div>
                         <div class="service-features">
@@ -191,7 +190,6 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Магістерська робота</h3>
-                            <div class="service-price">від 10 днів</div>
                         </div>
                         <div class="service-details">
                             <div class="service-detail">
@@ -200,7 +198,7 @@
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Кількість сторінок:</span>
-                                <span class="detail-value">За замовою</span>
+                                <span class="detail-value">За вимогою</span>
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Безкоштовні правки:</span>
@@ -208,7 +206,7 @@
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Унікальність:</span>
-                                <span class="detail-value">від 60%</span>
+                                <span class="detail-value">від 80%</span>
                             </div>
                         </div>
                         <div class="service-features">
@@ -222,7 +220,7 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Реферат</h3>
-                            <div class="service-price">від 1 дня</div>
+
                         </div>
                         <div class="service-details">
                             <div class="service-detail">
@@ -231,7 +229,7 @@
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Кількість сторінок:</span>
-                                <span class="detail-value">5–15</span>
+                                <span class="detail-value">За вимогою</span>
                             </div>
                             <div class="service-detail">
                                 <span class="detail-label">Безкоштовні правки:</span>
@@ -252,7 +250,7 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Звіти з практики</h3>
-                            <div class="service-price">від 2 днів</div>
+
                         </div>
                         <div class="service-details">
                             <div class="service-detail">
@@ -282,7 +280,7 @@
                     <div class="service-card">
                         <div class="service-header">
                             <h3 class="service-title">Мотиваційні листи</h3>
-                            <div class="service-price">від 1 дня</div>
+
                         </div>
                         <div class="service-details">
                             <div class="service-detail">

@@ -122,6 +122,95 @@ if ($current_article_index !== false) {
             </div>
         </section>
     <?php endif; ?>
+    <!-- Order Form Section -->
+    <section class="order-form">
+        <div class="container">
+            <div class="order-content">
+                <div class="order-text">
+                    <h2 class="order-title">Зробіть замовлення прямо зараз</h2>
+                    <p class="order-description">
+                        Ви отримаєте якісну та унікальну роботу, яка відповідатиме всім методичним
+                        рекомендаціям та побажанням викладача. Нашу роботу ви без проблем здасте
+                        та захистите на високу оцінку.
+                    </p>
+                    <div class="order-illustration">
+                        <!-- Використовуємо get_template_directory_uri() для коректного шляху в WordPress -->
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/book.svg"
+                            alt="Ілюстрація книг та олівця">
+                    </div>
+                </div>
+                <div class="order-form-container">
+                    <!-- Змінюємо action форми на шлях до нашого PHP-скрипта -->
+                    <!-- Важливо: action буде оброблятися JavaScript через fetch, тому можна залишити порожнім або вказати # -->
+                    <form class="form" id="orderForm" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" class="form-input" placeholder="Ім'я" name="user_name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="E-mail" name="user_email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" class="form-input" placeholder="Номер телефону" name="user_phone"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-input" placeholder="@Нік телеграму" name="study_program">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" id="type-work" name="work_type" required>
+                                <option value="">Тип роботи</option>
+                                <option value="coursework">Курсова робота</option>
+                                <option value="diploma">Дипломна робота</option>
+                                <option value="master">Магістерська робота</option>
+                                <option value="other">Інше</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" class="form-input" placeholder="Тема роботи" name="work_topic">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-input" placeholder="Дата виконання" name="due_date"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="uniqueness-slider">
+                                <label for="uniqueness">Унікальність роботи</label>
+                                <input type="range" id="uniqueness" min="60" max="100" value="80" class="slider"
+                                    name="uniqueness">
+                                <div class="slider-value">80%</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-textarea" placeholder="Опис сторінок: 21" rows="3"
+                                name="work_description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="file-upload">
+                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple>
+                                <label for="fileUpload" class="file-label">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
+                                    </svg>
+                                    Додати файли
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large form-submit">
+                            ЗАМОВИТИ РОБОТУ
+                        </button>
+                        <div id="form-message" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>
