@@ -139,13 +139,13 @@
 }
 
 .services-list-section .breadcrumb span {
-  color: var(--gray-700);
+  /* color: var(--gray-700); */
   font-weight: var(--font-weight-medium);
 }
 
 /* Section title */
 .services-list-section .section-title {
-  font-size: var(--font-size-5xl);
+  /* font-size: var(--font-size-5xl); */
   font-weight: var(--font-weight-bold);
   color: var(--gray-900);
   margin-bottom: var(--space-lg);
@@ -462,7 +462,7 @@
 }
 
 .breadcrumb span {
-  color: var(--gray-700);
+  /* color: var(--gray-700); */
   font-weight: var(--font-weight-medium);
 }
 
@@ -853,7 +853,7 @@
   top: -45%;
   left: -5%;
   font-size: var(--font-size-4xl);
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
 .service-details-hero-description {
@@ -880,7 +880,7 @@
 .service-details-hero-circles-background {
   position: absolute;
   bottom: 0;
-  width: 140%;
+  width: 100vw;
   height: 100%;
   overflow: visible;
   display: flex;
@@ -988,7 +988,7 @@
 
 .service-details-hero-rating-right .rating-stars {
   color: var(--star-color);
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 0.5rem;
 }
 
@@ -996,7 +996,7 @@
   color: var(--gray-600);
   line-height: var(--line-height-tight);
   margin-bottom: 0;
-  font-size: clamp(0.8rem, 1.8vw, var(--font-size-lg));
+  font-size: clamp(0.8rem, 1.8vw, var(--font-size-md));
 }
 
 .service-details-hero-rating-right .rating-text strong {
@@ -1005,7 +1005,7 @@
   display: block;
   font-weight: var(--font-weight-bold);
   margin-bottom: 0.25rem;
-  font-size: clamp(1.5rem, 4vw, var(--font-size-4xl));
+  font-size: clamp(1.5rem, 4vw, var(--font-size-3xl));
 }
 
 .service-details-hero-rating-right .rating-text strong span {
@@ -1073,9 +1073,7 @@
   .service-details-hero-rating-right .rating-stars {
     font-size: 3rem;
   }
-  .rating-text {
-    font-size: ;
-  }
+  
 }
 
 @media screen and (max-height: 800px) {
@@ -1281,6 +1279,19 @@
 
   .service-details-hero-text-left::before {
     top: -25%;
-    left:0;
+    left: 0;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .service-details-hero-rating-right .rating-stars {
+    font-size: 2rem;
+  }
+  .service-details-hero-rating-right .rating-text strong {
+    font-size: 2rem;
+  }
+  .service-details-hero-image-center {
+    margin-top: var(--space-sm);
+  }
+
 }

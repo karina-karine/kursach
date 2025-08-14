@@ -39,11 +39,42 @@ function kursach_help_theme_setup()
 add_action('after_setup_theme', 'kursach_help_theme_setup');
 
 /**
+ * Функція для отримання канонічного URL поточної сторінки.
+ * Використовується для SEO, щоб уникнути дублювання контенту.
+ */
+if (!function_exists('get_canonical_url')) {
+    function get_canonical_url()
+    {
+        global $wp;
+        $current_url = home_url(add_query_arg(array(), $wp->request));
+        // Видаляємо параметр service_id, якщо він присутній, для канонічного URL сторінки послуг
+        if (is_page_template('our-services-page.php') && isset($_GET['service_id'])) {
+            $current_url = remove_query_arg('service_id', $current_url);
+        }
+        // Видаляємо параметр slug, якщо він присутній, для канонічного URL статті блогу
+        if (is_page_template('single-article-page.php') && isset($_GET['slug'])) {
+            $current_url = remove_query_arg('slug', $current_url);
+        }
+        // Для сторінок блогу з пагінацією, переконайтеся, що канонічний URL вказує на першу сторінку
+        if (is_page_template('blog-template.php') && get_query_var('paged') > 1) {
+            $blog_page_id = get_option('page_for_posts');
+            if (!$blog_page_id && is_page_template('blog-template.php')) {
+                $blog_page_id = get_the_ID();
+            }
+            $current_url = $blog_page_id ? get_permalink($blog_page_id) : home_url('/blog/');
+        }
+
+        return trailingslashit($current_url);
+    }
+}
+
+/**
  * Основна функція для підключення скриптів і стилів.
  */
 function kursach_help_enqueue_assets()
 {
     wp_enqueue_script('jquery');
+
     // Підключення основних стилів
     wp_enqueue_style('kursach-help-style', get_stylesheet_uri(), array(), '1.0.0', 'all');
     wp_enqueue_style('main-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0', 'all');
@@ -51,11 +82,10 @@ function kursach_help_enqueue_assets()
     wp_enqueue_style('single-article-styles', get_template_directory_uri() . '/css/single-article-styles.css', array(), '1.0.0', 'all');
     wp_enqueue_style('media-style', get_template_directory_uri() . '/css/media.css', array(), '1.0.0', 'all');
 
-    // Оновлений шлях до script.js
+    // Підключення основного скрипту
     wp_enqueue_script('kursach-help-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
 
     // Локалізація даних для JavaScript (AJAX URL, nonce, Home URL, servicesData)
-    // Переконайтеся, що файл services_data.php існує та містить функцію get_services_data()
     if (file_exists(get_template_directory() . '/services_data.php')) {
         require_once get_template_directory() . '/services_data.php';
         $services = get_services_data();
@@ -63,13 +93,10 @@ function kursach_help_enqueue_assets()
         $services = []; // Порожній масив, якщо файл не знайдено
     }
 
-    // --- НОВА ЛОГІКА ДЛЯ ВИЗНАЧЕННЯ ПОЧАТКОВОГО СТАНУ ПОСЛУГ ---
+    // Логіка для визначення початкового стану послуг для JS
     $current_service_id_from_url = isset($_GET['service_id']) ? sanitize_text_field($_GET['service_id']) : null;
     $is_valid_service_id = ($current_service_id_from_url && isset($services[$current_service_id_from_url]));
-
-    $first_service_id = array_key_first($services);
-    $service_to_display_id = $is_valid_service_id ? $current_service_id_from_url : $first_service_id;
-    // --- КІНЕЦЬ НОВОЇ ЛОГІКИ ---
+    $service_to_display_id = $is_valid_service_id ? $current_service_id_from_url : null; // Якщо недійсний, не встановлюємо початковий ID
 
     wp_localize_script('kursach-help-script', 'kursachHelpAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
@@ -81,7 +108,6 @@ function kursach_help_enqueue_assets()
         'isSingleServiceViewFromPHP' => $is_valid_service_id, // Передача стану відображення
     ));
 }
-// Залишаємо лише один виклик add_action для wp_enqueue_scripts
 add_action('wp_enqueue_scripts', 'kursach_help_enqueue_assets');
 
 /**
@@ -93,16 +119,18 @@ function submit_order_form_ajax_handler()
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'order_form_nonce')) {
         wp_send_json_error('Помилка безпеки: недійсний токен форми замовлення.');
     }
+
     // Санітизація та валідація даних форми
     $name = sanitize_text_field($_POST['user_name']);
     $email = sanitize_email($_POST['user_email']);
     $phone = sanitize_text_field($_POST['user_phone']);
-    $study_program = sanitize_text_field($_POST['study_program']);
+    $telegram_nick = sanitize_text_field($_POST['telegram_nick']); // Додано Telegram нік
     $work_type = sanitize_text_field($_POST['work_type']);
     $work_topic = sanitize_text_field($_POST['work_topic']);
     $due_date = sanitize_text_field($_POST['due_date']);
     $uniqueness = sanitize_text_field($_POST['uniqueness']);
     $description = sanitize_textarea_field($_POST['work_description']);
+
     // Базова валідація
     if (empty($name) || empty($email) || empty($phone) || empty($work_type) || empty($due_date)) {
         wp_send_json_error('Будь ласка, заповніть всі обов\'язкові поля форми замовлення.');
@@ -110,6 +138,7 @@ function submit_order_form_ajax_handler()
     if (!is_email($email)) {
         wp_send_json_error('Будь ласка, введіть дійсну адресу електронної пошти у формі замовлення.');
     }
+
     // Формування HTML тіла електронного листа з таблицею
     $message_html = '
         <p>Отримано нове замовлення роботи з сайту:</p>
@@ -127,8 +156,8 @@ function submit_order_form_ajax_handler()
                 <td style="padding: 10px; border: 1px solid #ddd;"><a href="tel:' . esc_attr(preg_replace('/[^0-9+]/', '', $phone)) . '" style="color: #007bff; text-decoration: none;">' . esc_html($phone) . '</a></td>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Навчальна програма:</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . (!empty($study_program) ? esc_html($study_program) : 'Не вказано') . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Нік телеграму:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . (!empty($telegram_nick) ? esc_html($telegram_nick) : 'Не вказано') . '</td>
             </tr>
             <tr>
                 <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Тип роботи:</td>
@@ -143,14 +172,15 @@ function submit_order_form_ajax_handler()
                 <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html($due_date) . '</td>
             </tr>
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Унікальність:</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html($uniqueness) . '</td>
+                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Бажана унікальність:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html($uniqueness) . '%</td>
             </tr>
             <tr>
                 <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Опис:</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">' . nl2br(esc_html($description)) . '</td>
             </tr>
     ';
+
     $attachments = array();
     $uploaded_file_names = array();
     // Обробка завантажених файлів
@@ -158,20 +188,18 @@ function submit_order_form_ajax_handler()
         $files = $_FILES['uploaded_files'];
         foreach ($files['name'] as $key => $value) {
             if ($files['error'][$key] == UPLOAD_ERR_OK) {
-                // Переміщуємо тимчасовий файл у тимчасову директорію WordPress
-                // Це необхідно, оскільки wp_mail() очікує шлях до файлу, а не його вміст
-                $temp_file = wp_tempnam($value); // Створює унікальне ім'я файлу в тимчасовій директорії
+                $temp_file = wp_tempnam($value);
                 if (move_uploaded_file($files['tmp_name'][$key], $temp_file)) {
                     $attachments[] = $temp_file;
-                    $uploaded_file_names[] = basename($value); // Зберігаємо оригінальне ім'я для повідомлення
+                    $uploaded_file_names[] = basename($value);
                 }
             }
         }
         if (!empty($uploaded_file_names)) {
             $message_html .= '<tr>
-                                        <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Прикріплені файли:</td>
-                                        <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html(implode(', ', $uploaded_file_names)) . '</td>
-                                    </tr>';
+                                <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">Прикріплені файли:</td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">' . esc_html(implode(', ', $uploaded_file_names)) . '</td>
+                            </tr>';
         }
     }
     $message_html .= '</table>';
@@ -268,4 +296,3 @@ function submit_contact_form_ajax_handler()
 }
 add_action('wp_ajax_submit_contact_form', 'submit_contact_form_ajax_handler');
 add_action('wp_ajax_nopriv_submit_contact_form', 'submit_contact_form_ajax_handler');
-?>

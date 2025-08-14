@@ -1,51 +1,47 @@
 <?php
-/*
-Template Name: Cooperation Page
-*/
+/*Template Name: Cooperation Page*/
 get_header();
 ?>
-
 <main class="main-content">
-    <!-- Hero Section -->
     <section class="collaboration-hero">
         <div class="container coop">
             <div class="breadcrumb">
-                <a href="<?php echo home_url(); ?>">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
+                <a href="<?php echo home_url(); ?>">Головна</a>
                 / <span>Співпраця</span>
             </div>
-            <h1 class="section-title">Запрошуємо вас до співпраці з нами</h1>
+            <h1 class="section-title">Запрошуємо до співпраці з нами</h1>
             <div class="collaboration-images">
                 <div class="collab-image-item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop1.svg" alt="Дівчина з ноутбуком"
-                        class="collab-img">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop1.svg"
+                        alt="Дівчина з ноутбуком, що символізує можливості віддаленої співпраці" class="collab-img">
                 </div>
                 <div class="collab-image-item center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop2.svg" alt="Дівчина працює"
-                        class="collab-img">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop2.svg"
+                        alt="Дівчина працює за комп'ютером, що відображає продуктивну співпрацю" class="collab-img">
                     <div class="collab-clock">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/black-circle.svg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/black-circle.svg" alt="">
                     </div>
-
                 </div>
                 <div class="collab-image-item">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop3.svg" alt="Дівчина з навушниками"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/coop3.svg"
+                        alt="Дівчина з навушниками, що символізує комунікацію та підтримку у співпраці"
                         class="collab-img">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Collaboration Options -->
     <section class="collaboration-options">
         <div class="container">
             <div class="collab-options-content">
                 <div class="guarantees-image">
                     <div class="guarantees-image-container">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/coop-student.svg"
-                            alt="Жінка працює за ноутбуком" class="guarantees-img">
+                            alt="Студентка працює за ноутбуком, символізуючи можливості заробітку для студентів"
+                            class="guarantees-img">
                         <div class="book-icon">
                             <img class="coop-book"
-                                src="<?php echo get_template_directory_uri(); ?>/assets/coop-book.svg">
+                                src="<?php echo get_template_directory_uri(); ?>/assets/coop-book.svg"
+                                alt="Іконка книги, що символізує знання та навчання у співпраці">
                         </div>
                     </div>
                 </div>
@@ -97,9 +93,9 @@ get_header();
                         <div class="collab-option-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                                 <circle cx="30" cy="30" r="25" fill="#4A90E2" />
-                                <rect x="20" y="22" width="20" height="16" rx="2" stroke="white" stroke-width="2"
+                                <circle cx="30" cy="25" r="8" stroke="white" stroke-width="2" fill="none" />
+                                <path d="M18 45c0-8 5.5-12 12-12s12 4 12 12" stroke="white" stroke-width="2"
                                     fill="none" />
-                                <path d="M25 30h10M25 34h8" stroke="white" stroke-width="2" />
                             </svg>
                         </div>
                         <div class="collab-option-content">
@@ -126,7 +122,7 @@ get_header();
                             </svg>
                         </div>
                         <div class="collab-option-content">
-                            <h3 class="collab-option-title">Блогер</h3>
+                            <h3 class="collab-option-title">Блогерам</h3>
                             <p class="collab-option-text">
                                 У вас є велика аудиторія віком від 17 до 23 років? Рекламуйте наші послуги, і
                                 отримуйте прибуток за приведених клієнтів за вашим промокодом!
@@ -137,16 +133,15 @@ get_header();
             </div>
         </div>
     </section>
-
-    <!-- Contact Form Section -->
     <section class="contact-form-section">
         <div class="container">
             <div class="contact-form-content">
                 <div class="contact-form-info">
                     <div class="contact-question-icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/question.svg" alt="Іконка питання">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/question.svg"
+                            alt="Іконка знаку питання, що вказує на секцію запитань та відповідей">
                     </div>
-                    <h2 class="contact-form-title">Залишились питання?</h2>
+                    <h2 class="contact-form-title">Залишились питання щодо співпраці?</h2>
                     <p class="contact-form-description">
                         Якщо у вас залишилися якісь питання, заповніть форму, або пишіть нам на
                         <a href="mailto:kursach.net.ua@gmail.com" class="contact-link">пошту</a> чи
@@ -175,7 +170,5 @@ get_header();
             </div>
         </div>
     </section>
-
 </main>
-
 <?php get_footer(); ?>

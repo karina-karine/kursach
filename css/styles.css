@@ -177,6 +177,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: hidden; 
 }
 
 body {
@@ -189,6 +190,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden; 
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -852,7 +854,7 @@ grid-column: 1;
 grid-row: 1;
 z-index: 3;
 text-align: left;
-transform: translateY(-155%);
+transform: translateY(-100%);
 }
 .hero-text-left::before {
 content: url('<?php echo get_template_directory_uri(); ?>/assets/quote.png');
@@ -899,9 +901,9 @@ bottom: 0;
 .hero-circles-background {
 position: absolute;
 bottom: 0;
-width: 140%;
+width: 100vw;
 height: 100%;
-overflow: visible;
+overflow: hidden;
 display: flex;
 align-items: flex-end;
 justify-content: center;
@@ -988,12 +990,12 @@ flex-direction: column;
 align-self: flex-end;
 justify-content: flex-end;
 height: 100%;
-padding-bottom: 10vh; /* Відступ знизу використовуючи vh */
+padding-bottom: 5vh; /* Відступ знизу використовуючи vh */
 }
 .rating-stars {
 color: var(--star-color);
 /* Адаптивний розмір шрифту */
-font-size: clamp(2rem, 5vw, 4rem);
+font-size: clamp(2rem, 5vw, 3rem);
 margin-bottom: 0.5rem;
 }
 .rating-text {
@@ -1002,7 +1004,7 @@ line-height: var(--line-height-tight);
 margin-top: 0;
 margin-bottom: 0;
 /* Адаптивний розмір шрифту */
-font-size: clamp(0.8rem, 1.8vw, var(--font-size-lg));
+font-size: clamp(0.8rem, 1.8vw, var(--font-size-base));
 }
 .rating-text strong {
 font-size: var(--font-size-4xl);
@@ -1011,11 +1013,21 @@ display: block;
 font-weight: var(--font-weight-bold);
 margin-bottom: 0.25rem;
 /* Адаптивний розмір шрифту */
-font-size: clamp(1.5rem, 4vw, var(--font-size-4xl));
+font-size: clamp(1.5rem, 4vw, var(--font-size-3xl));
 }
 .rating-text strong span {
 color: rgb(1, 187, 255);
 }
+
+.hero-experience {
+    display: block;
+    font-size: 2rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+    margin-top: var(--space-md);
+}
+
+
 /* ===== GUARANTEES SECTION ===== */
 .guarantees {
 padding: var(--space-5xl) 0 var(--space-md) 0;
@@ -1839,7 +1851,7 @@ video {
 }
 
 .page-header h1 {
-  font-size: var(--font-size-title);
+  /* font-size: var(--font-size-title); */
   font-weight: var(--font-weight-bold);
   color: var(--gray-900);
   margin-bottom: 0;
@@ -2728,6 +2740,10 @@ border-radius: var(--radius-button);
   flex-direction: column;
 }
 
+.contacts-hero-section .page-description {
+  text-align: center;
+}
+
 .contacts-background-image {
   width: 90%;
   height: 300px; /* Height of the background image */
@@ -2737,6 +2753,8 @@ border-radius: var(--radius-button);
   z-index: 0; /* Behind the cards */
   box-shadow: var(--shadow-lg);
 }
+
+
 
 .contacts-background-image .background-img {
   width: 100%;
@@ -2828,3 +2846,5 @@ border-radius: var(--radius-button);
   height: 100%;
   display: block;
 }
+
+

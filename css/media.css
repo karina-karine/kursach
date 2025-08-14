@@ -184,7 +184,7 @@
   }
   
   .rating-stars {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -199,7 +199,7 @@
   }
   
   .hero-rating-right {
-    padding-bottom: 25vh;
+    padding-bottom: 10vh;
   }
   
   .hero-actions-overlay {
@@ -273,7 +273,7 @@
 
   .hero-title {
     font-size: clamp(2rem, 5vw, var(--font-size-title));
-    padding: 8vh 0;
+    padding: 3vh 0;
     flex-shrink: 0;
     line-height: var(--line-height-snug);
   }
@@ -303,7 +303,7 @@
   }
 
   .hero-description {
-    font-size: clamp(1rem, 2.2vw, var(--font-size-xl));
+    /* font-size: clamp(1rem, 2.2vw, var(--font-size-xl)); */
     text-align: justify;
     z-index: 2;
     flex-shrink: 0;
@@ -349,10 +349,11 @@
   .hero-background-circles {
     position: absolute;
     bottom: 0;
-    width: 140%;
+    width: 100vw;
     height: auto;
     z-index: 0;
     max-height: 60vh; /* Обмежуємо висоту кіл */
+    overflow: hidden;
   }
 
   .hero-actions-overlay {
@@ -371,6 +372,10 @@
 
   .rating-text {
     margin-bottom: var(--space-sm);
+  }
+  .hero-experience {
+    font-size: 1.5rem;
+    margin-top: var(--space-md);
   }
 }
 
@@ -438,11 +443,11 @@
   }
 
   .rating-stars {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2rem, 8vw, 2.5rem);
   }
 
   .rating-text strong {
-    font-size: clamp(2rem, 6vw, 2.5rem);
+    font-size: clamp(2rem, 6vw, 2rem);
   }
   
   .hero-actions-overlay .btn {
@@ -491,6 +496,7 @@
 
   .hero-title {
     font-size: clamp(1.5rem, 7vw, 2.5rem);
+    padding-bottom: var(--space-lg);
   }
   
   .hero-description {
@@ -578,7 +584,7 @@
   }
   
   .hero-rating-right {
-    padding-bottom: 8vh;
+    padding-bottom: 4vh;
   }
   
   .hero-actions-overlay {
@@ -1285,6 +1291,10 @@
   .referral-circle-middle { width: min(550px, 55vw); }
   .referral-circle-inner { width: min(450px, 45vw); }
   /* .referral-circles-background .phone-hands { max-width: 250px; } */
+  .referral-benefits > .benefit-item:first-child {
+  flex-direction: column;
+}
+
 }
 
 /* ===================== 768px ===================== */
@@ -1301,49 +1311,57 @@
   .referral-content {
     width: 100%;
   }
+  .referral-benefits > .benefit-item:first-child {
+  flex-direction: column;
+}
 
 
+/* === Блок для кіл і телефону === */
   .referral-circles-background {
     position: relative;
     width: 100%;
-    height: clamp(100px, 25vw, 200px); /* висота адаптивна */
+    height: clamp(100px, 30vw, 200px); /* адаптивна висота */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
   }
 
   /* === Кола === */
-.referral-circle-outer,
-.referral-circle-middle,
-.referral-circle-inner {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: translate(20%, 20%); /* трохи виходять за межі */
-  display: block;
-  margin: 0 auto;
-}
+  .referral-circle-outer,
+  .referral-circle-middle,
+  .referral-circle-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, 25%);
+    display: block;
+    margin: 0 auto;
+  }
 
-.referral-circle-outer {
-  width: clamp(350px, 85vw, 700px); /* збільшено */
-  z-index: 1;
-}
+  .referral-circle-outer {
+    width: clamp(280px, 85vw, 500px); /* більше */
+    z-index: 1;
+  }
 
-.referral-circle-middle {
-  width: clamp(280px, 75vw, 600px); /* збільшено */
-  z-index: 2;
-}
+  .referral-circle-middle {
+    width: clamp(220px, 75vw, 400px); /* більше */
+    z-index: 2;
+  }
 
-.referral-circle-inner {
-  width: clamp(220px, 65vw, 500px); /* збільшено */
-  z-index: 3;
-}
+  .referral-circle-inner {
+    width: clamp(180px, 65vw, 320px); /* більше */
+    z-index: 3;
+  }
 
-/* === Фото руки — поверх кіл === */
-.referral-circles-background .phone-hands {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  max-width: clamp(180px, 45vw, 350px); /* збільшено */
-  z-index: 10;
-}
+  /* === Фото руки — поверх усіх === */
+  .referral-circles-background .phone-hands {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: clamp(150px, 45vw, 220px); /* фото також більше */
+    z-index: 10;
+  }
 }
 
 
@@ -1382,7 +1400,7 @@
   .referral-circles-background {
     position: relative;
     width: 100%;
-    height: clamp(150px, 35vw, 250px); /* адаптивна висота */
+    height: clamp(100px, 30vw, 200px); /* адаптивна висота */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -1396,7 +1414,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translate(20%, 20%);
+    transform: translate(25%, 25%);
     display: block;
     margin: 0 auto;
   }
@@ -1421,7 +1439,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    max-width: clamp(150px, 55vw, 280px); /* фото також більше */
+    max-width: clamp(150px, 45vw, 220px); /* фото також більше */
     z-index: 10;
   }
 }
@@ -1497,6 +1515,11 @@
     padding: var(--space-3xl) 0;
   }
 
+  .order-form .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .order-content {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
@@ -1504,6 +1527,8 @@
 
   .order-text {
     text-align: center;
+    width: 95%;
+    margin: 0 auto;
   }
 
   .order-title {
@@ -2576,12 +2601,12 @@
   }
 
   .page-header h1 {
-    font-size: clamp(3.5rem, 3rem + 1vw, 4rem); /* Slightly smaller title */
+    /* font-size: clamp(3.5rem, 3rem + 1vw, 4rem); Slightly smaller title */
   }
 
   .blog-posts-grid {
     gap: var(--space-md); /* Slightly smaller gap */
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-lg);
   }
 
   .blog-card-image {
@@ -2762,22 +2787,19 @@
   }
 
   .faq-title {
-    font-size: var(--font-size-xl);
+    /* font-size: var(--font-size-xl); */
     margin-bottom: var(--space-xl);
   }
 
   .faq-trigger {
     padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-xs);
+    /* font-size: var(--font-size-xs); */
   }
 
   .faq-icon {
     font-size: var(--font-size-base);
   }
 
-  .faq-content p {
-    font-size: var(--font-size-xs);
-  }
 
   .faq-item {
     padding: var(--space-sm);
@@ -2792,15 +2814,11 @@
     padding-bottom: var(--space-xl);
   }
 
-  .page-header h1 {
-    font-size: var(--font-size-2xl);
-  }
-
   .blog-posts-grid {
     /* Two columns on tablets */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-5xl);
   }
 
   .blog-card-image {
@@ -2816,19 +2834,19 @@
   }
 
   .blog-card-title {
-    font-size: var(--font-size-sm);
+    /* font-size: var(--font-size-sm); */
     margin-bottom: var(--space-xs);
   }
 
   .blog-card-description {
-    font-size: 0.75rem; /* Even smaller */
+    /* font-size: 0.75rem; Even smaller */
     -webkit-line-clamp: 2;
     margin-bottom: var(--space-sm);
   }
 
   .blog-card-button {
     padding: var(--space-xs);
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
   }
 
   .pagination {
@@ -2848,13 +2866,14 @@
   }
 
   .faq-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-lg);
+    /* font-size: var(--font-size-lg); */
+    margin: var(--space-2xl) 0;
   }
 
   .faq-trigger {
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--font-size-base);
+    text-align: left;
   }
 
   .faq-icon {
@@ -2864,6 +2883,7 @@
   .faq-content p {
     font-size: var(--font-size-sm);
   }
+  
 }
 
 /* Мобільні пристрої */
@@ -2873,12 +2893,8 @@
     padding-bottom: var(--space-xl);
   }
 
-  .page-header .breadcrumb {
-    font-size: 0.7rem;
-  }
-
   .page-header h1 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
   }
 
   .blog-posts-grid {
@@ -2933,7 +2949,7 @@
   }
 
   .faq-title {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-2xl);
     margin-bottom: var(--space-md);
   }
 
@@ -3406,7 +3422,7 @@
         padding: var(--space-xl) 0 var(--space-4xl);
     }
     .services-list-section .section-title {
-        font-size: clamp(3.5rem, 3rem + 1vw, 4rem);
+        /* font-size: clamp(3.5rem, 3rem + 1vw, 4rem); */
         margin-bottom: var(--space-lg);
     }
     .services-list-section .section-title::after {
@@ -4020,7 +4036,7 @@
   }
 
   .service-details-sidebar {
-    order: 2;
+    /* order: 2; */
     width: 100%;         /* Розтягуємо по ширині */
     position: static;    /* Вимикаємо sticky */
     padding: var(--space-md);
@@ -4028,7 +4044,7 @@
   }
 
   .service-details-main {
-    order: 1;
+    /* order: 1; */
     padding: var(--space-md);
   }
 
@@ -4720,3 +4736,6 @@ body.modal-open {
     font-size: var(--font-size-xs);
   }
 }
+
+
+

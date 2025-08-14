@@ -1,21 +1,18 @@
 <?php
 /**
  * Template Name: Blog Template
- * Description: A custom page template for displaying blog posts with pagination and an order form.
- *
- * @package YourThemeName
+ * Description: SEO-оптимізований шаблон блогу з пагінацією та FAQ.
  */
-get_header();
-require_once get_template_directory() . '/article-data.php'; // Include the centralized article data
 
-$all_articles_data = get_articles_data(); // Отримуємо всі статті
-// Convert associative array to indexed array for pagination
-// This is crucial because array_slice works with numeric indices.
+get_header();
+require_once get_template_directory() . '/article-data.php';
+
+$all_articles_data = get_articles_data();
 $all_articles_values = array_values($all_articles_data);
 
 $posts_per_page = 6;
 $current_page = get_query_var('paged') ? get_query_var('paged') : 1;
-$total_posts = count($all_articles_values); // Use the count of the centralized data
+$total_posts = count($all_articles_values);
 $total_pages = ceil($total_posts / $posts_per_page);
 $offset = ($current_page - 1) * $posts_per_page;
 $paged_posts_values = array_slice($all_articles_values, $offset, $posts_per_page);
@@ -51,111 +48,116 @@ $faq_items = [
     ],
 ];
 ?>
-<main class="container">
-    <section class="page-header">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="<?php echo home_url(); ?>">Головна</a> <!-- In WordPress, use <?php echo home_url(); ?> -->
-                / <span>Блог</span>
-            </div>
-            <h1 class="section-title">Блог</h1>
-        </div>
+<!-- SEO meta -->
+<meta name="description" content="Читайте корисні статті в блозі про освіту, дослідження, наукові роботи та поради.">
+<meta property="og:title" content="Блог | <?php bloginfo('name'); ?>">
+<meta property="og:description" content="Корисні матеріали, поради та дослідження для студентів і викладачів.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
+<meta property="og:image" content="<?php echo esc_url(get_template_directory_uri() . '/images/og-image.jpg'); ?>">
 
+<main class="container" itemscope itemtype="https://schema.org/Blog">
+    <section class="page-header">
+        <div class=" container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="<?php echo home_url(); ?>">Головна</a> / <span>Блог</span>
+            </nav>
+            <h1 class=" section-title" itemprop="headline">Блог</h1>
+        </div>
     </section>
-    <section class="blog-posts-grid"> <?php
-    if (!empty($paged_posts_values)) {
-        foreach ($paged_posts_values as $post_data) {
-            // Find the slug for the current post_data by searching in $all_articles_data
-            // This is necessary because $paged_posts_values is an indexed array, not associative by slug.
-            $current_slug = array_search($post_data, $all_articles_data);
-            if ($current_slug === false) {
-                $current_slug = ''; // Fallback
-            }
-            // Оновлене посилання на single-article-page.php
-            $article_link = esc_url(home_url('/single-article/?slug=' . $current_slug));
-            ?>
-                <div class="blog-card">
-                    <img src=" <?php echo esc_url($post_data['image']); ?>" alt="
-                    <?php echo esc_attr($post_data['title']); ?>" class="blog-card-image">
+
+    <section class="blog-posts-grid">
+        <?php if (!empty($paged_posts_values)):
+            foreach ($paged_posts_values as $post_data):
+                $current_slug = array_search($post_data, $all_articles_data);
+                $article_link = esc_url(home_url('/single-article/?slug=' . $current_slug));
+                ?>
+                <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                    <a href="<?php echo $article_link; ?>" itemprop="url">
+                        <img src="<?php echo esc_url($post_data['image']); ?>"
+                            alt="<?php echo esc_attr($post_data['title']); ?>" class="blog-card-image" itemprop="image">
+                    </a>
                     <div class="blog-card-content">
-                        <p class="blog-card-date"><?php echo esc_html($post_data['date']); ?></p>
-                        <h3 class="blog-card-title"><?php echo esc_html($post_data['title']); ?></h3>
-                        <p class="blog-card-description"><?php echo esc_html($post_data['description']); ?></p>
-                        <a href="<?php echo $article_link; ?>" class="blog-card-button">ЧИТАТИ ДАЛІ</a>
+                        <time class="blog-card-date" datetime="<?php echo date('Y-m-d', strtotime($post_data['date'])); ?>"
+                            itemprop="datePublished">
+                            <?php echo esc_html($post_data['date']); ?>
+                        </time>
+                        <h2 class="blog-card-title" itemprop="headline">
+                            <a href="<?php echo $article_link; ?>" itemprop="url">
+                                <?php echo esc_html($post_data['title']); ?>
+                            </a>
+                        </h2>
+                        <p class="blog-card-description" itemprop="description">
+                            <?php echo esc_html($post_data['description']); ?>
+                        </p>
+                        <a href="<?php echo $article_link; ?>" class="blog-card-button" itemprop="mainEntityOfPage">ЧИТАТИ
+                            ДАЛІ</a>
                     </div>
-                </div>
-                <?php
-        }
-    } else {
-        echo '<p class="no-posts-message">Статей не знайдено.</p>';
-    }
-    ?>
+                </article>
+            <?php endforeach; else: ?>
+            <p class="no-posts-message">Статей не знайдено.</p>
+        <?php endif; ?>
     </section>
-    <nav class="pagination" aria-label="Pagination"> <?php
-    $pagination_args = array(
-        'base' => add_query_arg('paged', '%#%'),
-        'format' => '',
-        'total' => $total_pages,
-        'current' => $current_page,
-        'show_all' => false,
-        'end_size' => 1,
-        'mid_size' => 2,
-        'prev_next' => true,
-        'prev_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>',
-        'next_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>',
-        'type' => 'array',
-        'add_args' => false,
-        'add_fragment' => '',
-    );
-    $paginate_links = paginate_links($pagination_args);
-    if ($paginate_links) {
-        // Use home_url() for previous/next links to ensure they point to the blog page
-        // Assuming this template is assigned to a page, get its permalink
-        $blog_page_id = get_option('page_for_posts'); // If set as posts page
-        if (!$blog_page_id && is_page_template('blog-template.php')) {
-            $blog_page_id = get_the_ID(); // If it's just a page using this template
-        }
-        $base_url_for_pagination = $blog_page_id ? get_permalink($blog_page_id) : home_url('/blog/'); // Fallback to /blog/
-    
-        echo '<a href="' . esc_url(add_query_arg('paged', max(1, $current_page - 1), $base_url_for_pagination)) . '" class="pagination-arrow ' . ($current_page === 1 ? 'disabled' : '') . '" aria-label="Previous page" ' . ($current_page === 1 ? 'aria-disabled="true"' : '') . '>';
-        echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>';
-        echo '</a>';
-        echo '<div class="pagination-numbers">';
-        foreach ($paginate_links as $link) {
-            // Пропускаємо порожні елементи, трикрапки та елементи без контенту
-            if (
-                empty($link) ||
-                strpos($link, '&hellip;') !== false ||
-                strpos($link, '...') !== false ||
-                trim(strip_tags($link)) === ''
-            ) {
-                continue;
+
+    <!-- Пагінація -->
+    <nav class="pagination" aria-label="Pagination">
+        <div class="flex items-center space-x-2">
+            <?php
+            $blog_page_id = get_option('page_for_posts') ?: get_the_ID();
+            $base_url_for_pagination = $blog_page_id ? get_permalink($blog_page_id) : home_url('/blog/');
+
+            // Попередня сторінка
+            if ($current_page > 1) {
+                echo '<a rel="prev" href="' . esc_url(add_query_arg('paged', $current_page - 1, $base_url_for_pagination)) . '" class="pagination-arrow" aria-label="Previous Page">';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-5 w-5"><path d="m15 18-6-6 6-6"/></svg>';
+                echo '</a>';
             }
-            // Замінюємо класи без зміни структури
-            $link = str_replace('page-numbers', 'pagination-button', $link);
-            $link = str_replace('current', 'active', $link);
-            echo $link;
-        }
-        echo '</div>';
-        echo '<a href="' . esc_url(add_query_arg('paged', min($total_pages, $current_page + 1), $base_url_for_pagination)) . '" class="pagination-arrow ' . ($current_page === $total_pages ? 'disabled' : '') . '" aria-label="Next page" ' . ($current_page === $total_pages ? 'aria-disabled="true"' : '') . '>';
-        echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>';
-        echo '</a>';
-    }
-    ?>
+
+            // Номери сторінок
+            $pagination_args = [
+                'base' => add_query_arg('paged', '%#%', $base_url_for_pagination), // Використовуйте base_url_for_pagination тут
+                'format' => '',
+                'total' => $total_pages,
+                'current' => $current_page,
+                'type' => 'array',
+                'prev_next' => false, // Вимкнути автоматичні кнопки Prev/Next
+            ];
+            $links = paginate_links($pagination_args);
+
+            if ($links) {
+                echo '<div class="pagination-numbers">';
+                foreach ($links as $link) {
+                    // Замінюємо стандартні класи WordPress на наші
+                    $link = str_replace('page-numbers', 'pagination-button', $link);
+                    $link = str_replace('current', 'active', $link);
+                    echo $link;
+                }
+                echo '</div>';
+            }
+
+            // Наступна сторінка
+            if ($current_page < $total_pages) {
+                echo '<a rel="next" href="' . esc_url(add_query_arg('paged', $current_page + 1, $base_url_for_pagination)) . '" class="pagination-arrow next-button" aria-label="Next Page">';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 h-5 w-5"><path d="m9 18 6-6-6-6"/></svg>';
+                echo '</a>';
+            }
+            ?>
+        </div>
     </nav>
-    <section class="faq-section">
+    <!-- FAQ -->
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
         <h2 class="faq-title">Ваші питання - наші відповіді</h2>
         <div class="faq-accordion">
             <?php foreach ($faq_items as $index => $item): ?>
-                <div class="faq-item">
-                    <button class="faq-trigger" aria-expanded="false" aria-controls="faq-content-
-                                <?php echo $index + 1; ?>">
-                        <?php echo esc_html($item['question']); ?>
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span itemprop="name">
+                            <?php echo esc_html($item['question']); ?>
+                        </span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div id="faq-content-<?php echo $index + 1; ?>" class="faq-content" role="region"
-                        aria-labelledby="faq-trigger-<?php echo $index + 1; ?>">
-                        <p>
+                    <div class="faq-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
                             <?php echo esc_html($item['answer']); ?>
                         </p>
                     </div>
@@ -163,46 +165,50 @@ $faq_items = [
             <?php endforeach; ?>
         </div>
     </section>
-    <!-- Order Form Section -->
-    <section class="order-form">
+    <section class="order-form" id="orderForm">
         <div class="container">
             <div class="order-content">
                 <div class="order-text">
-                    <h2 class="order-title">Зробіть замовлення прямо зараз</h2>
+                    <h2 class="order-title">Зробіть замовлення прямо зараз: швидко та зручно</h2>
                     <p class="order-description">
                         Ви отримаєте якісну та унікальну роботу, яка відповідатиме всім методичним
                         рекомендаціям та побажанням викладача. Нашу роботу ви без проблем здасте
-                        та захистите на високу оцінку.
+                        та захистите на високу оцінку. Заповніть форму, щоб розпочати співпрацю!
                     </p>
                     <div class="order-illustration">
-                        <!-- Використовуємо get_template_directory_uri() для коректного шляху в WordPress -->
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/book.svg"
-                            alt="Ілюстрація книг та олівця">
+                            alt="Ілюстрація книг та олівця, що символізує навчання та написання робіт" loading="lazy">
                     </div>
                 </div>
                 <div class="order-form-container">
-                    <!-- Змінюємо action форми на шлях до нашого PHP-скрипта -->
-                    <!-- Важливо: action буде оброблятися JavaScript через fetch, тому можна залишити порожнім або вказати # -->
                     <form class="form" id="orderForm" method="POST" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Ім'я" name="user_name" required>
+                                <label for="user_name" class="sr-only">Ваше ім'я</label>
+                                <input type="text" id="user_name" class="form-input" placeholder="Ім'я" name="user_name"
+                                    required aria-required="true">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" placeholder="E-mail" name="user_email" required>
+                                <label for="user_email" class="sr-only">Ваш E-mail</label>
+                                <input type="email" id="user_email" class="form-input" placeholder="E-mail"
+                                    name="user_email" required aria-required="true">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="tel" class="form-input" placeholder="Номер телефону" name="user_phone"
-                                    required>
+                                <label for="user_phone" class="sr-only">Номер телефону</label>
+                                <input type="tel" id="user_phone" class="form-input" placeholder="Номер телефону"
+                                    name="user_phone" required aria-required="true">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="@Нік телеграму" name="study_program">
+                                <label for="telegram_nick" class="sr-only">Нік телеграму</label>
+                                <input type="text" id="telegram_nick" class="form-input" placeholder="@Нік телеграму"
+                                    name="telegram_nick">
                             </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-select" id="type-work" name="work_type" required>
+                            <label for="type-work" class="sr-only">Тип роботи</label>
+                            <select class="form-select" id="type-work" name="work_type" required aria-required="true">
                                 <option value="">Тип роботи</option>
                                 <option value="coursework">Курсова робота</option>
                                 <option value="diploma">Дипломна робота</option>
@@ -212,34 +218,44 @@ $faq_items = [
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Тема роботи" name="work_topic">
+                                <label for="work_topic" class="sr-only">Тема роботи</label>
+                                <input type="text" id="work_topic" class="form-input" placeholder="Тема роботи"
+                                    name="work_topic">
                             </div>
                             <div class="form-group">
-                                <input type="date" class="form-input" placeholder="Дата виконання" name="due_date"
-                                    required>
+                                <label for="due_date" class="sr-only">Дата виконання</label>
+                                <input type="date" id="due_date" class="form-input" placeholder="Дата виконання"
+                                    name="due_date" required aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="uniqueness-slider">
-                                <label for="uniqueness">Унікальність роботи</label>
+                                <label for="uniqueness">Бажана унікальність роботи: <span
+                                        class="slider-value">80%</span></label>
                                 <input type="range" id="uniqueness" min="60" max="100" value="80" class="slider"
-                                    name="uniqueness">
-                                <div class="slider-value">80%</div>
+                                    name="uniqueness" aria-valuemin="60" aria-valuemax="100" aria-valuenow="80"
+                                    aria-valuetext="80 відсотків">
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-textarea" placeholder="Опис сторінок: 21" rows="3"
+                            <label for="work_description" class="sr-only">Опис роботи (наприклад, кількість сторінок,
+                                особливі вимоги)</label>
+                            <textarea class="form-textarea" id="work_description"
+                                placeholder="Опис роботи: наприклад, кількість сторінок, особливі вимоги" rows="3"
                                 name="work_description"></textarea>
                         </div>
                         <div class="form-group">
                             <div class="file-upload">
-                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple>
+                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple
+                                    aria-describedby="file-upload-instructions">
                                 <label for="fileUpload" class="file-label">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
                                     </svg>
                                     Додати файли
                                 </label>
+                                <p id="file-upload-instructions" class="sr-only">Ви можете завантажити кілька файлів,
+                                    таких як методичні рекомендації або приклади.</p>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-large form-submit">
@@ -251,6 +267,5 @@ $faq_items = [
             </div>
         </div>
     </section>
-
 </main>
 <?php get_footer(); ?>

@@ -1,34 +1,32 @@
 <?php include 'header.php'; ?>
-
 <main class="main">
-    <!-- Hero Section -->
     <section class="hero">
-        <h1 class="hero-title">Професійне написання <br> студентських робіт <br> на замовлення</h1>
+        <h1 class="hero-title">
+            Професійне написання <br> студентських робіт <strong><span class="hero-experience">Працюємо з 2018
+                    року</span></strong>
+        </h1>
         <div class="hero-content">
             <div class="hero-text-left">
-                <p class="hero-description">Ми пропонуємо якісне та оперативне виконання будь-якої роботи. Наші експерти
-                    гарантують індивідуальний підхід, високий рівень унікальності та дотримання всіх вимог вашого
-                    навчального закладу.</p>
+                <p class="hero-description">
+                    Ми пропонуємо якісне та оперативне виконання будь-яких студентських робіт: <strong>курсових,
+                        дипломних, магістерських, рефератів та звітів з практики</strong>.
+                    Замовте роботу у нас і отримайте відмінний результат для успішного навчання!
+                </p>
             </div>
             <div class="hero-image-center">
                 <div class="hero-circles-background">
-                    <!-- Найбільше півколо (найсвітліше) -->
                     <div class="circle-outer">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.15)"
                                 stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" />
                         </svg>
                     </div>
-
-
                     <div class="circle-middle">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.25)"
                                 stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
                         </svg>
                     </div>
-
-                    <!-- Найменше півколо (найтемніше) -->
                     <div class="circle-inner">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.4)"
@@ -36,33 +34,39 @@
                         </svg>
                     </div>
                 </div>
-
                 <div class="hero-image-container">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png" alt="Student"
-                        class="hero-img">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                        alt="Щасливий студент, який успішно здав курсову роботу, тримаючи диплом" class="hero-img"
+                        loading="eager">
                 </div>
                 <div class="hero-actions-overlay">
                     <a href="#orderForm" class="btn btn-primary">ЗАМОВИТИ РОБОТУ</a>
-                    <a href="<?php echo home_url('/services/'); ?>" class="btn btn-secondary">ДІЗНАТИСЬ БІЛЬШЕ</a>
+                    <a href="<?php echo home_url('/services/'); ?>" class="btn btn-secondary">ВСЕ ПРО
+                        ПОСЛУГИ</a>
                 </div>
             </div>
-            <div class="hero-rating-right">
-                <div class="rating-stars">★★★★★</div>
-                <p class="rating-text"><strong>25 000+</strong> позитивних відгуків</p>
+            <div class="hero-rating-right" itemscope itemtype="https://schema.org/AggregateRating">
+                <div class="rating-stars" itemprop="ratingValue">★★★★★</div>
+                <p class="rating-text">
+                    <strong itemprop="reviewCount">25 000+</strong> позитивних відгуків
+                </p>
             </div>
         </div>
     </section>
-    <!-- Guarantees Section -->
+
     <section class="guarantees">
         <div class="container">
-            <h2 class="section-title">Наші гарантії</h2>
+            <h2 class="section-title">Наші ключові гарантії якості та успіху</h2>
             <div class="guarantees-content">
                 <div class="guarantees-image">
                     <div class="guarantees-image-container">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/student2.svg"
-                            alt="Жінка працює за ноутбуком" class="guarantees-img">
+                            alt="Жінка-експерт працює за ноутбуком, символізуючи професіоналізм та якість виконання робіт"
+                            class="guarantees-img" loading="lazy">
                         <div class="lightbulb-icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/bulb.svg">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/bulb.svg"
+                                alt="Іконка лампочки, що символізує нові ідеї та інноваційні рішення у написанні робіт"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -75,14 +79,14 @@
                             </svg>
                         </div>
                         <div class="guarantee-content">
-                            <h3 class="guarantee-title">Досвід</h3>
+                            <h3 class="guarantee-title">Досвід авторів</h3>
                             <p class="guarantee-text">
                                 Якщо і довіряти написання своєї роботи комусь, то тільки досвідченій команді. Наші
-                                автори написали понад 10 000 різних робіт на всі возомжность теми.
+                                автори написали понад <strong>10 000 різних робіт</strong> на всі можливі теми,
+                                гарантуючи високу якість та унікальність.
                             </p>
                         </div>
                     </div>
-
                     <div class="guarantee-item">
                         <div class="guarantee-icon">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -91,7 +95,7 @@
                             </svg>
                         </div>
                         <div class="guarantee-content">
-                            <h3 class="guarantee-title">Необмежені правки</h3>
+                            <h3 class="guarantee-title">Необмежені безкоштовні правки</h3>
                             <p class="guarantee-text">
                                 Навіщо платити за роботу, яку доводиться переробляти?
                                 Замовляючи у нас, ви отримуєте повністю готову та якісну роботу з першого разу.
@@ -99,7 +103,6 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="guarantee-item">
                         <div class="guarantee-icon">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -108,10 +111,11 @@
                             </svg>
                         </div>
                         <div class="guarantee-content">
-                            <h3 class="guarantee-title">Супровід до захисту</h3>
+                            <h3 class="guarantee-title">Повний супровід до успішного захисту</h3>
                             <p class="guarantee-text">
-                                Ми супроводжуємо вас до захисту, в разі необхідності внесення будь-яких коригувань по
-                                роботі, ви завжди можете звернутися щодо внесення коректив протягом місяця.
+                                Ми супроводжуємо вас до захисту. У разі необхідності внесення будь-яких коригувань по
+                                роботі, ви завжди можете звернутися щодо внесення коректив протягом місяця після
+                                отримання.
                             </p>
                         </div>
                     </div>
@@ -120,18 +124,16 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <h2 class="section-title">Наші послуги</h2>
-
+            <h2 class="section-title">Наші послуги з написання студентських робіт</h2>
             <div class="services-wrapper">
                 <div class="services-track">
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Курсова робота</h3>
+                            <h3 class="service-title" itemprop="name">Курсова робота</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">від 1 дня</span>
@@ -156,12 +158,11 @@
                         </div>
                         <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Дипломні роботи</h3>
+                            <h3 class="service-title" itemprop="name">Дипломні роботи</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">від 3 днів</span>
@@ -186,12 +187,11 @@
                         </div>
                         <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Магістерська робота</h3>
+                            <h3 class="service-title" itemprop="name">Магістерська робота</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">від 10 днів</span>
@@ -216,13 +216,11 @@
                         </div>
                         <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Реферат</h3>
-
+                            <h3 class="service-title" itemprop="name">Реферат</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">від 1 дня</span>
@@ -244,15 +242,13 @@
                             <p>Що також входить:</p>
                             <p><strong>Оформлення згідно стандартів, список літератури</strong></p>
                         </div>
-                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РЕФЕРАТ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Звіти з практики</h3>
-
+                            <h3 class="service-title" itemprop="name">Звіти з практики</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">від 2 днів</span>
@@ -274,15 +270,13 @@
                             <p>Що також входить:</p>
                             <p><strong>Опис підприємства, практичні завдання, щоденник практики</strong></p>
                         </div>
-                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ ЗВІТ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Мотиваційні листи</h3>
-
+                            <h3 class="service-title" itemprop="name">Мотиваційні листи</h3>
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">1 день</span>
@@ -304,15 +298,14 @@
                             <p>Що також входить:</p>
                             <p><strong>Індивідуальний підхід, відповідність вимогам ВНЗ</strong></p>
                         </div>
-                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ ЛИСТ</a>
                     </div>
-
-                    <div class="service-card">
+                    <div class="service-card" itemscope itemtype="https://schema.org/Service">
                         <div class="service-header">
-                            <h3 class="service-title">Інші види робіт</h3>
-                            <div class="service-price">договірна</div>
+                            <h3 class="service-title" itemprop="name">Інші види робіт</h3>
+
                         </div>
-                        <div class="service-details">
+                        <div class="service-details" itemprop="description">
                             <div class="service-detail">
                                 <span class="detail-label">Термін:</span>
                                 <span class="detail-value">За домовленістю</span>
@@ -334,68 +327,63 @@
                             <p>Що також входить:</p>
                             <p><strong>Реферати, контрольні, презентації, індивідуальні завдання</strong></p>
                         </div>
-                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ РОБОТУ</a>
+                        <a href="#orderForm" class="btn btn-primary service-btn">ЗАМОВИТИ ІНШУ РОБОТУ</a>
                     </div>
-
-
                 </div>
             </div>
-
             <div class="services-navigation">
-                <button class="nav-btn nav-prev">‹</button>
-                <button class="nav-btn nav-next">›</button>
+                <button class="nav-btn nav-prev" aria-label="Попередня послуга">‹</button>
+                <button class="nav-btn nav-next" aria-label="Наступна послуга">›</button>
             </div>
         </div>
     </section>
 
-    <!-- Client Reviews Section -->
     <section class="reviews">
         <div class="container">
-            <h2 class="section-title">Відгуки наших клієнтів</h2>
+            <h2 class="section-title">Реальні відгуки наших задоволених клієнтів</h2>
             <div class="reviews-content">
                 <div class="reviews-wrapper">
                     <div class="reviews-track">
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
                         <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png"
+                                alt="Скріншот позитивного відгуку студента" loading="lazy">
                         </div>
-                        <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                        </div>
-                        <div class="phone-mockup">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/hero-student.png">
-                        </div>
+
                     </div>
                 </div>
-
                 <div class="reviews-navigation">
-                    <button class="nav-btn nav-prev">‹</button>
-                    <button class="nav-btn nav-next">›</button>
+                    <button class="nav-btn nav-prev" aria-label="Попередній відгук">‹</button>
+                    <button class="nav-btn nav-next" aria-label="Наступний відгук">›</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Referral Section -->
     <section class="referral">
         <div class="container">
             <div class="referral-content">
                 <div class="referral-text">
-                    <h2 class="referral-title">Заощаджуй і заробляй з друзями</h2>
+                    <h2 class="referral-title">Заощаджуй та заробляй з друзями: вигідна реферальна програма</h2>
                     <div class="referral-benefits">
                         <div class="benefit-item">
                             <span class="benefit-text">Приведи друга і ви отримаєте</span>
@@ -413,39 +401,25 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="referral-image">
-                    <div class="phone-hands">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/hand-phone.svg"
-                            alt="Телефон в руках з додатком">
-                    </div>
-                </div> -->
             </div>
         </div>
-
-        <!-- SVG півкола фон -->
         <div class="referral-circles-background">
             <div class="phone-hands">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/hand-phone.svg"
-                    alt="Телефон в руках з додатком">
+                    alt="Руки тримають телефон з додатком реферальної програми, що символізує вигоду" loading="lazy">
             </div>
-            <!-- Найбільше півколо (найсвітліше) -->
             <div class="referral-circle-outer">
                 <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.15)"
                         stroke="rgba(59, 130, 246, 0.3)" stroke-width="2" />
                 </svg>
             </div>
-
-            <!-- Середнє півколо -->
             <div class="referral-circle-middle">
                 <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.25)"
                         stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" />
                 </svg>
             </div>
-
-            <!-- Найменше півколо (найтемніше) -->
             <div class="referral-circle-inner">
                 <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 0 200 A 200 200 0 0 1 400 200 Z" fill="rgba(59, 130, 246, 0.4)"
@@ -454,46 +428,51 @@
             </div>
         </div>
     </section>
-    <!-- Order Form Section -->
-    <section class="order-form">
+
+    <section class="order-form" id="orderForm">
         <div class="container">
             <div class="order-content">
                 <div class="order-text">
-                    <h2 class="order-title">Зробіть замовлення прямо зараз</h2>
+                    <h2 class="order-title">Зробіть замовлення прямо зараз: швидко та зручно</h2>
                     <p class="order-description">
                         Ви отримаєте якісну та унікальну роботу, яка відповідатиме всім методичним
                         рекомендаціям та побажанням викладача. Нашу роботу ви без проблем здасте
-                        та захистите на високу оцінку.
+                        та захистите на високу оцінку. Заповніть форму, щоб розпочати співпрацю!
                     </p>
                     <div class="order-illustration">
-                        <!-- Використовуємо get_template_directory_uri() для коректного шляху в WordPress -->
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/book.svg"
-                            alt="Ілюстрація книг та олівця">
+                            alt="Ілюстрація книг та олівця, що символізує навчання та написання робіт" loading="lazy">
                     </div>
                 </div>
                 <div class="order-form-container">
-                    <!-- Змінюємо action форми на шлях до нашого PHP-скрипта -->
-                    <!-- Важливо: action буде оброблятися JavaScript через fetch, тому можна залишити порожнім або вказати # -->
                     <form class="form" id="orderForm" method="POST" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Ім'я" name="user_name" required>
+                                <label for="user_name" class="sr-only">Ваше ім'я</label>
+                                <input type="text" id="user_name" class="form-input" placeholder="Ім'я" name="user_name"
+                                    required aria-required="true">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" placeholder="E-mail" name="user_email" required>
+                                <label for="user_email" class="sr-only">Ваш E-mail</label>
+                                <input type="email" id="user_email" class="form-input" placeholder="E-mail"
+                                    name="user_email" required aria-required="true">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="tel" class="form-input" placeholder="Номер телефону" name="user_phone"
-                                    required>
+                                <label for="user_phone" class="sr-only">Номер телефону</label>
+                                <input type="tel" id="user_phone" class="form-input" placeholder="Номер телефону"
+                                    name="user_phone" required aria-required="true">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="@Нік телеграму" name="study_program">
+                                <label for="telegram_nick" class="sr-only">Нік телеграму</label>
+                                <input type="text" id="telegram_nick" class="form-input" placeholder="@Нік телеграму"
+                                    name="telegram_nick">
                             </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-select" id="type-work" name="work_type" required>
+                            <label for="type-work" class="sr-only">Тип роботи</label>
+                            <select class="form-select" id="type-work" name="work_type" required aria-required="true">
                                 <option value="">Тип роботи</option>
                                 <option value="coursework">Курсова робота</option>
                                 <option value="diploma">Дипломна робота</option>
@@ -503,34 +482,44 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Тема роботи" name="work_topic">
+                                <label for="work_topic" class="sr-only">Тема роботи</label>
+                                <input type="text" id="work_topic" class="form-input" placeholder="Тема роботи"
+                                    name="work_topic">
                             </div>
                             <div class="form-group">
-                                <input type="date" class="form-input" placeholder="Дата виконання" name="due_date"
-                                    required>
+                                <label for="due_date" class="sr-only">Дата виконання</label>
+                                <input type="date" id="due_date" class="form-input" placeholder="Дата виконання"
+                                    name="due_date" required aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="uniqueness-slider">
-                                <label for="uniqueness">Унікальність роботи</label>
+                                <label for="uniqueness">Бажана унікальність роботи: <span
+                                        class="slider-value">80%</span></label>
                                 <input type="range" id="uniqueness" min="60" max="100" value="80" class="slider"
-                                    name="uniqueness">
-                                <div class="slider-value">80%</div>
+                                    name="uniqueness" aria-valuemin="60" aria-valuemax="100" aria-valuenow="80"
+                                    aria-valuetext="80 відсотків">
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-textarea" placeholder="Опис сторінок: 21" rows="3"
+                            <label for="work_description" class="sr-only">Опис роботи (наприклад, кількість сторінок,
+                                особливі вимоги)</label>
+                            <textarea class="form-textarea" id="work_description"
+                                placeholder="Опис роботи: наприклад, кількість сторінок, особливі вимоги" rows="3"
                                 name="work_description"></textarea>
                         </div>
                         <div class="form-group">
                             <div class="file-upload">
-                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple>
+                                <input type="file" id="fileUpload" class="file-input" name="uploaded_files[]" multiple
+                                    aria-describedby="file-upload-instructions">
                                 <label for="fileUpload" class="file-label">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" />
                                     </svg>
                                     Додати файли
                                 </label>
+                                <p id="file-upload-instructions" class="sr-only">Ви можете завантажити кілька файлів,
+                                    таких як методичні рекомендації або приклади.</p>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-large form-submit">
@@ -542,13 +531,5 @@
             </div>
         </div>
     </section>
-
-    <!-- Контактна форма (якщо вона також є кастомною і потребує обробки) -->
-    <!-- Якщо контактна форма також має бути оброблена PHP, вам потрібно буде створити окремий PHP-скрипт для неї або розширити існуючий. -->
-    <!-- <form id="contactForm" method="POST">
-    ... поля контактної форми ...
-    <div id="contact-form-message"></div>
-</form> -->
 </main>
-
 <?php include 'footer.php'; ?>

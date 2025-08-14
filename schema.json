@@ -1,0 +1,191 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://www.yourwebsite.com/#website",
+            "url": "https://www.yourwebsite.com/",
+            "name": "Написання Студентських Робіт на Замовлення",
+            "description": "Професійне написання курсових, дипломних, магістерських робіт та рефератів з гарантією якості та унікальності.",
+            "publisher": {
+                "@id": "https://www.yourwebsite.com/#organization"
+            },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.yourwebsite.com/?s={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            },
+            "inLanguage": "uk-UA"
+        },
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://www.yourwebsite.com/#organization",
+            "name": "Написання Студентських Робіт на Замовлення",
+            "url": "https://www.yourwebsite.com/",
+            "logo": "https://www.yourwebsite.com/assets/logo.png",
+            "image": "https://www.yourwebsite.com/assets/hero-student.png",
+            "description": "Сервіс професійного написання студентських робіт: курсових, дипломних, магістерських, рефератів та звітів з практики. Гарантуємо високу якість, унікальність та супровід до захисту.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ваша вулиця",
+                "addressLocality": "Ваше місто",
+                "addressRegion": "Ваша область",
+                "postalCode": "Ваш індекс",
+                "addressCountry": "UA"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+380-ХХ-ХХХ-ХХХХ",
+                "contactType": "customer service",
+                "email": "info@yourwebsite.com"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "25000"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Каталог послуг з написання робіт",
+                "itemListElement": [
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Курсові роботи",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання курсової роботи",
+                                    "description": "Професійне написання курсових робіт від 1 дня, унікальність від 80%, безкоштовні правки 1 місяць. Включає план, консультації, звіт антиплагіату.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Дипломні роботи",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання дипломної роботи",
+                                    "description": "Написання дипломних робіт від 3 днів, унікальність від 80%, безкоштовні правки 1 місяць. Включає план, консультації, звіт антиплагіату.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Магістерські роботи",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання магістерської роботи",
+                                    "description": "Написання магістерських робіт від 10 днів, унікальність від 80%, безкоштовні правки 1 місяць. Включає план, консультації, звіт антиплагіату.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Реферати",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання реферату",
+                                    "description": "Написання рефератів від 1 дня, унікальність від 70%, безкоштовні правки 1 тиждень. Включає оформлення згідно стандартів, список літератури.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Звіти з практики",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання звіту з практики",
+                                    "description": "Написання звітів з практики від 2 днів, унікальність від 65%, безкоштовні правки 1 місяць. Включає опис підприємства, практичні завдання, щоденник практики.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Мотиваційні листи",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання мотиваційного листа",
+                                    "description": "Написання мотиваційних листів за 1 день, унікальність 100%, безкоштовні правки 3 дні. Індивідуальний підхід, відповідність вимогам ВНЗ.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "OfferCatalog",
+                        "name": "Інші види робіт",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Написання інших видів студентських робіт",
+                                    "description": "Написання рефератів, контрольних, презентацій, індивідуальних завдань. Терміни та ціна за домовленістю, унікальність від 60%.",
+                                    "serviceType": "Academic Writing Service",
+                                    "areaServed": {
+                                        "@type": "Country",
+                                        "name": "UA"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
